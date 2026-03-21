@@ -1,16 +1,50 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://127.0.0.1:27017/motocartel");
+const userSchema = new mongoose.Schema({
+    fullname: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+        lowercase: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    contact: {
+        type: Number
+    },
+    picture: {
+        type: String,
+        default: ""
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false
+    },
+    cart: [
+        {
+            productId: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Product"
+            },
+            quantity: {
+                type: Number,
+                default: 1
+            }
+        }
+    ],
+    orders: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Order"
+        }
+    ]
+}, { timestamps: true });
 
-const userSchema = mongoose.Schema({
-    fullname: String,
-    email: String,
-    password: String,
-    cart: [],
-    isadmin: Boolean,
-    order:[],
-    contect: Number,
-    Picture: String
-})
-
-module.exports = mongoose.model("user",userSchema);
+module.exports = mongoose.model("User", userSchema);
