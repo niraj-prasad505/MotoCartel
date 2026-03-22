@@ -23,9 +23,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         default: ""
     },
-    isAdmin: {
-        type: Boolean,
-        default: false
+    role: {
+        type: String,
+        enum: ["user", "owner"],
+        default: "user"
     },
     cart: [
         {
@@ -45,6 +46,7 @@ const userSchema = new mongoose.Schema({
             ref: "Order"
         }
     ]
+    
 }, { timestamps: true });
 
 module.exports = mongoose.model("User", userSchema);

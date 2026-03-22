@@ -3,6 +3,7 @@ const app = express();
 
 const cookieParser = require("cookie-parser");
 const path = require("path");
+require("dotenv").config();
 
 // correct routers
 const ownersRouter = require("./routes/ownersRouter");
@@ -10,7 +11,8 @@ const productsRouter = require("./routes/productsRouter");
 const userRouter = require("./routes/userRouter");
 
 // DB connection
-require("./config/mongoose-connection");
+const connectDB = require("./config/mongoose-connection");
+connectDB();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
