@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
+const Product = require("../models/product-models");
 const { protect, isOwner } = require("../middleware/auth.middleware");
 
 // Owner only
