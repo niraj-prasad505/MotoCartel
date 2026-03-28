@@ -16,9 +16,6 @@ const addToCart = async (req, res) => {
     }
 
     const user = await User.findById(userId);
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
-    }
 
     const existingItem = user.cart.find(item =>
       item.product.equals(productId)
@@ -32,10 +29,7 @@ const addToCart = async (req, res) => {
 
     await user.save();
 
-    res.status(200).json({
-      message: "Product added to cart",
-      cart: user.cart
-    });
+    res.json({ message: "Added to cart", cart: user.cart });
 
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -44,47 +38,20 @@ const addToCart = async (req, res) => {
 
 const removeFromCart = async (req, res) => {
   try {
-    const userId = req.user.id;
+    const user = await User.findById(req.user.id);
     const { productId } = req.body;
 
-    if (!productId) {
-      return res.status(400).json({ message: "Product ID required" });
-    }
-
-    const user = await User.findById(userId);
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
-    }
-
-    const existingItem = user.cart.find(item =>
-      item.product.equals(productId)
+    user.cart = user.cart.filter(item =>
+      !item.product.equals(productId)
     );
-
-    if (!existingItem) {
-      return res.status(404).json({ message: "Item not in cart" });
-    }
-
-    if (existingItem.quantity > 1) {
-      existingItem.quantity -= 1;
-    } else {
-      user.cart = user.cart.filter(item =>
-        !item.product.equals(productId)
-      );
-    }
 
     await user.save();
 
-    res.status(200).json({
-      message: "Cart updated",
-      cart: user.cart
-    });
+    res.json({ message: "Removed", cart: user.cart });
 
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 };
 
-module.exports = {
-  addToCart,
-  removeFromCart
-};
+module.exports = { addToCart, removeFromCart };

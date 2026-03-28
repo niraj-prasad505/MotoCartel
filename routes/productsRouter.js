@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-const Product = require("../models/product-models");
-const { protect, isOwner } = require("../middleware/auth.middleware");
+const Product = require("../models/product-model");
+const { protect, isOwner } = require("../middlewares/auth.middleware"); // or middleware
 
 // Owner only
 router.post("/add-product", protect, isOwner, (req, res) => {

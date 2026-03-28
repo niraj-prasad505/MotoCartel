@@ -1,6 +1,6 @@
-const Order = require("../models/order.model");
+const Order = require("../models/order-model");
 const User = require("../models/user-models");
-const Product = require("../models/product.model");
+const Product = require("../models/product-model");
 
 const placeOrder = async (req, res) =>{
     try{

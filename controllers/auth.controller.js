@@ -9,6 +9,7 @@ const register = async (req, res) => {
     if (!fullname || !email || !password) {
       return res.status(400).json({ message: "All fields required" });
     }
+    console.log(req.body);
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {

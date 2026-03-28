@@ -9,7 +9,8 @@ require("dotenv").config();
 const ownersRouter = require("./routes/ownersRouter");
 const productsRouter = require("./routes/productsRouter");
 const userRouter = require("./routes/userRouter");
-
+const cartRouter = require("./routes/cartRouter")
+const orderRouter = require("./routes/orderRouter")
 // DB connection
 const connectDB = require("./config/mongoose-connection");
 connectDB();
@@ -22,14 +23,25 @@ app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
 
 // routes
-app.use("/owners", ownersRouter);
-app.use("/user", userRouter);
-app.use("/products", productsRouter);
+app.use("/api/owners", ownersRouter);
+app.use("/api/user", userRouter);
+app.use("/api/products", productsRouter);
+app.use("/api/cart", cartRouter);
+app.use("/api/orders", orderRouter);
 
 app.get("/", (req, res) => {
     res.send("hey");
 });
 
-app.listen(3000, () => {
-    console.log("Server running on port 3000");
+const PORT = process.env.PORT || 3000;
+
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({
+        message: "Something went wrong"
+    });
+});
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
