@@ -54,7 +54,6 @@ border border-gray-500 focus-within:border-white focus-within:ring-1 focus-withi
             <img src={userlogo} alt="logo" className="w-10 h-20 object-contain" />
           </span>
         </div>
-
       </div>
     </nav>
   );
