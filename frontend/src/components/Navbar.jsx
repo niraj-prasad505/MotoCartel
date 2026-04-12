@@ -18,10 +18,10 @@ border border-gray-500 focus-within:border-white focus-within:ring-1 focus-withi
         <input
           type="text"
           placeholder="Search products..."
-          className="bg-transparent outline-none text-gray-300 w-full placeholder-gray-500"
+          className="bg-transparent outline-none text-gray-300 w-full placeholder-gray-400"
         />
 
-        <Search className="text-gray-400 w-5 h-5 cursor-pointer " />
+        <Search className="text-gray-100 w-5 h-5 cursor-pointer " />
       </div>
 
       {/* Center */}
