@@ -7,7 +7,7 @@ import { ShoppingBag } from "lucide-react";
 
 const Navbar = () => {
   return (
-    <nav className="flex items-center px-6 py-3 bg-gradient-to-r from-[#0f172a] to-[#1e293b] h-24">
+    <nav className="flex items-center px-6 py-3 bg-[#020617] h-24">
       {/* Left */}
 
       <img src={logo} alt="logo" className="w-45 h-20 object-contain" />
