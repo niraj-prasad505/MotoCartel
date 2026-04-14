@@ -1,10 +1,11 @@
+import mainIMG from "../../assets/mainIMG.png";
 const HeroCenter = () => {
   return (
-    <div className="flex items-center justify-center">
+    <div className="w-[450px]">
       <img
-        src="/helmet.png"
+        src={mainIMG}
         alt="helmet"
-        className="w-[300px]"
+        className="w-full"
       />
     </div>
   );

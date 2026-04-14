@@ -9,7 +9,7 @@ const Hero = () => {
   {/* Center container */}
   <div className="max-w-[1500px] mx-auto rounded-2xl shadow-lg">
 
-    <div className="grid grid-cols-[1.5fr_1fr_1fr] gap-8 text-white">
+    <div className="grid grid-cols-[1.2fr_1fr_1fr] text-white">
       <HeroLeft />
       <HeroCenter />
       <HeroRight />

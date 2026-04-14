@@ -2,7 +2,7 @@ import { Grid2x2 } from "lucide-react";
 
 const HeroLeft = () => {
   return (
-    <div className="space-y-6 ml-3 p-14 rounded-l-2xl bg-[#0E1117] ">
+    <div className="space-y-6 ml-3 p-14 pr-0 rounded-l-2xl bg-[#12151C] ">
         <div className="inline-flex gap-2">
             <Grid2x2 className="w-6 h-6 text-gray-300" />
             <span>Music is classic</span>
