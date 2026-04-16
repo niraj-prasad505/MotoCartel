@@ -1,7 +1,7 @@
 import mainIMG from "../../assets/mainIMG.png";
 const HeroCenter = () => {
   return (
-    <div className="w-[450px]">
+    <div className="w-[530px]">
       <img
         src={mainIMG}
         alt="helmet"
