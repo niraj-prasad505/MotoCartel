@@ -12,7 +12,7 @@ const Navbar = () => {
 
       <img src={logo} alt="logo" className="w-45 h-20 object-contain" />
 
-      <div className="flex items-center bg-[#0b1220] rounded-full px-4 py-2 w-[350px] ml-[20px]
+      <div className="flex items-center bg-[#0b1220] rounded-full px-4 py-2 w-87.5 ml-5
 border border-gray-500 focus-within:border-white focus-within:ring-1 focus-within:ring-white transition">
 
         <input
@@ -48,10 +48,10 @@ border border-gray-500 focus-within:border-white focus-within:ring-1 focus-withi
         </div>
 
         {/* Login Pill */}
-        <div className="flex items-center gap-4 px-6 bg-[#212121] text-white rounded-full cursor-pointer text-base h-11">
+        <div className="flex items-center gap-6 pl-5 pr-1 pz-1 bg-[#12151C] text-white rounded-full cursor-pointer text-base h-11">
           <span>Login/create</span>
-          <span>
-            <img src={userlogo} alt="logo" className="w-10 h-20 object-contain" />
+          <span className="rounded-full overflow-hidden h-9 w-9">
+            <img src={userlogo} alt="logo" className=" object-contain " />
           </span>
         </div>
       </div>
