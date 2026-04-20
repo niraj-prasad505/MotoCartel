@@ -37,7 +37,7 @@ export default function Login() {
             <div className="mb-4">
               <h1 className="text-3xl font-bold">Welcome 👋</h1>
               <p className="text-gray-500 text-sm">
-                Login to continue to your account
+                Login to continue to your account.
               </p>
             </div>
 
