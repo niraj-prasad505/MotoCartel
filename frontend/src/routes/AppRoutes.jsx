@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 
@@ -7,16 +7,31 @@ import Products from "../pages/Products";
 import Cart from "../pages/Cart";
 import Login from "../pages/Login";
 
+// Layout (with Navbar)
+const MainLayout = () => {
+  return (
+    <>
+      <Navbar />
+      <Outlet />
+    </>
+  );
+};
+
 const AppRoutes = () => {
   return (
     <BrowserRouter>
-      <Navbar />
-
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/cart" element={<Cart />} />
+
+        {/* Pages WITH Navbar */}
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/cart" element={<Cart />} />
+        </Route>
+
+        {/* Page WITHOUT Navbar */}
         <Route path="/login" element={<Login />} />
+
       </Routes>
     </BrowserRouter>
   );

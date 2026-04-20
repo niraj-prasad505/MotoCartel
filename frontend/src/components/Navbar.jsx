@@ -49,7 +49,15 @@ border border-gray-500 focus-within:border-white focus-within:ring-1 focus-withi
 
         {/* Login Pill */}
         <div className="flex items-center gap-6 pl-5 pr-1 pz-1 bg-[#12151C] text-white rounded-full cursor-pointer text-base h-11">
-          <span>Login/create</span>
+          <span className="gap-1 flex">
+            <Link to="/login">
+              <button className="p-2">Login</button>
+            </Link>
+
+            <Link to="/signup">
+              <button className="p-2">Create</button>
+            </Link>
+          </span>
           <span className="rounded-full overflow-hidden h-9 w-9">
             <img src={userlogo} alt="logo" className=" object-contain " />
           </span>
