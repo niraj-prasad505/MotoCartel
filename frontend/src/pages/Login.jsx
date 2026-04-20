@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import loginimg from "../assets/loginassets/loginjpg.jpeg";
 import google from "../assets/loginassets/google.png";
 import { Lock, Eye, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -112,9 +113,9 @@ export default function Login() {
             {/* CREATE ACCOUNT */}
             <p className="text-center text-gray-400 text-sm">
               Don’t have an account?{" "}
-              <span className="text-orange-400 cursor-pointer">
+              <Link to="/createAccount" className="text-orange-400">
                 Create Account
-              </span>
+              </Link>
             </p>
 
             {/* SKIP BUTTON */}

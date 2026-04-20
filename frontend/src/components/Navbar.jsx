@@ -54,7 +54,7 @@ border border-gray-500 focus-within:border-white focus-within:ring-1 focus-withi
               <button className="p-2">Login</button>
             </Link>
 
-            <Link to="/signup">
+            <Link to="/createAccount">
               <button className="p-2">Create</button>
             </Link>
           </span>
