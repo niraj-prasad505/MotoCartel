@@ -1,41 +1,34 @@
 import mainIMG from "../../assets/helmat20.png";
-var a = "<"
-var b = "o"
-var c = ">"
+
 const HeroCenter = () => {
   return (
-    <div className="h-155 w-135 bg-[#12151C] rounded-r-2xl flex flex-col items-center">
+    <div className="h-full w-full flex items-center justify-center">
 
-      {/* IMAGE SECTION */}
-      <div className="relative h-135 w-135 flex overflow-hidden justify-center items-center rounded-2xl">
+      <div className="relative w-full h-full flex justify-center items-center overflow-hidden">
 
-        {/*  ORANGE GLOW */}
-        <div className="absolute w-25 h-57.5 
-                    bg-orange-500 rounded-full 
-                    blur-[120px] opacity-40">
-        </div>
+        {/* glow */}
+        <div className="absolute w-40 h-40 bg-orange-500 rounded-full blur-[120px] opacity-30"></div>
 
-        {/* HELMET */}
+        {/* image */}
         <img
           src={mainIMG}
           alt="helmet"
-          className="relative z-10 w-155 object-contain"
+          className="relative z-10 w-[85%] max-w-[450px] object-contain"
         />
 
-      </div>
-
-      {/* SLIDER */}
-      <div className="gap-3 flex bg-[#1d202a] h-7 w-25 justify-center rounded-2xl mt-7">
-        <button>{a}</button>
-        <div className="gap-1 flex">
-          <button className="text-orange-600">{b}</button>
-          <button>{b}</button>
-          <button>{b}</button>
+        {/* 🔥 SLIDER (FIXED POSITION) */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 bg-[#1d202a] px-4 py-1 rounded-full">
+          <span>{"<"}</span>
+          <span className="text-orange-500">o</span>
+          <span>o</span>
+          <span>o</span>
+          <span>{">"}</span>
         </div>
-        <button>{c}</button>
+
       </div>
 
     </div>
   );
 };
+
 export default HeroCenter;

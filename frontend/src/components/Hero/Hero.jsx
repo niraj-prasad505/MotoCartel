@@ -4,22 +4,31 @@ import HeroRight from "./HeroRight";
 
 const Hero = () => {
   return (
-    <section className="bg-[#020617]">
+    <section className="bg-[#020617] overflow-hidden">
 
-      {/* Center container */}
-      <div className="max-w-380 h-158 mx-auto rounded-2xl shadow-lg">
+      <div className="max-w-[1450px] mx-auto">
 
-        <div className="grid grid-cols-[1fr_2fr_1.5fr] text-white">
-          <HeroLeft />
-          <HeroCenter />
-          <HeroRight />
+        {/* LEFT + CENTER = 1 block | RIGHT = separate */}
+        <div className="grid grid-cols-[2.5fr_0.8fr] gap-4 text-white h-[610px]">
+
+          {/* LEFT + CENTER */}
+          <div className="grid grid-cols-[1.3fr_1.9fr] bg-[#12151C] rounded-2xl overflow-hidden">
+
+            <HeroLeft />
+            <HeroCenter />
+
+          </div>
+
+          {/* RIGHT */}
+          <div className="flex flex-col gap-6">
+            <HeroRight />
+          </div>
+
         </div>
 
       </div>
-      <div className=" bg-linear-to-b from-[#12151C] to-white h-4"></div>
 
     </section>
-
   );
 };
 

@@ -1,6 +1,6 @@
 const RightColors = () => {
   return (
-    <div className="bg-[#12151C] p-4 rounded-xl flex flex-col gap-3">
+    <div className="h-full bg-[#12151C] p-4 rounded-xl flex flex-col justify-center">
       <p className="text-white font-medium">Available Colors</p>
 
       <div className="flex gap-3">
