@@ -9,7 +9,9 @@ const Home = () => {
       
       <Hero />
 
-      <div className="max-w-[1400px] mx-auto px-6">
+      <div className="h-12 bg-[#020617]"></div>
+
+      <div className="max-w-350 mx-auto px-6 mt-1">
         <FeaturedProducts />
         <ShopByCategory />
         <TrendingNow />

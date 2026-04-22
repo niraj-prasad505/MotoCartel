@@ -22,9 +22,9 @@ export default function FeaturedProducts() {
       </div>
 
       {/* 🔥 SCROLL CONTAINER */}
-      <div className="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth">
+      <div className="flex gap-3 overflow-x-auto no-scrollbar scroll-smooth py-3">
         {products.map((item, i) => (
-          <div key={i} className="min-w-[220px] flex-shrink-0">
+          <div key={i} className="min-w-[240px] flex-shrink-0">
             <ProductCard {...item} />
           </div>
         ))}

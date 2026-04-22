@@ -1,0 +1,51 @@
+import { Heart, Star } from "lucide-react";
+
+export default function TrendingCard({ title, price, image }) {
+  return (
+    <div className="bg-[#121826] border border-[#2A3447] rounded-xl p-4 hover:scale-[1.02] transition relative">
+      
+      {/* Popular Badge */}
+      <span className="absolute top-3 left-3 text-xs bg-orange-500/20 text-orange-400 px-2 py-1 rounded-md">
+        🔥 Popular
+      </span>
+
+      {/* Heart Icon */}
+      <button className="absolute top-3 right-3 text-gray-400 hover:text-white">
+        <Heart size={18} />
+      </button>
+
+      {/* Image */}
+      <img
+        src={image}
+        alt={title}
+        className="w-full h-28 object-contain my-4"
+      />
+
+      {/* Title */}
+      <h3 className="text-sm text-white font-medium leading-tight">
+        {title}
+      </h3>
+
+      {/* Avatars */}
+      <div className="flex -space-x-2 mt-3 mb-2">
+        <img src="https://i.pravatar.cc/20?img=1" className="w-6 h-6 rounded-full border border-[#121826]" />
+        <img src="https://i.pravatar.cc/20?img=2" className="w-6 h-6 rounded-full border border-[#121826]" />
+        <img src="https://i.pravatar.cc/20?img=3" className="w-6 h-6 rounded-full border border-[#121826]" />
+      </div>
+
+      {/* Bottom */}
+      <div className="flex items-center justify-between mt-2">
+        
+        {/* Rating */}
+        <div className="flex items-center gap-1 text-xs text-gray-400">
+          <Star size={14} className="text-orange-500 fill-orange-500" />
+          <span>4.9</span>
+          <span>(780)</span>
+        </div>
+
+        {/* Price */}
+        <p className="text-white font-semibold">${price}</p>
+      </div>
+    </div>
+  );
+}
