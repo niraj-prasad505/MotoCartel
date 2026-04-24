@@ -30,9 +30,9 @@ const Navbar = () => {
       {/* CENTER */}
       <div className="hidden md:flex gap-6 lg:gap-10 mx-auto text-sm md:text-base font-semibold tracking-wide text-white">
         <Link to="/">HOME</Link>
-        <Link to="/products">PRODUCT</Link>
-        <Link to="/cart">CART</Link>
-        <Link to="/login">LOGIN</Link>
+        <Link to="/products">SHOP</Link>
+        <Link to="/cart">CATEGORIES</Link>
+        <Link to="/login">ORDERS</Link>
       </div>
 
       {/* RIGHT */}

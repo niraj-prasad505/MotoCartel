@@ -24,7 +24,7 @@ const Right2 = () => {
       <img
         src={p11}
         alt="product"
-        className="absolute right-0 bottom-2 w-[140px] object-contain"
+        className="absolute right-0 bottom-2 w-65 object-contain"
       />
 
     </div>

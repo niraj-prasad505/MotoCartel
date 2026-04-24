@@ -18,7 +18,7 @@ const Right1 = () => {
       <img
         src={glove}
         alt="gloves"
-        className="absolute right-2 max-w-[120px] object-contain"
+        className="absolute right-2 max-w-35 object-contain"
       />
 
     </div>
