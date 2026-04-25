@@ -3,8 +3,8 @@ import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-
 import Home from "../pages/Home";
+import Product from "../pages/Product";
 import Shop from "../pages/shop";
 import Categories from "../pages/Categories";
 import Cart from "../pages/Cart";
@@ -36,6 +36,7 @@ const AppRoutes = () => {
           <Route path="/cart" element={<Cart />} />
           <Route path="/Categories" element={<Categories />} />
           <Route path="/Orders" element={<Orders />} />
+          <Route path="/Product" element={<Product />} />
         </Route>
 
         {/* WITHOUT NAVBAR */}
