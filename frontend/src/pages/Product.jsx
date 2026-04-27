@@ -1,7 +1,7 @@
 import React from "react";
 import ProductGallery from "../components/Product/ProductGallery";
 import ProductHeader from "../components/Product/ProductHeader";
-import ProductReview from "../components/Product/ProductReview";
+import ProductReview from "../components/Product/ProductReview/ReviewMain";
 import ProductDetails from "../components/Product/ProductDetails";
 import SimilarProducts from "../components/Product/SimilarProducts";
 
@@ -36,7 +36,7 @@ const Product = () => {
       </div>
 
       {/* Reviews */}
-      <div className="px-[5%] py-10">
+      <div className="px-[5%]">
         <ProductReview />
       </div>
 
