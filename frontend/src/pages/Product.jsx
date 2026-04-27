@@ -29,7 +29,7 @@ const Product = () => {
         </div>
 
         {/* Details */}
-        <div className="w-full md:w-[48%] bg-amber-500 rounded-2xl p-6">
+        <div className="w-full md:w-[48%] rounded-2xl p-6 pt-1">
           <ProductDetails />
         </div>
 
