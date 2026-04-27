@@ -16,7 +16,7 @@ const Product = () => {
     <div className="bg-[#020617] text-white min-h-screen">
 
       {/* Header */}
-      <div className="py-4 px-[5%]">
+      <div className="pt-1 pb-3 px-[5%]">
         <ProductHeader />
       </div>
 
