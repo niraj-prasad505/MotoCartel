@@ -30,8 +30,8 @@ const Cart = () => {
   ];
 
   return (
+    
     <div className="bg-[#0b1220]  text-white h-fit p-15 flex flex-col lg:flex-row gap-6">
-
       {/* LEFT - CART ITEMS */}
       <div className="flex-1 border border-gray-700 rounded-xl p-4 shadow-lg">
 
@@ -57,7 +57,7 @@ const Cart = () => {
                 className="w-19 h-19 rounded-lg object-cover"
               />
               <div>
-                <h2 className="font-semibold">{item.name}</h2>
+                <h2 className="font-semibold text-2xl">{item.name}</h2>
                 <p className="text-gray-400 text-sm">
                   Colour: {item.color}
                 </p>
