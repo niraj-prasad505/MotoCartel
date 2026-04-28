@@ -12,7 +12,7 @@ const ProductReview = () => {
       <div className="flex flex-col md:flex-row md:gap-1">
 
         {/* Left */}
-        <div className="w-full md:flex-1 bg-amber-400 rounded-lg p-4">
+        <div className="w-full md:flex-1 rounded-lg p-4">
           <TotalReview />
         </div>
 
