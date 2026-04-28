@@ -4,6 +4,7 @@ import ProductHeader from "../components/Product/ProductHeader";
 import ProductReview from "../components/Product/ProductReview/ReviewMain";
 import ProductDetails from "../components/Product/ProductDetails";
 import SimilarProducts from "../components/Product/SimilarProducts";
+import ProductGrid from "../components/Shop/ProductGrid";
 
 import img1 from "../assets/productIMG/1.png";
 import img2 from "../assets/productIMG/2.png";
@@ -41,8 +42,12 @@ const Product = () => {
       </div>
 
       {/* Similar Products */}
-      <div className="px-[5%] pb-12">
-        <SimilarProducts />
+      <h1 className="mt-9 ml-[10%] text-2xl font-semibold">Simelar products</h1>
+      <div className="flex-1 overflow-y-auto no-scrollbar flex justify-center mt-8">
+        
+        <div className="w-full h-95 max-w-6xl px-5 sm:px-6 lg:px-8">
+          <ProductGrid />
+        </div>
       </div>
 
     </div>
