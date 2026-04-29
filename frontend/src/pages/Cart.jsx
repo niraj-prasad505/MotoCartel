@@ -31,7 +31,7 @@ const Cart = () => {
 
   return (
     <div className="bg-[#0b1220] text-white">
-      <h1 className=" text-5xl ml-[5%] p-3">Cart</h1>
+      <h1 className=" text-4xl ml-[5%] p-7">Your Shopping Cart</h1>
       <div className="bg-[#0b1220]  text-white h-fit p-15 flex flex-col lg:flex-row gap-6 pt-2">
         {/* LEFT - CART ITEMS */}
         <div className="flex-1 border border-gray-700 rounded-xl p-4 shadow-lg">
@@ -88,7 +88,7 @@ const Cart = () => {
           ))}
 
           {/* Button */}
-          <button className="mt-6 bg-orange-500 text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-300 transition">
+          <button className="mt-6 bg-orange-500 text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-300 transition">
             Update Cart
           </button>
         </div>
@@ -99,13 +99,13 @@ const Cart = () => {
           <h2 className="text-lg font-semibold">Order Summary</h2>
 
           {/* Coupon */}
-          <div className="flex gap-2 -ml-1">
+          <div className="flex gap-2 -ml-1 text-white">
             <input
               type="text"
               placeholder="Discount voucher"
               className="flex-1 bg-black border border-gray-600 rounded-full px-4 py-2 outline-none"
             />
-            <button className="border border-gray-600 px-2 rounded-full">
+            <button className="border border-gray-600 px-2 rounded-full bg-amber-600">
               Apply
             </button>
           </div>
@@ -137,7 +137,7 @@ const Cart = () => {
             90 Day Limited Warranty against manufacturer defects
           </p>
 
-          <button className="w-full bg-orange-500 text-black py-3 rounded-full font-semibold hover:bg-gray-300 transition">
+          <button className="w-full bg-orange-500 text-white py-3 rounded-full font-semibold hover:bg-gray-300 transition">
             Checkout Now
           </button>
         </div>
