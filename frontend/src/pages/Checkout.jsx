@@ -1,6 +1,6 @@
 import CheckoutLayout from "../components/Checkout/CheckoutLayout";
 const checkout = () => {
-  return <div>
+  return <div className="bg-bg-[#020617]">
     <CheckoutLayout />
   </div>;
 };  

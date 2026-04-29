@@ -11,7 +11,7 @@ const CheckoutLayout = () => {
   const [payment, setPayment] = useState("");
 
   return (
-    <div className="flex gap-6 p-6">
+    <div className="flex gap-6 px-15 py-6 bg-[#020617] text-white">
       
       {/* LEFT SIDE */}
       <div className="flex-1">
@@ -41,7 +41,7 @@ const CheckoutLayout = () => {
       </div>
 
       {/* RIGHT SIDE */}
-      <div className="w-75">
+      <div className="w-90 mt-14">
         <OrderSummary />
       </div>
     </div>
