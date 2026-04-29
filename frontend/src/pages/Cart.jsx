@@ -31,7 +31,10 @@ const Cart = () => {
 
   return (
     <div className="bg-[#0b1220] text-white">
-      <h1 className=" text-4xl ml-[5%] p-7">Your Shopping Cart</h1>
+      <div className="flex justify-between items-center py-9 px-19">
+        <h1 className=" text-4xl">Your Shopping Cart</h1>
+        <button className="bg-gray-400 border-2 p-3 rounded-full">My Orders</button>
+      </div>
       <div className="bg-[#0b1220]  text-white h-fit p-15 flex flex-col lg:flex-row gap-6 pt-2">
         {/* LEFT - CART ITEMS */}
         <div className="flex-1 border border-gray-700 rounded-xl p-4 shadow-lg">

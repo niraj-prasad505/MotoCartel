@@ -12,6 +12,8 @@ import Login from "../pages/Login";
 import Register from "../pages/createAccount";
 import Orders from "../pages/Orders";
 
+import Checkout from "../pages/Checkout";
+
 // Layout (with Navbar)
 const MainLayout = () => {
   return (
@@ -37,6 +39,7 @@ const AppRoutes = () => {
           <Route path="/Categories" element={<Categories />} />
           <Route path="/Orders" element={<Orders />} />
           <Route path="/Product" element={<Product />} />
+          <Route path="/Checkout" element={<Checkout />} />
         </Route>
 
         {/* WITHOUT NAVBAR */}
