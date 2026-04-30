@@ -41,7 +41,7 @@ const CheckoutLayout = () => {
       </div>
 
       {/* RIGHT SIDE */}
-      <div className="w-90 mt-14">
+      <div className="w-110 mt-14">
         <OrderSummary />
       </div>
     </div>
