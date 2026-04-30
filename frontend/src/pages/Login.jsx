@@ -1,19 +1,29 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { loginUser } from "../services/authService"; // ✅ important
 import loginimg from "../assets/loginassets/loginjpg.jpeg";
 import google from "../assets/loginassets/google.png";
 import { Lock, Eye, Mail } from "lucide-react";
-import { Link } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({ email, password });
-    navigate("/");
+
+    try {
+      const res = await loginUser({ email, password });
+
+      console.log(res.data);
+      alert("Login successful 🚀");
+
+      navigate("/");
+    } catch (err) {
+      console.log(err.response?.data);
+      alert(err.response?.data?.message || "Login failed ❌");
+    }
   };
 
   return (
@@ -97,17 +107,14 @@ export default function Login() {
               <div className="flex-1 h-px bg-gray-600"></div>
             </div>
 
-            {/* GOOGLE BUTTON (optional UI) */}
+            {/* GOOGLE BUTTON */}
             <button className="w-full flex items-center justify-center gap-3 bg-gray-800 text-white py-2 rounded-md hover:bg-gray-700 transition">
-
               <img
-                src={google}   // your image path
+                src={google}
                 alt="google"
                 className="w-5 h-5"
               />
-
               <span>Continue with Google</span>
-
             </button>
 
             {/* CREATE ACCOUNT */}

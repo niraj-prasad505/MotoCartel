@@ -21,7 +21,8 @@ const register = async (req, res) => {
     const newUser = await User.create({
       fullname,
       email,
-      password: hashedPassword
+      password: hashedPassword,
+      role: role || "user",
     });
 
     res.status(201).json({
@@ -64,6 +65,7 @@ const login = async (req, res) => {
     res.cookie("token", token, {
       httpOnly: true,
       secure: false,
+      sameSite: "lax",
     });
 
     res.status(200).json({
@@ -82,7 +84,8 @@ const login = async (req, res) => {
 const logout = (req, res) => {
   res.clearCookie("token", {
     httpOnly: true,
-    secure: false
+    secure: false,
+    sameSite: "lax"
   });
 
   res.status(200).json({ message: "Logged out successfully" });
