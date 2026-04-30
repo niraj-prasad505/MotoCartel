@@ -15,7 +15,7 @@ const CheckoutStepper = ({ step }) => {
 
               {/* LINE */}
               {i !== steps.length - 1 && (
-                <div className="absolute top-5 left-1/2 w-full h-[3px] bg-gray-200 z-0 overflow-hidden rounded-full">
+                <div className="absolute top-5 left-1/2 w-full h-0.75 bg-gray-200 z-0 overflow-hidden rounded-full">
                   <div
                     className={`h-full transition-all duration-500 ease-in-out ${
                       step > current ? "bg-green-500 w-full" : "w-0"
