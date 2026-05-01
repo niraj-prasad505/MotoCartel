@@ -3,12 +3,13 @@ import { useNavigate } from "react-router-dom";
 import loginimg from "../assets/loginassets/loginjpg.jpeg";
 import google from "../assets/loginassets/google.png";
 import { Lock, Eye, Mail, User } from "lucide-react";
+import { registerUser } from "../services/authService";
 
 export default function Register() {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
-    name: "",
+    fullname: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -18,10 +19,23 @@ export default function Register() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(form);
-    navigate("/login");
+
+    try {
+      const res = await registerUser({
+        fullname: form.name,
+        email: form.email,
+        password: form.password,
+        confirmPassword: form.confirmPassword,
+      });
+
+      alert("Account created");
+      navigate("/login");
+
+    } catch (err) {
+      alert(err?.response?.data?.message || "Signup failed");
+    }
   };
 
   return (
@@ -39,7 +53,7 @@ export default function Register() {
 
         {/* RIGHT SIDE */}
         <div className="w-full md:w-1/2 flex items-center justify-center bg-[#121826] border border-[#2A3447] rounded-r-xl text-white">
-          
+
           <form
             onSubmit={handleSubmit}
             className="w-3/4 max-w-sm flex flex-col gap-4"

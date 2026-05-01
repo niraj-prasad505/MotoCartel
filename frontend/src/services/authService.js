@@ -5,3 +5,9 @@ export const loginUser = (data) => {
     withCredentials: true,
   });
 };
+
+export const registerUser = (data) => {
+  return API.post("/user/register", data, {
+    withCredentials: true,
+  });
+};

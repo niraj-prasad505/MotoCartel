@@ -4,19 +4,25 @@ const jwt = require("jsonwebtoken");
 
 const register = async (req, res) => {
   try {
-    const { fullname, email, password, role } = req.body;
+    const { fullname, email, password, confirmPassword, role } = req.body;
+    
 
-    if (!fullname || !email || !password) {
+    if (!fullname || !email || !password || !confirmPassword ) {
       return res.status(400).json({ message: "All fields required" });
     }
-    console.log(req.body);
-
+    
+    
+    if (password !== confirmPassword) {
+      return res.status(400).json({ message: "Passwords do not match" });
+    }
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: "User already exists" });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
+    
+
 
     const newUser = await User.create({
       fullname,
