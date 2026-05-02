@@ -28,6 +28,10 @@ const productSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
+
+    isFeatured: Boolean,
+    isTrending: Boolean,
+
     bgcolor: {
         type: String,
         default: "#ffffff"

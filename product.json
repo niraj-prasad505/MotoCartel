@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Sport Bike Helmet",
+    "image": "https://picsum.photos/200?1",
+    "price": 2500,
+    "discount": 10,
+    "description": "High quality helmet for riders",
+    "category": "Helmet",
+    "stock": 15,
+    "isFeatured": true,
+    "isTrending": true,
+    "bgcolor": "#f5f5f5"
+  },
+  {
+    "name": "Riding Gloves",
+    "image": "https://picsum.photos/200?2",
+    "price": 800,
+    "discount": 5,
+    "description": "Comfortable riding gloves",
+    "category": "Accessories",
+    "stock": 30,
+    "isFeatured": true,
+    "isTrending": false,
+    "bgcolor": "#e0f7fa"
+  },
+  {
+    "name": "Leather Jacket",
+    "image": "https://picsum.photos/200?3",
+    "price": 4500,
+    "discount": 15,
+    "description": "Stylish biker jacket",
+    "category": "Clothing",
+    "stock": 10,
+    "isFeatured": false,
+    "isTrending": true,
+    "bgcolor": "#fff3e0"
+  },
+  {
+    "name": "Bike Mobile Holder",
+    "image": "https://picsum.photos/200?4",
+    "price": 500,
+    "discount": 0,
+    "description": "Strong grip mobile holder",
+    "category": "Accessories",
+    "stock": 25,
+    "isFeatured": false,
+    "isTrending": true,
+    "bgcolor": "#ede7f6"
+  },
+  {
+    "name": "Full Face Helmet",
+    "image": "https://picsum.photos/200?5",
+    "price": 3200,
+    "discount": 8,
+    "description": "Premium full face helmet",
+    "category": "Helmet",
+    "stock": 12,
+    "isFeatured": true,
+    "isTrending": true,
+    "bgcolor": "#fce4ec"
+  },
+  {
+    "name": "Riding Boots",
+    "image": "https://picsum.photos/200?6",
+    "price": 3800,
+    "discount": 12,
+    "description": "Durable riding boots",
+    "category": "Footwear",
+    "stock": 8,
+    "isFeatured": false,
+    "isTrending": true,
+    "bgcolor": "#e8f5e9"
+  },
+  {
+    "name": "Bike Cover",
+    "image": "https://picsum.photos/200?7",
+    "price": 700,
+    "discount": 5,
+    "description": "Waterproof bike cover",
+    "category": "Accessories",
+    "stock": 20,
+    "isFeatured": true,
+    "isTrending": false,
+    "bgcolor": "#f3e5f5"
+  },
+  {
+    "name": "LED Headlight",
+    "image": "https://picsum.photos/200?8",
+    "price": 1500,
+    "discount": 10,
+    "description": "Bright LED headlight",
+    "category": "Electronics",
+    "stock": 18,
+    "isFeatured": false,
+    "isTrending": true,
+    "bgcolor": "#e1f5fe"
+  },
+  {
+    "name": "Tank Bag",
+    "image": "https://picsum.photos/200?9",
+    "price": 1200,
+    "discount": 7,
+    "description": "Magnetic tank bag",
+    "category": "Accessories",
+    "stock": 14,
+    "isFeatured": true,
+    "isTrending": true,
+    "bgcolor": "#fffde7"
+  },
+  {
+    "name": "Chain Lubricant",
+    "image": "https://picsum.photos/200?10",
+    "price": 400,
+    "discount": 0,
+    "description": "Smooth chain performance",
+    "category": "Maintenance",
+    "stock": 35,
+    "isFeatured": false,
+    "isTrending": false,
+    "bgcolor": "#eceff1"
+  }
+]
