@@ -1,13 +1,6 @@
 import ProductCard from "./ProductCard";
-import helmet from "../../assets/mainIMG.png";
 
-export default function FeaturedProducts() {
-  const products = Array.from({ length: 20 }, (_, i) => ({
-    title: `Product ${i + 1}`,
-    price: (Math.random() * 300 + 50).toFixed(2),
-    image: helmet,
-  }));
-
+export default function FeaturedProducts({ products = [] }) {
   return (
     <div className="mt-10 px-6">
 
@@ -21,11 +14,15 @@ export default function FeaturedProducts() {
         </span>
       </div>
 
-      {/* 🔥 SCROLL CONTAINER */}
+      {/* SCROLL CONTAINER */}
       <div className="flex gap-3 overflow-x-auto no-scrollbar scroll-smooth py-3">
-        {products.map((item, i) => (
-          <div key={i} className="min-w-[240px] flex-shrink-0">
-            <ProductCard {...item} />
+        {products.map((item) => (
+          <div key={item._id} className="min-w-[240px] flex-shrink-0">
+            <ProductCard
+              title={item.name}
+              price={item.price}
+              image={item.image}
+            />
           </div>
         ))}
       </div>
