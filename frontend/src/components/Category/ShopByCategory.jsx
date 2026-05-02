@@ -1,19 +1,7 @@
 import CategoryCard from "./CategoryCard";
 import helmet from "../../assets/mainIMG.png";
 
-export default function ShopByCategory() {
-  const categories = [
-    { title: "Helmets", items: 12, image: helmet },
-    { title: "Gloves", items: 8, image: helmet },
-    { title: "Jackets", items: 10, image: helmet },
-    { title: "Boots", items: 6, image: helmet },
-    { title: "Accessories", items: 6, image: helmet },
-    { title: "Accessories", items: 6, image: helmet },
-    { title: "Accessories", items: 6, image: helmet },
-    { title: "Accessories", items: 6, image: helmet },
-    { title: "Accessories", items: 6, image: helmet },
-    { title: "Accessories", items: 6, image: helmet },
-  ];
+export default function ShopByCategory({ categories = [] }) {
 
   return (
     <div className="mt-10 px-6">
@@ -32,7 +20,10 @@ export default function ShopByCategory() {
       <div className="flex gap-4 overflow-x-auto no-scrollbar">
         {categories.map((item, i) => (
           <div key={i} className="min-w-[220px] flex-shrink-0">
-            <CategoryCard {...item} />
+            <CategoryCard 
+              title={item}
+              image={item.image}
+           />
           </div>
         ))}
       </div>

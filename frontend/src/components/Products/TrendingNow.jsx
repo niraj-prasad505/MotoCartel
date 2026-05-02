@@ -1,17 +1,10 @@
 import ProductCard from "./TrendingCard";
-import helmet from "../../assets/mainIMG.png";
 
-export default function TrendingNow() {
-  const products = [
-    { title: "Integrated Bluetooth Comm. System", price: 129.99, image: helmet },
-    { title: "Carbon Fiber Full Face Helmet", price: 348.99, image: helmet },
-    { title: "Racing Knee Guards Pro", price: 79.99, image: helmet },
-    { title: "Moto Backpack Hydra 23L", price: 119.99, image: helmet },
-  ];
 
+export default function TrendingNow({ products = [] }) {
   return (
     <div className="mt-10 px-6">
-      
+
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-semibold text-white">
@@ -25,7 +18,13 @@ export default function TrendingNow() {
       {/* Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {products.map((item, i) => (
-          <ProductCard key={i} {...item} />
+          <ProductCard
+            key={item._id}
+            title={item.name}
+            price={item.price}
+            image={item.image}
+
+          />
         ))}
       </div>
     </div>
