@@ -45,6 +45,7 @@ const Product = () => {
 
       {/* Header */}
       <div className="pt-1 pb-3 px-[5%]">
+      
         <ProductHeader />
       </div>
 
@@ -52,19 +53,19 @@ const Product = () => {
       <div className="flex flex-col md:flex-row px-[5%] gap-6 md:gap-10">
 
         {/* Gallery */}
-        <div className="w-full md:w-[48%] bg-[#1A1F29] h-[540px] flex justify-center items-center rounded-2xl">
+        <div className="w-full md:w-[48%] bg-[#1A1F29] h-135 flex justify-center items-center rounded-2xl">
           <ProductGallery images={images} />
         </div>
 
         {/* Details */}
         <div className="w-full md:w-[48%] rounded-2xl p-6 pt-1">
-          <ProductDetails />
+          <ProductDetails product={product} />
         </div>
 
       </div>
 
       {/* Reviews */}
-      <div className="px-[5%]">
+      <div onClick={mydisplay(product)} className="px-[5%]">
         <ProductReview />
       </div>
 
@@ -80,5 +81,10 @@ const Product = () => {
     </div>
   );
 };
+
+function mydisplay( product) {
+  console.log(product)
+  return ;
+}
 
 export default Product;

@@ -27,7 +27,7 @@ const ProductCard = ({ product }) => {
       {/* Image */}
       <div className="w-full h-48 flex items-center justify-center bg-[#0B0F17] rounded-lg">
         <img
-          src={product?.image || "https://via.placeholder.com/150"}
+          src={product?.images?.[0] || "https://via.placeholder.com/150"}
           alt={product?.name || "product"}
           className="object-contain h-full"
         />

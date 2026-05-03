@@ -1,14 +1,15 @@
 import { Info, CirclePercent, IndianRupee, Heart, Percent, Package, CalendarDays, Truck } from 'lucide-react';
-const ProductDetails = () => {
+const ProductDetails = ({ product }) => {
+  if (!product) return <p>Loading...</p>;
   return <div>
     <div className="px-3 py-1 border border-gray-800 rounded-full shadow-md w-fit">
-      <h1 className="text-xs font-semibold text-gray-700">Helmet</h1>
+      <h1 className="text-xs font-semibold text-gray-700">{product.category}</h1>
     </div>
     <div className='mt-4 gap-3 flex flex-col'>
-      <h1 className=' text-3xl font-medium text-gray-300'>Grean platimun v3 expert 2024 model</h1>
+      <h1 className=' text-3xl font-medium text-gray-300'>{product.name}</h1>
       <div className='flex'>
         <IndianRupee className='h-5 -mr-1.25' />
-        <h1 className=' text-4xl font-normal'>3,400</h1>
+        <h1 className=' text-4xl font-normal'>{product.price}</h1>
       </div>
     </div>
 
@@ -26,7 +27,7 @@ const ProductDetails = () => {
           </button>
         </div>
       </div>
-      <div className="bg-gradient-to-r from-amber-500 to-amber-600 w-12 h-12 flex justify-center items-center mt-4 rounded-full">
+      <div className="bg-linear-to-r from-amber-500 to-amber-600 w-12 h-12 flex justify-center items-center mt-4 rounded-full">
         <button className="flex justify-center items-center">
           <Heart className="h-6 w-6 text-white" />
         </button>
@@ -35,7 +36,7 @@ const ProductDetails = () => {
     
     <div className='mt-5'>
       <h1 className=' text-xl'>Shiping</h1>
-      <div className="flex justify-between gap-8 text-white w-[95%] mt-5 border-1 rounded-xl p-7 border-gray-800">
+      <div className="flex justify-between gap-8 text-white w-[95%] mt-5 border rounded-xl p-7 border-gray-800">
 
         {/* Left Column */}
         <div className="flex flex-col gap-6">
@@ -44,7 +45,7 @@ const ProductDetails = () => {
             <Percent className="w-6 h-6" />
             <div>
               <p className="text-sm text-gray-400">Discount</p>
-              <p className="font-semibold">50% Off</p>
+              <p className="font-semibold">{product.discount}% Off</p>
             </div>
           </div>
 
@@ -52,7 +53,7 @@ const ProductDetails = () => {
             <CalendarDays className="w-6 h-6" />
             <div>
               <p className="text-sm text-gray-400">Delivery Time</p>
-              <p className="font-semibold">3–4 Working Days</p>
+              <p className="font-semibold">3-4 Working Days</p>
             </div>
           </div>
 
@@ -73,7 +74,7 @@ const ProductDetails = () => {
             <Truck className="w-6 h-6" />
             <div>
               <p className="text-sm text-gray-400">Estimated Arrival</p>
-              <p className="font-semibold">10–12 Oct 2024</p>
+              <p className="font-semibold">10-12 Oct 2024</p>
             </div>
           </div>
 
@@ -85,7 +86,7 @@ const ProductDetails = () => {
     <div className='mt-3'>
       <h1 className='mt-3 text-xl'>Discreption</h1>
       <div className='mt-2 text-base'>
-        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, ipsa ad? Molestiae distinctio nam molestias, veniam tenetur deleniti repellendus unde accusantium, voluptate doloremque illum, nisi reprehenderit culpa dicta labore beatae?</h1>
+        <h1>{product.description}</h1>
       </div>
     </div>
   </div>;
