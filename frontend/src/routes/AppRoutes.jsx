@@ -36,10 +36,10 @@ const AppRoutes = () => {
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/Categories" element={<Categories />} />
-          <Route path="/Orders" element={<Orders />} />
-          <Route path="/Product" element={<Product />} />
-          <Route path="/Checkout" element={<Checkout />} />
+          <Route path="/categories" element={<Categories />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/product/:id" element={<Product />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Route>
 
         {/* WITHOUT NAVBAR */}

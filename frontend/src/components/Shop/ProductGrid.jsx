@@ -75,7 +75,7 @@ const products = [
     image: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad",
   },
   {
-    id: 1,
+    id: 10,
     name: "Racing Helmet",
     price: 3200,
     oldPrice: 4500,
@@ -83,7 +83,7 @@ const products = [
     image: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519",
   },
   {
-    id: 2,
+    id: 11,
     name: "Leather Gloves",
     price: 1200,
     oldPrice: 1800,
@@ -91,7 +91,7 @@ const products = [
     image: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad",
   },
    {
-    id: 3,
+    id: 12,
     name: "Leather Gloves",
     price: 1200,
     oldPrice: 1800,
@@ -99,7 +99,7 @@ const products = [
     image: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad",
   },
    {
-    id: 4,
+    id: 13,
     name: "Leather Gloves",
     price: 1200,
     oldPrice: 1800,
@@ -107,7 +107,7 @@ const products = [
     image: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad",
   },
    {
-    id: 5,
+    id: 14,
     name: "Leather Gloves",
     price: 1200,
     oldPrice: 1800,
@@ -115,7 +115,7 @@ const products = [
     image: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad",
   },
    {
-    id: 6,
+    id: 15,
     name: "Leather Gloves",
     price: 1200,
     oldPrice: 1800,
@@ -123,7 +123,7 @@ const products = [
     image: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad",
   },
    {
-    id: 7,
+    id: 16,
     name: "Leather Gloves",
     price: 1200,
     oldPrice: 1800,
@@ -131,7 +131,7 @@ const products = [
     image: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad",
   },
    {
-    id: 8,
+    id: 17,
     name: "Leather Gloves",
     price: 1200,
     oldPrice: 1800,
@@ -139,7 +139,7 @@ const products = [
     image: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad",
   },
    {
-    id: 9,
+    id: 18,
     name: "Leather Gloves",
     price: 1200,
     oldPrice: 1800,
@@ -147,7 +147,7 @@ const products = [
     image: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad",
   },
   {
-    id: 1,
+    id: 19,
     name: "Racing Helmet",
     price: 3200,
     oldPrice: 4500,
@@ -155,7 +155,7 @@ const products = [
     image: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519",
   },
   {
-    id: 2,
+    id: 20,
     name: "Leather Gloves",
     price: 1200,
     oldPrice: 1800,
@@ -163,7 +163,7 @@ const products = [
     image: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad",
   },
    {
-    id: 3,
+    id: 21,
     name: "Leather Gloves",
     price: 1200,
     oldPrice: 1800,
@@ -171,7 +171,7 @@ const products = [
     image: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad",
   },
    {
-    id: 4,
+    id: 22,
     name: "Leather Gloves",
     price: 1200,
     oldPrice: 1800,
@@ -179,7 +179,7 @@ const products = [
     image: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad",
   },
    {
-    id: 5,
+    id: 23,
     name: "Leather Gloves",
     price: 1200,
     oldPrice: 1800,
@@ -187,7 +187,7 @@ const products = [
     image: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad",
   },
    {
-    id: 6,
+    id: 24,
     name: "Leather Gloves",
     price: 1200,
     oldPrice: 1800,
@@ -195,7 +195,7 @@ const products = [
     image: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad",
   },
    {
-    id: 7,
+    id: 25,
     name: "Leather Gloves",
     price: 1200,
     oldPrice: 1800,
@@ -203,7 +203,7 @@ const products = [
     image: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad",
   },
    {
-    id: 8,
+    id: 26,
     name: "Leather Gloves",
     price: 1200,
     oldPrice: 1800,
@@ -211,7 +211,7 @@ const products = [
     image: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad",
   },
    {
-    id: 9,
+    id: 27,
     name: "Leather Gloves",
     price: 1200,
     oldPrice: 1800,

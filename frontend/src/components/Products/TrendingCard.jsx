@@ -2,10 +2,10 @@ import { Heart, Star } from "lucide-react";
 
 export default function TrendingCard({ title, price, image }) {
   return (
-    <div className="bg-[#121826] border border-[#2A3447] rounded-xl p-4 hover:scale-[1.02] transition relative">
-      
+    <div className="bg-[#121826] border border-[#2A3447] rounded-xl p-4 hover:scale-[1.02] transition relative w-75">
+
       {/* Popular Badge */}
-      <span className="absolute top-3 left-3 text-xs bg-orange-500/20 text-orange-400 px-2 py-1 rounded-md">
+      <span className="absolute top-3 left-3 text-xs bg-orange-500/20 text-orange-400 px-2 py-2 rounded-md">
         🔥 Popular
       </span>
 
@@ -18,7 +18,7 @@ export default function TrendingCard({ title, price, image }) {
       <img
         src={image}
         alt={title}
-        className="w-full h-28 object-contain my-4"
+        className="w-full object-contain my-4 rounded-xl mt-8"
       />
 
       {/* Title */}
@@ -35,7 +35,7 @@ export default function TrendingCard({ title, price, image }) {
 
       {/* Bottom */}
       <div className="flex items-center justify-between mt-2">
-        
+
         {/* Rating */}
         <div className="flex items-center gap-1 text-xs text-gray-400">
           <Star size={14} className="text-orange-500 fill-orange-500" />

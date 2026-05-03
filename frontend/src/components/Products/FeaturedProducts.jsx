@@ -1,10 +1,14 @@
 import ProductCard from "./ProductCard";
 
 export default function FeaturedProducts({ products = [] }) {
+  if (!products.length) {
+    return <p className="text-gray-400">No products found</p>;
+  }
+
   return (
     <div className="mt-10 px-6">
 
-      {/* HEADER */}
+      {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-semibold text-white">
           Featured Products
@@ -14,15 +18,11 @@ export default function FeaturedProducts({ products = [] }) {
         </span>
       </div>
 
-      {/* SCROLL CONTAINER */}
-      <div className="flex gap-3 overflow-x-auto no-scrollbar scroll-smooth py-3">
+      {/* Products */}
+      <div className="flex gap-3 overflow-x-auto no-scrollbar py-3">
         {products.map((item) => (
-          <div key={item._id} className="min-w-[240px] flex-shrink-0">
-            <ProductCard
-              title={item.name}
-              price={item.price}
-              image={item.image}
-            />
+          <div key={item?._id} className="min-w-60 shrink-0">
+            <ProductCard product={item} />
           </div>
         ))}
       </div>
