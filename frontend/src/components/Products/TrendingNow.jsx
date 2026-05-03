@@ -22,7 +22,7 @@ export default function TrendingNow({ products = [] }) {
             key={item._id}
             title={item.name}
             price={item.price}
-            image={item.image}
+            image={item.images?.[0]}
 
           />
         ))}
