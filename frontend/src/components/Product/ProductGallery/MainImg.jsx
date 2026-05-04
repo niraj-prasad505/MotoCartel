@@ -3,7 +3,7 @@ const MainImg = ({ image }) => {
     <img
       src={image}
       alt="product"
-      className="max-h-[350px] object-contain rounded-2xl"
+      className="max-h-90 w-full object-contain rounded-2xl"
     />
   );
 };

@@ -19,11 +19,8 @@ export default function TrendingNow({ products = [] }) {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {products.map((item, i) => (
           <ProductCard
-            key={item._id}
-            title={item.name}
-            price={item.price}
-            image={item.images?.[0]}
-
+            key={item._id || i}
+            product={item}
           />
         ))}
       </div>

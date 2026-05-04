@@ -1,8 +1,18 @@
 import { Heart, Star } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
-export default function TrendingCard({ title, price, image }) {
+export default function TrendingCard({  product }) {
+  const navigate = useNavigate();
+
+  
+
+  const handleClick = () => {
+    if (product?._id) {
+      navigate(`/product/${product._id}`);
+    }
+  };
   return (
-    <div className="bg-[#121826] border border-[#2A3447] rounded-xl p-4 hover:scale-[1.02] transition relative w-75">
+    <div onClick={handleClick} className="bg-[#121826] border border-[#2A3447] rounded-xl p-4 hover:scale-[1.02] transition relative w-75">
 
       {/* Popular Badge */}
       <span className="absolute top-3 left-3 text-xs bg-orange-500/20 text-orange-400 px-2 py-2 rounded-md">
@@ -16,14 +26,14 @@ export default function TrendingCard({ title, price, image }) {
 
       {/* Image */}
       <img
-        src={image}
-        alt={title}
+        src={product?.images?.[0] || "https://via.placeholder.com/150"}
+        alt={product?.name || "product"}
         className="w-full object-contain my-4 rounded-xl mt-8"
       />
 
       {/* Title */}
       <h3 className="text-sm text-white font-medium leading-tight">
-        {title}
+        {product.name}
       </h3>
 
       {/* Avatars */}
@@ -44,7 +54,7 @@ export default function TrendingCard({ title, price, image }) {
         </div>
 
         {/* Price */}
-        <p className="text-white font-semibold">${price}</p>
+        <p className="text-white font-semibold">$</p>
       </div>
     </div>
   );

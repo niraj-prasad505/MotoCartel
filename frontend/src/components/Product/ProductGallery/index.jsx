@@ -12,7 +12,7 @@ const ProductGallery = ({ images = [] }) => {
       
       {/* Main Image */}
       <div className="flex-1 flex items-center justify-center w-full">
-        <MainImg image={activeImg} />
+        <MainImg image={images?.[0]} />
       </div>
 
       {/* Thumbnail List */}

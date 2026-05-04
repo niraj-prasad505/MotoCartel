@@ -15,7 +15,6 @@ import img3 from "../assets/productIMG/3.png";
 import { useParams } from "react-router-dom";
 import { UserStar } from "lucide-react";
 
-const images = [img1, img2, img3];
 
 
 const Product = () => {
@@ -28,24 +27,28 @@ const Product = () => {
     const fetchProduct = async () => {
       try {
         const res = await getProductById(id);
-        
+
         setProduct(res.data);
       } catch (err) {
         console.error(err);
       }
     };
 
-    fetchProduct(); // 🔥 THIS WAS MISSING
+    fetchProduct();
   }, [id]);
-  
-  
-  
+  const images = [
+    product?.images?.[0],
+    product?.images?.[1],
+    product?.images?.[2]
+  ];
+
+
   return (
     <div className="bg-[#020617] text-white min-h-screen">
 
       {/* Header */}
       <div className="pt-1 pb-3 px-[5%]">
-      
+
         <ProductHeader />
       </div>
 
@@ -65,7 +68,7 @@ const Product = () => {
       </div>
 
       {/* Reviews */}
-      <div onClick={mydisplay(product)} className="px-[5%]">
+      <div className="px-[5%]">
         <ProductReview />
       </div>
 
@@ -82,9 +85,9 @@ const Product = () => {
   );
 };
 
-function mydisplay( product) {
+function mydisplay(product) {
   console.log(product)
-  return ;
+  return;
 }
 
 export default Product;
