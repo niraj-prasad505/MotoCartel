@@ -1,0 +1,81 @@
+[
+  {
+    "mark": "LandingHero",
+    "name": "Helmet X1",
+    "title": "Ride with Safety",
+    "description": "Premium helmet with advanced protection.",
+    "img": "/images/helmet1.png"
+  },
+  {
+    "mark": "LandingHero",
+    "name": "Helmet X2",
+    "title": "Style Meets Safety",
+    "description": "Lightweight and durable helmet.",
+    "img": "/images/helmet2.png"
+  },
+  {
+    "mark": "LandingHero",
+    "name": "Helmet X3",
+    "title": "Ultimate Protection",
+    "description": "Built for extreme riders.",
+    "img": "/images/helmet3.png"
+  },
+  {
+    "mark": "LandingHero",
+    "name": "Helmet X4",
+    "title": "Ride Smart",
+    "description": "Smart helmet with ventilation system.",
+    "img": "/images/helmet4.png"
+  },
+  {
+    "mark": "LandingHero",
+    "name": "Helmet X5",
+    "title": "Next Gen Helmet",
+    "description": "Futuristic design with max safety.",
+    "img": "/images/helmet5.png"
+  },
+
+  {
+    "mark": "highlights1",
+    "name": "Riding Gloves",
+    "title": "Grip & Comfort",
+    "description": "Anti-slip gloves for better control.",
+    "img": "/images/glove1.png"
+  },
+  {
+    "mark": "highlights1",
+    "name": "Leather Gloves",
+    "title": "Premium Feel",
+    "description": "High-quality leather gloves.",
+    "img": "/images/glove2.png"
+  },
+  {
+    "mark": "highlights1",
+    "name": "Winter Gloves",
+    "title": "Stay Warm",
+    "description": "Perfect for cold rides.",
+    "img": "/images/glove3.png"
+  },
+
+  {
+    "mark": "highlights2",
+    "name": "Bike Mount",
+    "title": "Strong Grip",
+    "description": "Secure phone mount for bikes.",
+    "img": "/images/mount1.png"
+  },
+  {
+    "mark": "highlights2",
+    "name": "Advanced Mount",
+    "title": "Shock Resistant",
+    "description": "Handles rough terrains easily.",
+    "img": "/images/mount2.png"
+  },
+  {
+    "mark": "highlights2",
+    "name": "360 Mount",
+    "title": "Full Rotation",
+    "description": "Adjust your view anytime.",
+    "img": "/images/mount3.png"
+  }
+]

@@ -13,6 +13,7 @@ const productsRouter = require("./routes/productsRouter");
 const userRouter = require("./routes/userRouter");
 const cartRouter = require("./routes/cartRouter");
 const orderRouter = require("./routes/orderRouter");
+const heroRouter = require("./routes/heroRoutes");
 
 
 // DB connection
@@ -43,6 +44,7 @@ app.use("/api/products", productsRouter);
 app.use("/api/cart", cartRouter);
 app.use("/api/orders", orderRouter);
 app.get("/api/home", getHomeData);
+app.use("/api/hero", heroRouter);
 
 // test route
 app.get("/", (req, res) => {

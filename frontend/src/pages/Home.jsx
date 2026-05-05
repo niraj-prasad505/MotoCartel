@@ -4,12 +4,18 @@ import FeaturedProducts from "../components/Products/FeaturedProducts";
 import ShopByCategory from "../components/Category/ShopByCategory";
 import TrendingNow from "../components/Products/TrendingNow";
 import { getHomeData } from "../services/product.service";
+import { getHeroData } from "../services/product.service";
 
 const Home = () => {
-  const [data, setData] = useState({
+  const [homeData, setHomeData] = useState({
     featured: [],
     trending: [],
     categories: [],
+  });
+  const [heroData, setHeroData] = useState({
+    LandingHero: [],
+    highlights1: [],
+    highlights2: [],
   });
 
   const [loading, setLoading] = useState(true);
@@ -17,8 +23,12 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await getHomeData();
-        setData(res.data); // axios → data inside data
+        const [homeRes, heroRes] = await Promise.all([
+          getHomeData(),
+          getHeroData(),
+        ]);
+        setHomeData(homeRes.data);
+        setHeroData(heroRes.data);
       } catch (err) {
         console.error(err);
       } finally {
@@ -33,14 +43,14 @@ const Home = () => {
 
   return (
     <div className="bg-[#0B0F17] min-h-screen">
-      <Hero />
+      <Hero data={heroData} />
 
       <div className="h-12 bg-[#020617]"></div>
 
       <div className="max-w-350 mx-auto px-6 mt-1">
-        <FeaturedProducts products={data.featured} />
-        <ShopByCategory categories={data.categories} />
-        <TrendingNow products={data.trending} />
+        <FeaturedProducts products={homeData.featured} />
+        <ShopByCategory categories={homeData.categories} />
+        <TrendingNow products={homeData.trending} />
       </div>
     </div>
   );
