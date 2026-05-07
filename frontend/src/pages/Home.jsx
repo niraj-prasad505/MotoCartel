@@ -38,6 +38,9 @@ const Home = () => {
 
     fetchData();
   }, []);
+  // useEffect(() => {
+  //   console.log(heroData);
+  // }, [heroData]);
 
   if (loading) return <h2 className="text-white">Loading...</h2>;
 
