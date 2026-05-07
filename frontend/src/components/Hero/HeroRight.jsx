@@ -7,17 +7,17 @@ const HeroRight = () => {
     <div className="flex flex-col h-full gap-4">
 
       {/* 20% */}
-      <div className="flex-[2]">
+      <div className="flex-2">
         <RightColors />
       </div>
 
       {/* 30% */}
-      <div className="flex-[3]">
+      <div className="flex-2">
         <Right1 />
       </div>
 
       {/* 50% (or 40% approx) */}
-      <div className="flex-[5]">
+      <div className="flex-2">
         <Right2 />
       </div>
 
