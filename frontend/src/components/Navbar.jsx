@@ -15,7 +15,7 @@ const Navbar = () => {
       />
 
       {/* SEARCH */}
-      <div className="flex items-center bg-[#0b1220] rounded-full px-3 md:px-4 py-2 flex-1 max-w-[500px] mx-3 md:mx-5
+      <div className="flex items-center bg-[#0b1220] rounded-full px-3 md:px-4 py-2 flex-1 max-w-125 mx-3 md:mx-5
       border border-gray-500 focus-within:border-white focus-within:ring-1 focus-within:ring-white transition">
 
         <input
