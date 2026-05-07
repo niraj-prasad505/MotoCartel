@@ -24,7 +24,7 @@ const HeroCenter = ({ img }) => {
         <img
           src={img[current]}
           alt="hero"
-          className="relative z-10 w-[85%] max-w-[450px] object-contain transition-all duration-700"
+          className="relative z-10 w-[85%] max-w-112.5 object-contain transition-all duration-700"
         />
 
         {/* slider */}
