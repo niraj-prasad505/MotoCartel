@@ -12,7 +12,7 @@ const Hero = ({ data }) => {
   const heroDiscreption = data.landingHero.map(item => item.description);
   const heroId = data.landingHero.map(item => item.id);
 
-  console.log({ data });
+  // console.log({ data });
 
   return (
     <section className="bg-[#020617] overflow-hidden">

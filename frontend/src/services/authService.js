@@ -11,3 +11,9 @@ export const registerUser = (data) => {
     withCredentials: true,
   });
 };
+
+export const getCurrentUser = () => {
+  return API.get("/user/me", {
+    withCredentials: true,
+  });
+};
