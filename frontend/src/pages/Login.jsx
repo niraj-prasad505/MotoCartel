@@ -7,6 +7,7 @@ import { Lock, Eye, Mail } from "lucide-react";
 import { useContext } from "react";
 import UserContext from "../context/UserContext";
 
+
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,8 +19,8 @@ export default function Login() {
 
     try {
       const res = await loginUser({ email, password });
-      setUser(res.data.user);
       console.log(res.data);
+      setUser(res.data.user);
       alert("Login successful 🚀");
 
       navigate("/");

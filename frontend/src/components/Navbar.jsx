@@ -6,16 +6,18 @@ import UserContext from "../context/UserContext";
 import { useContext } from "react";
 const Navbar = () => {
   const { user } = useContext(UserContext);
+  // console.log(user);
   return (
     <nav className="flex items-center px-4 md:px-6 py-3 bg-[#020617] h-20 md:h-24 w-full">
 
       {/* LEFT */}
-      <img
-        src={logo}
-        alt="logo"
-        className="h-12 md:h-16 w-auto object-contain"
-      />
-
+      <Link to="/">
+        <img
+          src={logo}
+          alt="logo"
+          className="h-12 md:h-16 w-auto object-contain"
+        />
+      </Link>
       {/* SEARCH */}
       <div className="flex items-center bg-[#0b1220] rounded-full px-3 md:px-4 py-2 flex-1 max-w-125 mx-3 md:mx-5
       border border-gray-500 focus-within:border-white focus-within:ring-1 focus-within:ring-white transition">
@@ -41,9 +43,11 @@ const Navbar = () => {
       <div className="flex items-center gap-3 md:gap-6">
 
         {/* Cart */}
+        <Link to="cart">
         <div className="w-9 h-9 md:w-11 md:h-11 flex items-center justify-center rounded-full bg-[#0b1220] ring-1 ring-gray-600 shadow-[0_0_20px_rgba(255,255,255,0.08)] cursor-pointer">
           <ShoppingBag className="w-4 h-4 md:w-6 md:h-6 text-gray-300" />
         </div>
+        </Link>
 
         {/* Wishlist */}
         <div className="w-9 h-9 md:w-11 md:h-11 flex items-center justify-center rounded-full bg-[#0b1220] ring-1 ring-gray-600 shadow-[0_0_20px_rgba(255,255,255,0.08)] cursor-pointer">
@@ -65,13 +69,13 @@ const Navbar = () => {
             </span>
           ) : (
             <span className="px-2">
-              {user.name || "hii"}
+              {user.fullname || "user"}
             </span>
           )}
 
           <span className="rounded-full overflow-hidden h-7 w-7 md:h-9 md:w-9">
             <img
-              src={user?.image || userlogo}
+              src={user?.picture || userlogo}
               alt="logo"
               className="object-contain"
             />

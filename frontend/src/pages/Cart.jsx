@@ -1,39 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
 Trash2
 import { Trash2 } from "lucide-react";
+import UserContext from "../context/UserContext";
+import { useContext } from "react";
 const Cart = () => {
-  const items = [
-    {
-      id: 1,
-      name: "Furniture Set",
-      color: "Coffee",
-      price: 437,
-      qty: 4,
-      img: "https://dainese-cdn.thron.com/delivery/public/image/dainese/e6489803-6529-4717-8329-d757268bd417/4awwa8/std/600x760/ridingstyle_agv_600x760_2024_touring",
-    },
-    {
-      id: 2,
-      name: "Vintage Dining Set",
-      color: "Brown",
-      price: 945,
-      qty: 2,
-      img: "https://planetdsg.com/cdn/shop/files/dsg_hydro_v2_riding_gloves_01.jpg?v=1762336883&width=1200",
-    },
-    {
-      id: 3,
-      name: "Studio Chair",
-      color: "Deep Green",
-      price: 597,
-      qty: 7,
-      img: "https://www.highnoteperformance.com/cdn/shop/files/Product_Section_Cover_Helmet.jpg?v=1711363623&width=2500",
-    },
-  ];
+  const { user } = useContext(UserContext);
+  console.log(user);
+  const items = user.cart;
+  // console.log(user);
 
   return (
     <div className="bg-[#0b1220] text-white">
       <div className="flex justify-between items-center py-9 px-19">
         <h1 className=" text-4xl">Your Shopping Cart</h1>
+        <Link to="/orders">
         <button className="bg-gray-400 border-2 p-3 rounded-full">My Orders</button>
+        </Link>
       </div>
       <div className="bg-[#0b1220]  text-white h-fit p-15 flex flex-col lg:flex-row gap-6 pt-2">
         {/* LEFT - CART ITEMS */}
