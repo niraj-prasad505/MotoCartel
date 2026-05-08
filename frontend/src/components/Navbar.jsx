@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import userlogo from "../assets/userlogo.png";
 import { Search, Heart, ShoppingBag } from "lucide-react";
-
+import UserContext from "../context/UserContext";
+import { useContext } from "react";
 const Navbar = () => {
+  const { user } = useContext(UserContext);
   return (
     <nav className="flex items-center px-4 md:px-6 py-3 bg-[#020617] h-20 md:h-24 w-full">
 
@@ -51,18 +53,28 @@ const Navbar = () => {
         {/* Login */}
         <div className="flex items-center gap-2 md:gap-4 pl-3 md:pl-5 pr-1 bg-[#12151C] text-white rounded-full cursor-pointer text-sm md:text-base h-9 md:h-11">
 
-          <span className="flex gap-1">
-            <Link to="/login">
-              <button className="px-2 py-1">Login</button>
-            </Link>
+          {!user ? (
+            <span className="flex gap-1">
+              <Link to="/login">
+                <button className="px-2 py-1">Login</button>
+              </Link>
 
-            <Link to="/createAccount">
-              <button className="px-2 py-1">Create</button>
-            </Link>
-          </span>
+              <Link to="/createAccount">
+                <button className="px-2 py-1">Create</button>
+              </Link>
+            </span>
+          ) : (
+            <span className="px-2">
+              {user.name || "hii"}
+            </span>
+          )}
 
           <span className="rounded-full overflow-hidden h-7 w-7 md:h-9 md:w-9">
-            <img src={userlogo} alt="logo" className="object-contain" />
+            <img
+              src={user?.image || userlogo}
+              alt="logo"
+              className="object-contain"
+            />
           </span>
 
         </div>

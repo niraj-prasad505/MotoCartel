@@ -4,18 +4,21 @@ import { loginUser } from "../services/authService"; // ✅ important
 import loginimg from "../assets/loginassets/loginjpg.jpeg";
 import google from "../assets/loginassets/google.png";
 import { Lock, Eye, Mail } from "lucide-react";
+import { useContext } from "react";
+import UserContext from "../context/UserContext";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const { setUser } = useContext(UserContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const res = await loginUser({ email, password });
-
+      setUser(res.data.user);
       console.log(res.data);
       alert("Login successful 🚀");
 

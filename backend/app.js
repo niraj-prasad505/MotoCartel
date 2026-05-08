@@ -21,13 +21,13 @@ const connectDB = require("./config/mongoose-connection");
 connectDB();
 
 
-// ✅ CORS (MUST BE FIRST)
+// CORS (MUST BE FIRST)
 app.use(cors({
   origin: "http://localhost:5173",  
   credentials: true
 }));
 
-// ✅ body + cookie middleware
+// body + cookie middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -37,7 +37,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
 
 
-// ✅ routes
+// routes
 app.use("/api/owners", ownersRouter);
 app.use("/api/user", userRouter);
 app.use("/api/products", productsRouter);
@@ -52,7 +52,7 @@ app.get("/", (req, res) => {
 });
 
 
-// ✅ error handler (last)
+// error handler (last)
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({

@@ -1,5 +1,6 @@
 const User = require("../models/user-models");
 const bcrypt = require("bcrypt");
+const { json } = require("express");
 const jwt = require("jsonwebtoken");
 
 const register = async (req, res) => {
@@ -97,4 +98,36 @@ const logout = (req, res) => {
   res.status(200).json({ message: "Logged out successfully" });
 };
 
-module.exports = { register, login, logout };
+const getCurrentUser = async (req, res) => {
+  try{
+    const token = req.cookies.token;
+    if(!token){
+      return res.status(401).json({
+        success : false,
+        message : "No token found",
+      });
+    }
+    const decode = jwt.verify(token,process.env.JWT_SECRET);
+    const user = await User.findById(decode.id).select("-password");
+    if(!user){
+      return res.status(401).json({
+        success : false,
+        message : "No user found",
+      });
+    }
+    res.status(200).json({
+      success: true,
+      user,
+
+    })
+
+  }catch(err){
+    res.status(500).json({ message: err.message });
+  }
+
+  
+};
+
+
+
+module.exports = { register, login, logout, getCurrentUser };
