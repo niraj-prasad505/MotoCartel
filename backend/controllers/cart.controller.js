@@ -54,4 +54,25 @@ const removeFromCart = async (req, res) => {
   }
 };
 
-module.exports = { addToCart, removeFromCart };
+const getCartDetails = async (req, res) => {
+  try {
+
+    const user = await User.findById(req.user.id)
+      .populate("cart.product");
+
+    res.status(200).json({
+      success: true,
+      cart: user.cart
+    });
+
+  } catch (err) {
+
+    res.status(500).json({
+      success: false,
+      message: err.message
+    });
+
+  }
+};
+
+module.exports = { addToCart, removeFromCart, getCartDetails };

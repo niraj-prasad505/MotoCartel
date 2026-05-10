@@ -1,15 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
-Trash2
 import { Trash2 } from "lucide-react";
 import UserContext from "../context/UserContext";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
+import { getcartData } from "../services/product.service";
 const Cart = () => {
-  const { user } = useContext(UserContext);
-  console.log(user);
-  const items = user.cart;
-  // console.log(user);
+  const [items, setItems] = useState([]);
 
+  const fetchCart = async () => {
+    try {
+
+      const { data } = await getcartData();
+
+      // console.log(data);
+      setItems(data.cart);
+
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchCart();
+  }, []);
+  
   return (
     <div className="bg-[#0b1220] text-white">
       <div className="flex justify-between items-center py-9 px-19">
@@ -34,7 +48,7 @@ const Cart = () => {
           {/* Items */}
           {items.map((item) => (
             <div
-              key={item.id}
+              key={item._id}
               className="grid grid-cols-4 items-center border-t border-gray-800 py-4"
             >
               {/* Product */}
@@ -47,7 +61,7 @@ const Cart = () => {
                 <div>
                   <h2 className="font-semibold text-2xl">{item.name}</h2>
                   <p className="text-gray-400 text-sm">
-                    Colour: {item.color}
+                    Colour
                   </p>
                 </div>
               </div>
