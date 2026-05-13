@@ -89,4 +89,45 @@ const getCartDetails = async (req, res) => {
   }
 };
 
-module.exports = { addToCart, removeFromCart, getCartDetails };
+const increaseQuantity = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id);
+    const { productId } = req.body;
+
+    const item = user.cart.find(item => item.product.toString() === productId);
+
+    if (item) {
+      item.quantity += 1;
+      await user.save();
+      res.json({ success: true, cart: user.cart });
+    } else {
+      res.status(404).json({ success: false, message: "Item not found in cart" });
+    }
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+};
+
+const decreaseQuantity = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id);
+    const { productId } = req.body;
+
+    const item = user.cart.find(item => item.product.toString() === productId);
+
+    if (item) {
+      item.quantity -= 1;
+      if (item.quantity <= 0) {
+        user.cart = user.cart.filter(cartItem => cartItem._id.toString() !== item._id.toString());
+      }
+      await user.save();
+      res.json({ success: true, cart: user.cart });
+    } else {
+      res.status(404).json({ success: false, message: "Item not found in cart" });
+    }
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+};
+
+module.exports = { addToCart, removeFromCart, getCartDetails, increaseQuantity, decreaseQuantity };

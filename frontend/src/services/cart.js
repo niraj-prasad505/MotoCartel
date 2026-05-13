@@ -9,3 +9,15 @@ export const addToCart = (productId) => {
     productId
   });
 };
+
+export const increaseQuantity = (productId) => {
+  return API.patch("/cart/increase", {
+    productId,
+  });
+};
+
+export const decreaseQuantity = (productId) => {
+  return API.patch("/cart/decrease", {
+    productId,
+  });
+};
