@@ -5,7 +5,7 @@ const ProductHeader = ({ productName }) => {
     <div className=" border-b border-gray-700">
       {/* Breadcrumb */}
       <Breadcrumb productName={productName} />
-
+    
       {/* Title */}
       <h1 className="text-3xl font-semibold mt-3">
         

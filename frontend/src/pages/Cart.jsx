@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Trash2 } from "lucide-react";
 import UserContext from "../context/UserContext";
 import { useContext, useState, useEffect } from "react";
-import { getcartData } from "../services/product.service";
+import { getcartData } from "../services/cart";
 const Cart = () => {
   const [items, setItems] = useState([]);
 
@@ -12,7 +12,7 @@ const Cart = () => {
 
       const { data } = await getcartData();
 
-      // console.log(data);
+      console.log(data);
       setItems(data.cart);
 
     } catch (err) {
@@ -54,14 +54,14 @@ const Cart = () => {
               {/* Product */}
               <div className="flex items-center gap-3">
                 <img
-                  src={item.img}
+                  src={item.product.images[0]}
                   alt=""
                   className="w-19 h-19 rounded-lg object-cover"
                 />
                 <div>
-                  <h2 className="font-semibold text-2xl">{item.name}</h2>
+                  <h2 className="font-semibold text-2xl">{item.product.name}</h2>
                   <p className="text-gray-400 text-sm">
-                    Colour
+                    Colour: {item.product.colour}
                   </p>
                 </div>
               </div>
@@ -70,14 +70,14 @@ const Cart = () => {
               <div className="flex justify-center">
                 <div className="flex items-center border border-gray-600 rounded-full px-3 py-1 gap-3">
                   <button>-</button>
-                  <span>{item.qty}</span>
+                  <span>{item.quantity}</span>
                   <button>+</button>
                 </div>
               </div>
 
               {/* Price */}
               <p className="text-center font-medium">
-                ₹{item.price}
+                ₹{item.product.price}
               </p>
 
               {/* Delete */}

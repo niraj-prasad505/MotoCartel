@@ -10,6 +10,3 @@ export const getHeroData = () => {
 
 export const getProductById = (id) => API.get(`/products/${id}`);
 
-export const getcartData = () => {
-  return API.get("/cart/getCart");
-};

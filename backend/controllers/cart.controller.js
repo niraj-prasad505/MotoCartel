@@ -3,36 +3,50 @@ const Product = require("../models/product-model");
 
 const addToCart = async (req, res) => {
   try {
+
     const userId = req.user.id;
     const { productId } = req.body;
-
-    if (!productId) {
-      return res.status(400).json({ message: "Product ID required" });
-    }
-
+    
     const product = await Product.findById(productId);
+    
     if (!product) {
-      return res.status(404).json({ message: "Product not found" });
+      return res.status(404).json({
+        message: "Product not found"
+      });
     }
 
     const user = await User.findById(userId);
-
-    const existingItem = user.cart.find(item =>
-      item.product.equals(productId)
+    
+    const existingItem = user.cart.find(
+      item => item.product.toString() === productId
     );
 
     if (existingItem) {
       existingItem.quantity += 1;
     } else {
-      user.cart.push({ product: productId, quantity: 1 });
+
+      user.cart.push({
+        product: productId,
+        quantity: 1
+      });
+
     }
 
     await user.save();
 
-    res.json({ message: "Added to cart", cart: user.cart });
+    res.json({
+      success: true,
+      cart: user.cart
+    });
 
   } catch (err) {
-    res.status(500).json({ message: err.message });
+
+    console.log(err);
+
+    res.status(500).json({
+      message: err.message
+    });
+
   }
 };
 

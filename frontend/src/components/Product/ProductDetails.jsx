@@ -1,10 +1,29 @@
 import { Info, CirclePercent, IndianRupee, Heart, Percent, Package, CalendarDays, Truck } from 'lucide-react';
+import React from 'react';
+import { addToCart } from '../../services/cart';
 const ProductDetails = ({ product }) => {
   if (!product) return <p>Loading...</p>;
+
+  const handleAddToCart = async () => {
+    try {
+
+      const { data } = await addToCart(product._id);
+
+      console.log(data);
+
+    } catch (err) {
+      console.log(err);
+    }
+    console.log("Adding to cart:", product._id);
+  };
   return <div>
+
+    {/* Category */}
     <div className="px-3 py-1 border border-gray-800 rounded-full shadow-md w-fit">
       <h1 className="text-xs font-semibold text-gray-700">{product.category}</h1>
     </div>
+
+    {/* Product Name and Price */}
     <div className='mt-4 gap-3 flex flex-col'>
       <h1 className=' text-3xl font-medium text-gray-300'>{product.name}</h1>
       <div className='flex'>
@@ -13,13 +32,15 @@ const ProductDetails = ({ product }) => {
       </div>
     </div>
 
+    {/* Delivery Info */}
     <div className='flex gap-2.5 border w-fit p-1 px-2 rounded-full border-gray-600 mt-4'>
       <Info className='h-4' />
       <p className='text-xs'>Order in <span>02.30.25</span> to get next day delavery </p>
     </div>
 
+    {/* Action Buttons */}
     <div className='flex gap-4'>
-
+      {/* Buy Now */}
       <div className="px-5 py-3 bg-linear-to-r from-amber-500 to-amber-600 w-[85%] flex justify-center items-center mt-4 rounded-full">
         <div>
           <button className="text-white font-semibold">
@@ -27,13 +48,15 @@ const ProductDetails = ({ product }) => {
           </button>
         </div>
       </div>
+
+      {/* Wishlist */}
       <div className="bg-linear-to-r from-amber-500 to-amber-600 w-12 h-12 flex justify-center items-center mt-4 rounded-full">
         <button className="flex justify-center items-center">
           <Heart className="h-6 w-6 text-white" />
         </button>
       </div>
     </div>
-    
+
     <div className='mt-5'>
       <h1 className=' text-xl'>Shiping</h1>
       <div className="flex justify-between gap-8 text-white w-[95%] mt-5 border rounded-xl p-7 border-gray-800">
@@ -83,6 +106,15 @@ const ProductDetails = ({ product }) => {
       </div>
 
     </div>
+    {/* add to cart */}
+    <div onClick={handleAddToCart} className="px-5 py-3 bg-linear-to-r from-amber-500 to-amber-600 w-[45%] flex justify-center items-center mt-4 rounded-full">
+      <div>
+        <button className="text-white font-semibold">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+    {/* description */}
     <div className='mt-3'>
       <h1 className='mt-3 text-xl'>Discreption</h1>
       <div className='mt-2 text-base'>

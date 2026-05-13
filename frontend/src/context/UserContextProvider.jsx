@@ -11,6 +11,7 @@ const UserContextProvider = ({ children }) => {
         getCurrentUser()
             .then((res) => {
                 setUser(res.data.user);
+                // console.log(res.data.user);
             })
             .catch(() => {
                 setUser(null);
