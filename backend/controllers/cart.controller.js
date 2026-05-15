@@ -107,7 +107,7 @@ const increaseQuantity = async (req, res) => {
     res.status(500).json({ success: false, message: err.message });
   }
 };
-
+//  Decrease quantity
 const decreaseQuantity = async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
