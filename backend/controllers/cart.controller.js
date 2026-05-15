@@ -68,6 +68,7 @@ const removeFromCart = async (req, res) => {
   }
 };
 
+// Get cart details
 const getCartDetails = async (req, res) => {
   try {
 
