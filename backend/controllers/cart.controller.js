@@ -50,6 +50,7 @@ const addToCart = async (req, res) => {
   }
 };
 
+// Remove from cart
 const removeFromCart = async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
