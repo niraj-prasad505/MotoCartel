@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Trash2 } from "lucide-react";
 
+
 import {
   getcartData,
   increaseQuantity,
@@ -29,25 +30,53 @@ const Cart = () => {
   }, []);
 
   // Increase quantity
-  const increaseQ = async (productId) => {
-    try {
-      const { data } = await increaseQuantity(productId);
+ const increaseQ = async (productId) => {
 
-      setItems(data.cart || []);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  try {
+
+    const cartq = await increaseQuantity(productId);
+
+    setItems(prev =>
+      prev.map(item =>
+        item.product._id === productId
+          ? {
+              ...item,
+              quantity: cartq.data.quantity
+            }
+          : item
+      )
+    );
+
+  } catch (err) {
+
+    console.log(err);
+
+  }
+};
 
   // Decrease quantity
   const decreaseQ = async (productId) => {
     try {
-      const { data } = await decreaseQuantity(productId);
 
-      setItems(data.cart || []);
-    } catch (err) {
-      console.log(err);
-    }
+    const cartq = await decreaseQuantity(productId);
+      
+    setItems(prev =>
+      prev.map(item =>
+        item.product._id === productId
+          ? {
+              ...item,
+              quantity: cartq.data.quantity,
+              
+            }
+          : item
+      )
+    );
+
+  } catch (err) {
+
+    console.log(err);
+
+  }
   };
 
   return (
@@ -109,6 +138,7 @@ const Cart = () => {
                 <div className="flex items-center border border-gray-600 rounded-full px-3 py-1 gap-3">
 
                   <button
+                    className="px-4 py-1 text-2xl justify-center items-center flex rounded-full"
                     onClick={() => decreaseQ(item.product?._id)}
                   >
                     -
@@ -117,6 +147,7 @@ const Cart = () => {
                   <span>{item.quantity}</span>
 
                   <button
+                    className="px-4 py-1 text-2xl justify-center items-center flex rounded-full"
                     onClick={() => increaseQ(item.product?._id)}
                   >
                     +
@@ -127,7 +158,7 @@ const Cart = () => {
 
               {/* Price */}
               <p className="text-center font-medium">
-                ₹{item.product?.price}
+                ₹{item.product?.price * item.quantity}
               </p>
 
               {/* Delete */}

@@ -3,9 +3,13 @@ import logo from "../assets/logo.png";
 import userlogo from "../assets/userlogo.png";
 import { Search, Heart, ShoppingBag } from "lucide-react";
 import UserContext from "../context/UserContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+
 const Navbar = () => {
   const { user } = useContext(UserContext);
+  
+  const name = user?.fullname || "";
+const picture = user?.picture || userlogo;
   // console.log(user);
   return (
     <nav className="flex items-center px-4 md:px-6 py-3 bg-[#020617] h-20 md:h-24 w-full">
@@ -69,13 +73,13 @@ const Navbar = () => {
             </span>
           ) : (
             <span className="px-2">
-              {user.fullname || "user"}
+              {name}
             </span>
           )}
 
           <span className="rounded-full overflow-hidden h-7 w-7 md:h-9 md:w-9">
             <img
-              src={user?.picture || userlogo}
+              src={picture}
               alt="logo"
               className="object-contain"
             />

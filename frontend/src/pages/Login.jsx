@@ -20,9 +20,8 @@ export default function Login() {
     try {
       const res = await loginUser({ email, password });
       console.log(res.data);
-      setUser(res.data.user);
       alert("Login successful 🚀");
-
+      setUser(res.data.user);
       navigate("/");
     } catch (err) {
       console.log(err.response?.data);
