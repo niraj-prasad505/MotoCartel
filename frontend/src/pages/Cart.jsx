@@ -15,12 +15,17 @@ import {
 const Cart = () => {
   const [items, setItems] = useState([]);
 
+  const updateCart = () => {
+    // This function can be used to refresh cart data after any update
+    fetchCart();
+  };
+
   // Fetch cart data
   const fetchCart = async () => {
     try {
       const { data } = await getcartData();
 
-      console.log(data);
+      
 
       setItems(data.cart || []);
     } catch (err) {
@@ -87,7 +92,7 @@ const Cart = () => {
     console.log(err);
   }
   };
-  
+
   const {
   subTotal,
   discount,
@@ -186,7 +191,7 @@ const Cart = () => {
           ))}
 
           {/* Update Button */}
-          <button className="mt-6 bg-orange-500 text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-300 transition">
+          <button onClick={updateCart} className="mt-6 bg-orange-500 text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-300 transition">
             Update Cart
           </button>
 
@@ -222,7 +227,7 @@ const Cart = () => {
               <span>₹{subTotal}</span>
             </div>
 
-            <div className="flex justify-between text-gray-400">
+            <div className="flex justify-between text-green-500">
               <span>Discount (10%)</span>
               <span>- ₹{discount}</span>
             </div>
