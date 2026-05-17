@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Trash2 } from "lucide-react";
+import calculateCart from "../utils/calculateCart";
+
 
 
 import {
   getcartData,
   increaseQuantity,
   decreaseQuantity,
+  deleteItem,
 } from "../services/cart";
 
 const Cart = () => {
@@ -28,6 +31,15 @@ const Cart = () => {
   useEffect(() => {
     fetchCart();
   }, []);
+
+  const deleteItemFromCart = async (productId) => {
+    try {
+      await deleteItem(productId);
+      fetchCart(); // Refresh cart data
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   // Increase quantity
  const increaseQ = async (productId) => {
@@ -71,14 +83,18 @@ const Cart = () => {
           : item
       )
     );
-
   } catch (err) {
-
     console.log(err);
-
   }
   };
-
+  
+  const {
+  subTotal,
+  discount,
+  deliveryFee,
+  finalTotal
+} = calculateCart(items);
+  
   return (
     <div className="bg-[#0b1220] text-white min-h-screen">
       {/* Top */}
@@ -162,7 +178,7 @@ const Cart = () => {
               </p>
 
               {/* Delete */}
-              <div className="text-center cursor-pointer hover:text-red-500 justify-center items-center flex">
+              <div onClick={() => deleteItemFromCart(item.product?._id)} className="text-center cursor-pointer hover:text-red-500 justify-center items-center flex">
                 <Trash2 />
               </div>
 
@@ -203,17 +219,17 @@ const Cart = () => {
 
             <div className="flex justify-between">
               <span>Sub Total</span>
-              <span>₹2000</span>
+              <span>₹{subTotal}</span>
             </div>
 
             <div className="flex justify-between text-gray-400">
               <span>Discount (10%)</span>
-              <span>- ₹1000</span>
+              <span>- ₹{discount}</span>
             </div>
 
             <div className="flex justify-between text-gray-400">
               <span>Delivery fee</span>
-              <span>₹50</span>
+              <span>₹{deliveryFee}</span>
             </div>
 
           </div>
@@ -222,7 +238,7 @@ const Cart = () => {
 
           <div className="flex justify-between font-semibold text-lg">
             <span>Total</span>
-            <span>₹1850</span>
+            <span>₹{finalTotal}</span>
           </div>
 
           <p className="text-gray-400 text-xs">
