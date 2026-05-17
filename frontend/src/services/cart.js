@@ -10,6 +10,12 @@ export const addToCart = (productId) => {
   });
 };
 
+export const deleteItem = (productId) => {
+  return API.delete("/cart/remove", {
+    data: { productId }
+  });
+};
+
 export const increaseQuantity = (productId) => {
   return API.patch("/cart/increase", {
     productId,
