@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Trash2 } from "lucide-react";
 import calculateCart from "../utils/calculateCart";
-import {useContext} from "react";
+import { useContext } from "react";
 import UserContext from "../context/UserContext";
 
 
@@ -28,7 +28,7 @@ const Cart = () => {
     try {
       const { data } = await getcartData();
 
-      
+
 
       setItems(data.cart || []);
     } catch (err) {
@@ -54,59 +54,59 @@ const Cart = () => {
   };
 
   // Increase quantity
- const increaseQ = async (productId) => {
+  const increaseQ = async (productId) => {
 
-  try {
+    try {
 
-    const cartq = await increaseQuantity(productId);
+      const cartq = await increaseQuantity(productId);
 
-    setItems(prev =>
-      prev.map(item =>
-        item.product._id === productId
-          ? {
+      setItems(prev =>
+        prev.map(item =>
+          item.product._id === productId
+            ? {
               ...item,
               quantity: cartq.data.quantity
             }
-          : item
-      )
-    );
+            : item
+        )
+      );
 
-  } catch (err) {
+    } catch (err) {
 
-    console.log(err);
+      console.log(err);
 
-  }
-};
+    }
+  };
 
   // Decrease quantity
   const decreaseQ = async (productId) => {
     try {
 
-    const cartq = await decreaseQuantity(productId);
-      
-    setItems(prev =>
-      prev.map(item =>
-        item.product._id === productId
-          ? {
+      const cartq = await decreaseQuantity(productId);
+
+      setItems(prev =>
+        prev.map(item =>
+          item.product._id === productId
+            ? {
               ...item,
               quantity: cartq.data.quantity,
             }
-          : item
-      )
-    );
-    
-  } catch (err) {
-    console.log(err);
-  }
+            : item
+        )
+      );
+
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const {
-  subTotal,
-  discount,
-  deliveryFee,
-  finalTotal
-} = calculateCart(items);
-  
+    subTotal,
+    discount,
+    deliveryFee,
+    finalTotal
+  } = calculateCart(items);
+
   return (
     <div className="bg-[#0b1220] text-white min-h-screen">
       {/* Top */}
