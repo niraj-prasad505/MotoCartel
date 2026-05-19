@@ -7,9 +7,14 @@ import { useContext, useState } from "react";
 
 const Navbar = () => {
   const { user } = useContext(UserContext);
-  
+
   const name = user?.fullname || "";
-const picture = user?.picture || userlogo;
+  const picture = user?.picture || userlogo;
+  const cartCount =
+  user?.cart?.reduce(
+    (acc, item) => acc + item.quantity,
+    0
+  ) || 0;
   // console.log(user);
   return (
     <nav className="flex items-center px-4 md:px-6 py-3 bg-[#020617] h-20 md:h-24 w-full">
@@ -47,16 +52,24 @@ const picture = user?.picture || userlogo;
       <div className="flex items-center gap-3 md:gap-6">
 
         {/* Cart */}
-        <Link to="cart">
-        <div className="w-9 h-9 md:w-11 md:h-11 flex items-center justify-center rounded-full bg-[#0b1220] ring-1 ring-gray-600 shadow-[0_0_20px_rgba(255,255,255,0.08)] cursor-pointer">
-          <ShoppingBag className="w-4 h-4 md:w-6 md:h-6 text-gray-300" />
-        </div>
+        <Link to="/cart">
+
+          <div className="relative w-9 h-9 md:w-11 md:h-11 flex items-center justify-center rounded-full bg-[#0b1220] ring-1 ring-gray-600 shadow-[0_0_20px_rgba(255,255,255,0.08)] cursor-pointer">
+            {/* Cart Icon */}
+            <ShoppingBag className="w-4 h-4 md:w-6 md:h-6 text-gray-300" />
+            {/* Badge */}
+            <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] md:text-xs font-semibold w-5 h-5 flex items-center justify-center rounded-full">
+              {cartCount}
+            </span>
+          </div>
         </Link>
 
         {/* Wishlist */}
-        <div className="w-9 h-9 md:w-11 md:h-11 flex items-center justify-center rounded-full bg-[#0b1220] ring-1 ring-gray-600 shadow-[0_0_20px_rgba(255,255,255,0.08)] cursor-pointer">
-          <Heart className="w-4 h-4 md:w-6 md:h-6 text-gray-300" />
-        </div>
+        <Link to="like">
+          <div className="w-9 h-9 md:w-11 md:h-11 flex items-center justify-center rounded-full bg-[#0b1220] ring-1 ring-gray-600 shadow-[0_0_20px_rgba(255,255,255,0.08)] cursor-pointer">
+            <Heart className="w-4 h-4 md:w-6 md:h-6 text-gray-300" />
+          </div>
+        </Link>
 
         {/* Login */}
         <div className="flex items-center gap-2 md:gap-4 pl-3 md:pl-5 pr-1 bg-[#12151C] text-white rounded-full cursor-pointer text-sm md:text-base h-9 md:h-11">

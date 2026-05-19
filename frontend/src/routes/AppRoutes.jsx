@@ -11,6 +11,7 @@ import Cart from "../pages/Cart";
 import Login from "../pages/Login";
 import Register from "../pages/createAccount";
 import Orders from "../pages/Orders";
+import Like from "../pages/Like";
 
 import Checkout from "../pages/Checkout";
 
@@ -40,6 +41,7 @@ const AppRoutes = () => {
           <Route path="/orders" element={<Orders />} />
           <Route path="/product/:id" element={<Product />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/like" element={<Like />} />
         </Route>
 
         {/* WITHOUT NAVBAR */}

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Trash2 } from "lucide-react";
 import calculateCart from "../utils/calculateCart";
+import {useContext} from "react";
+import UserContext from "../context/UserContext";
 
 
 
@@ -14,6 +16,7 @@ import {
 
 const Cart = () => {
   const [items, setItems] = useState([]);
+  const { user, setUser } = React.useContext(UserContext);
 
   const updateCart = () => {
     // This function can be used to refresh cart data after any update
@@ -41,6 +44,10 @@ const Cart = () => {
     try {
       await deleteItem(productId);
       fetchCart(); // Refresh cart data
+      setUser(prev => ({
+        ...prev,
+        cart: prev.cart.filter(item => item.product._id !== productId)
+      }));
     } catch (err) {
       console.log(err);
     }
@@ -88,6 +95,7 @@ const Cart = () => {
           : item
       )
     );
+    
   } catch (err) {
     console.log(err);
   }
