@@ -90,7 +90,6 @@ const Cart = () => {
           ? {
               ...item,
               quantity: cartq.data.quantity,
-              
             }
           : item
       )
