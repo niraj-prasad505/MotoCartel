@@ -39,7 +39,13 @@ const userSchema = new mongoose.Schema({
                 default: 1
             }
         }
-    ], 
+    ],
+    wishlist: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Product"
+        }
+    ],
     orders: [
         {
             type: mongoose.Schema.Types.ObjectId,
