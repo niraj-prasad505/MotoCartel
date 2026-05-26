@@ -1,21 +1,29 @@
 import API from "./api";
 
-export const getWishlistData = () => {
-  return API.get("/wishlist");
+// Get wishlist items
+export const getWishlistData = async () => {
+  return await API.get("/wishlist");
 };
 
-export const addToWishlist = (productId) => {
-  return API.post("/wishlist", {
+// Add product to wishlist
+export const addToWishlist = async (productId) => {
+  return await API.post("/wishlist/add", {
     productId
   });
 };
 
-export const removeFromWishlist = (productId) => {
-  return API.delete(`/wishlist/${productId}`);
+// Remove product from wishlist
+export const removeFromWishlist = async (productId) => {
+  return await API.delete("/wishlist/remove", {
+    data: {
+      productId
+    }
+  });
 };
 
-export const moveToCart = (productId) => {
-  return API.post("/wishlist/move-to-cart", {
+// Move wishlist item to cart
+export const moveToCart = async (productId) => {
+  return await API.post("/wishlist/move-to-cart", {
     productId
   });
 };

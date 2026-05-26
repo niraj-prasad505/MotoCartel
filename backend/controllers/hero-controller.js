@@ -10,7 +10,7 @@ const getHeroData = async (req, res) => {
 
     res.status(200).json({
       landingHero,
-      highlights1,
+      highlights1,  
       highlights2,
     });
   } catch (err) {

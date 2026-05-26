@@ -1,6 +1,5 @@
 import { Heart, Star, ShoppingBag } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
 
@@ -11,6 +10,10 @@ const ProductCard = ({ product }) => {
       navigate(`/product/${product._id}`);
     }
   };
+
+  const handleWishlistAdd = () =>{
+
+  }
 
   return (
     <div
