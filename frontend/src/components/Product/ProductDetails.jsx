@@ -1,6 +1,7 @@
 import { Info, CirclePercent, IndianRupee, Heart, Percent, Package, CalendarDays, Truck } from 'lucide-react';
 import React from 'react';
 import { addToCart } from '../../services/cart';
+import { addToWishlist } from "../../services/wishlist";
 const ProductDetails = ({ product }) => {
   if (!product) return <p>Loading...</p>;
 
@@ -16,6 +17,22 @@ const ProductDetails = ({ product }) => {
     }
     console.log("Adding to cart:", product._id);
   };
+
+  const handleWishlistAdd = async (e) => {
+
+    e.stopPropagation();
+
+    try {
+
+      const res = await addToWishlist(product._id);
+      console.log(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+
+  };
+
+  
   return <div>
 
     {/* Category */}
@@ -50,7 +67,7 @@ const ProductDetails = ({ product }) => {
       </div>
 
       {/* Wishlist */}
-      <div className="bg-linear-to-r from-amber-500 to-amber-600 w-12 h-12 flex justify-center items-center mt-4 rounded-full">
+      <div onClick={handleWishlistAdd} className="bg-linear-to-r from-amber-500 to-amber-600 w-12 h-12 flex justify-center items-center mt-4 rounded-full">
         <button className="flex justify-center items-center">
           <Heart className="h-6 w-6 text-white" />
         </button>

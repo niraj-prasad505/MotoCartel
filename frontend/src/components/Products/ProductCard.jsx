@@ -1,5 +1,6 @@
 import { Heart, Star, ShoppingBag } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { addToWishlist } from "../../services/wishlist";
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
 
@@ -11,9 +12,19 @@ const ProductCard = ({ product }) => {
     }
   };
 
-  const handleWishlistAdd = () =>{
+  const handleWishlistAdd = async (e) => {
 
-  }
+    e.stopPropagation();
+
+    try {
+
+      const res = await addToWishlist(product._id);
+      console.log(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+
+  };
 
   return (
     <div
@@ -23,7 +34,7 @@ const ProductCard = ({ product }) => {
                  shadow-md hover:shadow-xl relative w-full max-w-65"
     >
       {/* Heart */}
-      <button className="absolute top-4 right-4 text-gray-500 hover:text-orange-500">
+      <button onClick={handleWishlistAdd} className="absolute top-4 right-4 text-gray-500 hover:text-orange-500">
         <Heart size={18} />
       </button>
 
