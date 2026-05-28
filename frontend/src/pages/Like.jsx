@@ -29,8 +29,10 @@ export default function Like() {
 
   return (
     <div className="min-h-screen bg-black pt-6 px-20">
+      <h1 className="text-white text-4xl font-bold mb-6">Wishlist</h1>
 
       <div className=" flex flex-wrap gap-6 justify-start">
+        
 
         {items.map((item) => (
           <WishlistCard
