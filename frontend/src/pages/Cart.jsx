@@ -43,11 +43,22 @@ const Cart = () => {
   const deleteItemFromCart = async (productId) => {
     try {
       await deleteItem(productId);
-      fetchCart(); // Refresh cart data
-      setUser(prev => ({
-        ...prev,
-        cart: prev.cart.filter(item => item.product._id !== productId)
-      }));
+      await deleteItem(productId);
+
+    // Update cart page
+    setItems(prev =>
+      prev.filter(item =>
+        item.product._id !== productId
+      )
+    );
+
+    // Update navbar/global state
+    setUser(prev => ({
+      ...prev,
+      cart: prev.cart.filter(item =>
+        (item.product._id || item.product) !== productId
+      )
+    }));
     } catch (err) {
       console.log(err);
     }
@@ -70,6 +81,7 @@ const Cart = () => {
             : item
         )
       );
+      
 
     } catch (err) {
 

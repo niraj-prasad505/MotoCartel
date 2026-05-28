@@ -2,20 +2,57 @@ import { Info, CirclePercent, IndianRupee, Heart, Percent, Package, CalendarDays
 import React from 'react';
 import { addToCart } from '../../services/cart';
 import { addToWishlist } from "../../services/wishlist";
+import { useContext } from 'react';
+import UserContext from '../../context/UserContext';
 const ProductDetails = ({ product }) => {
   if (!product) return <p>Loading...</p>;
+  const { user, setUser } = useContext(UserContext);
 
   const handleAddToCart = async () => {
+
     try {
 
-      const { data } = await addToCart(product._id);
+      await addToCart(product._id);
 
-      console.log(data);
+      setUser(prev => {
+
+        // check existing product
+        const existingProduct = prev.cart?.find(
+          item => (item.product._id || item.product) === product._id
+        );
+
+        // IF PRODUCT EXISTS
+        if (existingProduct) {
+
+          return {
+            ...prev,
+            cart: prev.cart.map(item =>
+              (item.product._id || item.product) === product._id
+                ? {
+                  ...item,
+                  quantity: item.quantity + 1
+                }
+                : item
+            )
+          };
+        }
+
+        // IF PRODUCT DOES NOT EXIST
+        return {
+          ...prev,
+          cart: [
+            ...(prev.cart || []),
+            {
+              product,
+              quantity: 1
+            }
+          ]
+        };
+      });
 
     } catch (err) {
       console.log(err);
     }
-    console.log("Adding to cart:", product._id);
   };
 
   const handleWishlistAdd = async (e) => {
@@ -32,7 +69,7 @@ const ProductDetails = ({ product }) => {
 
   };
 
-  
+
   return <div>
 
     {/* Category */}

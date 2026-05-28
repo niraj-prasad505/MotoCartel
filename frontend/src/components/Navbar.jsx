@@ -10,11 +10,13 @@ const Navbar = () => {
 
   const name = user?.fullname || "";
   const picture = user?.picture || userlogo;
-  const cartCount =
-  user?.cart?.reduce(
+  
+  const cartCount =user?.cart?.reduce(
     (acc, item) => acc + item.quantity,
     0
   ) || 0;
+  const newcartCount =user?.cart?.length || 0;
+  const wishlistCount =user?.wishlist?.length || 0;
   // console.log(user);
   return (
     <nav className="flex items-center px-4 md:px-6 py-3 bg-[#020617] h-20 md:h-24 w-full">
@@ -59,15 +61,21 @@ const Navbar = () => {
             <ShoppingBag className="w-4 h-4 md:w-6 md:h-6 text-gray-300" />
             {/* Badge */}
             <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] md:text-xs font-semibold w-5 h-5 flex items-center justify-center rounded-full">
-              {cartCount}
+              {newcartCount}
             </span>
           </div>
         </Link>
+        
 
         {/* Wishlist */}
-        <Link to="like">
-          <div className="w-9 h-9 md:w-11 md:h-11 flex items-center justify-center rounded-full bg-[#0b1220] ring-1 ring-gray-600 shadow-[0_0_20px_rgba(255,255,255,0.08)] cursor-pointer">
+        <Link to="/like">
+          <div className="relative w-9 h-9 md:w-11 md:h-11 flex items-center justify-center rounded-full bg-[#0b1220] ring-1 ring-gray-600 shadow-[0_0_20px_rgba(255,255,255,0.08)] cursor-pointer">
+            {/* Cart Icon */}
             <Heart className="w-4 h-4 md:w-6 md:h-6 text-gray-300" />
+            {/* Badge */}
+            <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] md:text-xs font-semibold w-5 h-5 flex items-center justify-center rounded-full">
+              {wishlistCount}
+            </span>
           </div>
         </Link>
 
