@@ -1,7 +1,7 @@
 import React from 'react'
 import { Heart, Star, ShoppingBag, CornerUpRight } from "lucide-react";
 import { X } from 'lucide-react';
-import { addToWishlist } from "../../services/wishlist";
+import { addToWishlist, moveToCart } from "../../services/wishlist";
 const WishlistPproductCart = ({ product, fetchwishlist }) => {
   const handleWishlistAdd = async (e) => {
 
@@ -17,6 +17,15 @@ const WishlistPproductCart = ({ product, fetchwishlist }) => {
       console.log(error);
     }
 
+  };
+
+  const handleMoveToCart = async (e) => {
+    try {
+      const res = await moveToCart(product._id);
+      fetchwishlist(); // refresh data
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div
@@ -59,7 +68,7 @@ const WishlistPproductCart = ({ product, fetchwishlist }) => {
         </p>
 
         <div className="flex items-center gap-3">
-          <button className="bg-[#FF6A00] hover:bg-[#E55D00] p-2 rounded-full">
+          <button onClick={handleMoveToCart} className="bg-[#FF6A00] hover:bg-[#E55D00] p-2 rounded-full">
             <ShoppingBag size={20} />
           </button>
           <button className="bg-[#FF6A00] hover:bg-[#E55D00] p-2 rounded-full">
