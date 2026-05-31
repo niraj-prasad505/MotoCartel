@@ -7,7 +7,7 @@ Full-stack bike accessories e-commerce website.
 - Express.js
 - React
 - Node.js
-- 
+
 - Tailwind CSS
 
 
