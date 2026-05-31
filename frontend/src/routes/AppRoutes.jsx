@@ -40,7 +40,7 @@ const AppRoutes = () => {
           <Route path="/categories" element={<Categories />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/product/:id" element={<Product />} />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout/:id" element={<Checkout />} />
           <Route path="/like" element={<Like />} />
         </Route>
 

@@ -1,8 +1,12 @@
 import { Heart, Star, ShoppingBag } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { addToWishlist } from "../../services/wishlist";
+import { addToCart } from "../../services/cart";
+import { useContext } from "react";
+import UserContext from "../../context/UserContext";
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
+  const { user, setUser } = useContext(UserContext);
 
   if (!product) return null;
 
@@ -25,6 +29,43 @@ const ProductCard = ({ product }) => {
     }
 
   };
+  const handleAddToCart = async (e) => {
+
+    e.stopPropagation();
+    try {
+
+      await addToCart(product._id);
+      setUser(prev => {
+
+        // check existing product
+        const existingProduct = prev.cart?.find(
+          item => (item.product._id || item.product) === product._id
+        );
+
+        if (existingProduct) {
+          return {
+            ...prev,
+            cart: prev.cart?.map((item) =>
+              item.product._id === product._id
+                ? { ...item, quantity: item.quantity + 1 }
+                : item
+            ),
+          };
+        }
+
+        return {
+          ...prev,
+          cart: [...(prev.cart || []), { product, quantity: 1 }],
+        };
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const isInCart = user?.cart?.some(
+    (item) => (item.product?._id || item.product) === product._id
+  );
 
   return (
     <div
@@ -64,8 +105,14 @@ const ProductCard = ({ product }) => {
         <p className="text-white font-semibold text-base">
           ₹{product?.price || 0}
         </p>
-
-        <button className="bg-[#FF6A00] hover:bg-[#E55D00] p-2 rounded-lg">
+        {/* Cart Button */}
+        <button
+          onClick={handleAddToCart}
+          className={`p-2 rounded-lg transition-all duration-300 ${isInCart
+              ? "bg-green-200 hover:bg-green-700"
+              : "bg-[#FF6A00] hover:bg-[#E55D00]"
+            }`}
+        >
           <ShoppingBag size={16} />
         </button>
       </div>

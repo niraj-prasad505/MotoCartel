@@ -4,11 +4,23 @@ import AddressSection from "./AddressSection";
 import PaymentSection from "./PaymentSection";
 import ReviewSection from "./ReviewSection";
 import OrderSummary from "./OrderSummary";
+import { useEffect } from "react";
 
-const CheckoutLayout = () => {
+const CheckoutLayout = ({ product }) => {
   const [step, setStep] = useState(1);
   const [address, setAddress] = useState(null);
   const [payment, setPayment] = useState("");
+
+  useEffect(() => {
+    const fetchAddress = async () => {
+      try {
+        
+      } catch (error) {
+        console.error("Error fetching address:", error);
+      }
+    };
+    // fetchAddress();
+  }, []);
 
   return (
     <div className="flex gap-6 px-15 py-6 bg-[#020617] text-white">
@@ -28,6 +40,7 @@ const CheckoutLayout = () => {
         {step === 2 && (
           <ReviewSection
             address={address}
+            product={product}
             next={() => setStep(3)}
           />
         )}

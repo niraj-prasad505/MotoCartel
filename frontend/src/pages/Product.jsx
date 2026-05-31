@@ -41,7 +41,7 @@ const Product = () => {
     product?.images?.[1],
     product?.images?.[2]
   ];
-
+  if (!product) return <p>Loading...</p>;
 
   return (
     <div className="bg-[#020617] text-white min-h-screen">

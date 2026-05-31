@@ -15,6 +15,7 @@ const cartRouter = require("./routes/cartRouter");
 const orderRouter = require("./routes/orderRouter");
 const heroRouter = require("./routes/heroRoutes");
 const wishlistRouter = require("./routes/wishlistRouter");
+const userAddressRouter = require("./routes/userAddressRouter");
 
 
 // DB connection
@@ -39,6 +40,12 @@ app.set("view engine", "ejs");
 
 
 // routes
+app.get("/api", (req, res) => {
+  res.json({
+    message: "MotoCartel API is running"
+  });
+});
+
 app.use("/api/owners", ownersRouter);
 app.use("/api/user", userRouter);
 app.use("/api/products", productsRouter);
@@ -47,7 +54,7 @@ app.use("/api/orders", orderRouter);
 app.get("/api/home", getHomeData);
 app.use("/api/hero", heroRouter);
 app.use("/api/wishlist", wishlistRouter);
-
+app.use("/api/user/address", userAddressRouter);
 // test route
 app.get("/", (req, res) => {
   res.send("API is running");

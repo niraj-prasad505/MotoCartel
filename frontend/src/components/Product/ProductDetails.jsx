@@ -4,9 +4,12 @@ import { addToCart } from '../../services/cart';
 import { addToWishlist } from "../../services/wishlist";
 import { useContext } from 'react';
 import UserContext from '../../context/UserContext';
+import { useNavigate } from 'react-router-dom';
+
 const ProductDetails = ({ product }) => {
   if (!product) return <p>Loading...</p>;
   const { user, setUser } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const handleAddToCart = async () => {
 
@@ -69,6 +72,14 @@ const ProductDetails = ({ product }) => {
 
   };
 
+  const handleBuyNow = () => {
+    try {
+      navigate(`/checkout/${product._id}`);
+    } catch (error) {
+      console.error("Error on buy now:", error);
+    }
+  };
+
 
   return <div>
 
@@ -94,9 +105,10 @@ const ProductDetails = ({ product }) => {
 
     {/* Action Buttons */}
     <div className='flex gap-4'>
+
       {/* Buy Now */}
-      <div className="px-5 py-3 bg-linear-to-r from-amber-500 to-amber-600 w-[85%] flex justify-center items-center mt-4 rounded-full">
-        <div>
+      <div onClick={handleBuyNow} className="px-5 py-3 bg-linear-to-r from-amber-500 to-amber-600 w-[85%] flex justify-center items-center mt-4 rounded-full">
+        <div >
           <button className="text-white font-semibold">
             Buy Now
           </button>

@@ -19,7 +19,7 @@ const Navbar = () => {
   const wishlistCount =user?.wishlist?.length || 0;
   // console.log(user);
   return (
-    <nav className="flex items-center px-4 md:px-6 py-3 bg-[#020617] h-20 md:h-24 w-full">
+    <nav className="flex sticky top-0 z-50 items-center px-4 md:px-6 py-3 bg-[#020617] h-20 md:h-24 w-full">
 
       {/* LEFT */}
       <Link to="/">

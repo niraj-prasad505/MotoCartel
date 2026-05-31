@@ -1,8 +1,29 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import CheckoutLayout from "../components/Checkout/CheckoutLayout";
-const checkout = () => {
-  return <div className="bg-bg-[#020617]">
-    <CheckoutLayout />
-  </div>;
-};  
+import { getProductById } from "../services/product.service";
 
-export default checkout;
+const Checkout = () => {
+  const { id } = useParams();
+  const [product, setProduct] = useState(null);
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const res = await getProductById(id);
+        setProduct(res.data);
+      } catch (error) {
+        console.error("Error fetching product:", error);
+      }
+    };
+    fetchProduct();
+  }, [id]);
+
+  return (
+    <div className="bg-[#020617]">
+      <CheckoutLayout product={product} />
+    </div>
+  );
+};
+
+export default Checkout;
