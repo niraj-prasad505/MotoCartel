@@ -54,7 +54,7 @@ app.use("/api/orders", orderRouter);
 app.get("/api/home", getHomeData);
 app.use("/api/hero", heroRouter);
 app.use("/api/wishlist", wishlistRouter);
-app.use("/api/user/address", userAddressRouter);
+app.use("/api/user", userAddressRouter);
 // test route
 app.get("/", (req, res) => {
   res.send("API is running");
