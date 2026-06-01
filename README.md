@@ -3,10 +3,13 @@
 Full-stack bike accessories e-commerce website.
 
 ## Tech Stack
-- React
-- Tailwind CSS
-- Node.js
-- Express.js
 - MongoDB
+- Express.js
+- React
+- Node.js
+
+- Tailwind CSS
+
+
 
 Project is currently under development 
