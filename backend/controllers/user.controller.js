@@ -9,14 +9,13 @@
 const UserAddress = require("../models/userAddress");
 const getUserAddress = async (req, res) => {
   try {
-    // Implementation for handling user address
     const userId = req.user.id;
     const userAddress = await UserAddress.findOne({ user: userId });
 
     if (!userAddress) {
-      return res.status(404).json({ message: "User address not found" });
+      console.error("User address not found for user ID:", userId);
+      return res.status(404).json({ message: " no User address not found" });
     }
-
     res.status(200).json(userAddress);
   } catch (error) {
     console.error("Error handling user address:", error);

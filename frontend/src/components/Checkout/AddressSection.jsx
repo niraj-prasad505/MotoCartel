@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const AddressSection = ({ address, setAddress, next }) => {
+const AddressSection = ({ address, setAddress, next, saveAddress }) => {
     const [form, setForm] = useState({
         name: "",
         pincode: "",
@@ -13,10 +13,13 @@ const AddressSection = ({ address, setAddress, next }) => {
     });
 
     const handleSave = () => {
-        setAddress(form);   // now full data goes
+        saveAddress(form);
+        setAddress(form);
         next();
     };
+    // console.log("AddressSection rendered with address:", saveAddressad);
 
+    
     return (
         <div className="p-4 border border-gray-400 rounded-2xl">
             {address ? (

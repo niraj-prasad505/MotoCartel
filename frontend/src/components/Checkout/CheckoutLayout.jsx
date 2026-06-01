@@ -5,6 +5,7 @@ import PaymentSection from "./PaymentSection";
 import ReviewSection from "./ReviewSection";
 import OrderSummary from "./OrderSummary";
 import { useEffect } from "react";
+import { getUserAddress, updateUserAddress } from "../../services/user.service";
 
 const CheckoutLayout = ({ product }) => {
   const [step, setStep] = useState(1);
@@ -14,13 +15,26 @@ const CheckoutLayout = ({ product }) => {
   useEffect(() => {
     const fetchAddress = async () => {
       try {
-        
+        const response = await getUserAddress();
+        if (!response){
+          console.error("Error fetching address:", error);
+        }
+        setAddress(response.data);
       } catch (error) {
         console.error("Error fetching address:", error);
       }
     };
-    // fetchAddress();
+    fetchAddress();
   }, []);
+
+  const saveAddress = async (newAddress) => {
+    try {
+      await updateUserAddress(newAddress);
+    } catch (error) {
+      console.error("Error saving address:", error);
+    }
+  };
+  
 
   return (
     <div className="flex gap-6 px-15 py-6 bg-[#020617] text-white">
@@ -34,6 +48,7 @@ const CheckoutLayout = ({ product }) => {
             address={address}
             setAddress={setAddress}
             next={() => setStep(2)}
+            saveAddress={saveAddress}
           />
         )}
 
