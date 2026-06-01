@@ -17,20 +17,72 @@ const AddressSection = ({ address, setAddress, next, saveAddress }) => {
         setAddress(form);
         next();
     };
+    const handleContinue = () => {
+        next();
+    };
     // console.log("AddressSection rendered with address:", saveAddressad);
 
-    
+
     return (
         <div className="p-4 border border-gray-400 rounded-2xl">
             {address ? (
-                <div>
-                    <p>{address.name}</p>
-                    <p>{address.city}</p>
+                <div className="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 shadow-xl backdrop-blur-sm">
+                    <div className="flex items-center justify-between mb-5">
+                        <div>
+                            <h3 className="text-xl font-bold text-white">
+                                Saved Address
+                            </h3>
+                            <p className="text-sm text-zinc-400">
+                                Delivering to your selected location
+                            </p>
+                        </div>
 
-                    <button onClick={() => setAddress(null)}>
-                        Change
-                    </button>
+                        <button
+                            onClick={() => setAddress(null)}
+                            className="px-4 py-2 rounded-lg bg-green-500 text-black font-semibold hover:bg-green-400 transition-all duration-200"
+                        >
+                            Change
+                        </button>
+                    </div>
+
+                    <div className="border-t border-zinc-800 pt-4 space-y-3">
+                        <div className="flex gap-2">
+                            <span className="min-w-24 text-zinc-500 font-medium">Name</span>
+                            <span className="text-white">{address.name}</span>
+                        </div>
+
+                        <div className="flex gap-2">
+                            <span className="min-w-24 text-zinc-500 font-medium">Pincode</span>
+                            <span className="text-white">{address.pincode}</span>
+                        </div>
+
+                        <div className="flex gap-2">
+                            <span className="min-w-24 text-zinc-500 font-medium">City</span>
+                            <span className="text-white">{address.city}</span>
+                        </div>
+
+                        <div className="flex gap-2">
+                            <span className="min-w-24 text-zinc-500 font-medium">Address</span>
+                            <span className="text-white leading-relaxed">
+                                {address.address}
+                            </span>
+                        </div>
+                        <div className="flex gap-2">
+                            <span className="min-w-24 text-zinc-500 font-medium">Phone</span>
+                            <span className="text-white leading-relaxed">
+                                {address.phone}
+                            </span>
+                        </div>
+                    </div>
+                    <div className="flex justify-between items-center pt-8">
+                        <h1 className="text-gray-600">if the address is wrong thrn the product is not delevered</h1>
+                        <button onClick={handleContinue} className="bg-orange-500 px-6 py-3 rounded-full align-middle text-lg font-semibold justify-around flex items-center">
+                            Save & Continue
+                        </button>
+                    </div>
                 </div>
+
+
             ) : (
                 <div>
 
