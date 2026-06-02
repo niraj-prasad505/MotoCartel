@@ -18,7 +18,7 @@ const PersonalInfo = () => {
         <div className="w-35 h-35 rounded-full overflow-hidden mb-6">
           <img src={userlogo} alt="Profile" className="w-full h-full object-cover" />
         </div>
-
+        {/* Input Fields */}
         <div className="grid grid-cols-3 gap-6 flex-1">
           <div className="w-full">
             <h1 className="p-2 text-gray-400">First Name</h1>
@@ -95,7 +95,7 @@ const PersonalInfo = () => {
 
         </div>
       </div>
-
+      {/* Save Changes Button */}
       <div className="flex justify-end">
         <button className="bg-orange-500 px-6 py-3 rounded-xl font-semibold">
           Save Changes
