@@ -3,23 +3,43 @@ import logo from "../assets/logo.png";
 import userlogo from "../assets/userlogo.png";
 import { Search, Heart, ShoppingBag } from "lucide-react";
 import UserContext from "../context/UserContext";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 
 const Navbar = () => {
   const { user } = useContext(UserContext);
 
   const name = user?.fullname || "";
   const picture = user?.picture || userlogo;
-  
-  const cartCount =user?.cart?.reduce(
+
+  const cartCount = user?.cart?.reduce(
     (acc, item) => acc + item.quantity,
     0
   ) || 0;
-  const newcartCount =user?.cart?.length || 0;
-  const wishlistCount =user?.wishlist?.length || 0;
+  const newcartCount = user?.cart?.length || 0;
+  const wishlistCount = user?.wishlist?.length || 0;
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   // console.log(user);
   return (
-    <nav className="flex sticky top-0 z-50 items-center px-4 md:px-6 py-3 bg-[#020617] h-20 md:h-24 w-full">
+    <nav
+  className={`sticky top-0 z-50 flex items-center px-4 md:px-6 transition-all duration-300
+  ${
+    isScrolled
+      ? "h-14 md:h-18 bg-black/40 backdrop-blur-2xl border border-white/10 shadow-2xl rounded-full mx-4"
+      : "h-20 md:h-24 bg-[#020617]"
+  }`}
+>
 
       {/* LEFT */}
       <Link to="/">
@@ -65,7 +85,7 @@ const Navbar = () => {
             </span>
           </div>
         </Link>
-        
+
 
         {/* Wishlist */}
         <Link to="/like">
