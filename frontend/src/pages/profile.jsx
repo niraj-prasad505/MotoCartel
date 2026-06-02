@@ -25,7 +25,7 @@ const Profile = () => {
           <p className="text-gray-400 text-sm sm:text-base mb-2 sm:mb-4">
             Manage your personal information and delivery details.
           </p>
-
+          {/* Content Sections */}
           <div className="space-y-4">
             <PersonalInfo  />
             <Security />
