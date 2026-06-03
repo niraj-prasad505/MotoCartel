@@ -59,6 +59,7 @@ const Cart = () => {
         (item.product._id || item.product) !== productId
       )
     }));
+
     } catch (err) {
       console.log(err);
     }

@@ -28,9 +28,9 @@ const Profile = () => {
           {/* Content Sections */}
           <div className="space-y-4">
             <PersonalInfo  />
+            <DeliveryAddress />
             <Security />
             <ContactInfo />
-            <DeliveryAddress />
             <Interests />
             <AdditionalInfo />
           </div>
