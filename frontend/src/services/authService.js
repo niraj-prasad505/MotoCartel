@@ -17,3 +17,9 @@ export const getCurrentUser = () => {
     withCredentials: true,
   });
 };
+
+export const forgotPassword = (email) => {
+  return API.post("/user/forgot-password", { email }, {
+    withCredentials: true,
+  });
+}

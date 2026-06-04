@@ -13,6 +13,8 @@ import Register from "../pages/createAccount";
 import Orders from "../pages/Orders";
 import Like from "../pages/Like";
 import Profile from "../pages/profile";
+import ResetPassword from "../pages/ResetPassword";
+import ForgotPassword from "../pages/ForgotPassword";
 
 import Checkout from "../pages/Checkout";
 
@@ -44,11 +46,14 @@ const AppRoutes = () => {
           <Route path="/checkout/:id" element={<Checkout />} />
           <Route path="/like" element={<Like />} />
           <Route path="/profile" element={<Profile />} />
+          
         </Route>
 
         {/* WITHOUT NAVBAR */}
         <Route path="/login" element={<Login />} />
         <Route path="/createAccount" element={<Register />} />  {/* ✅ ADD THIS */}
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
 
       </Routes>
     </BrowserRouter>
