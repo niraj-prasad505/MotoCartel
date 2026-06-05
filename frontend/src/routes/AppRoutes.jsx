@@ -24,7 +24,7 @@ const MainLayout = () => {
     <>
       <Navbar />
       <Outlet />
-      <Footer/>
+      <Footer />
     </>
   );
 };
@@ -33,7 +33,7 @@ const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
-        
+
 
         {/* WITH NAVBAR */}
         <Route element={<MainLayout />}>
@@ -46,14 +46,17 @@ const AppRoutes = () => {
           <Route path="/checkout/:id" element={<Checkout />} />
           <Route path="/like" element={<Like />} />
           <Route path="/profile" element={<Profile />} />
-          
+
         </Route>
 
         {/* WITHOUT NAVBAR */}
         <Route path="/login" element={<Login />} />
         <Route path="/createAccount" element={<Register />} />  {/* ✅ ADD THIS */}
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route
+          path="/reset-password/:token"
+          element={<ResetPassword />}
+        />
 
       </Routes>
     </BrowserRouter>
