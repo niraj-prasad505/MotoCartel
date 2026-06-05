@@ -13,6 +13,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const { setUser } = useContext(UserContext);
+  const [success, setSuccess] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,9 +21,12 @@ export default function Login() {
     try {
       const res = await loginUser({ email, password });
       // console.log(res.data);
-      alert("Login successful 🚀");
       setUser(res.data.user);
-      navigate("/");
+      setSuccess("Login successful 🚀");
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+      
     } catch (err) {
       console.log(err.response?.data);
       alert(err.response?.data?.message || "Login failed ❌");
@@ -43,11 +47,18 @@ export default function Login() {
         </div>
 
         {/* RIGHT SIDE (FORM) */}
+        
         <div className="w-full md:w-1/2 flex items-center justify-center text-white bg-[#121826] border border-white/10 rounded-r-xl shadow-lg">
+          
           <form
             onSubmit={handleSubmit}
             className="w-3/4 max-w-sm flex flex-col gap-4"
           >
+            {success && (
+  <div className="bg-green-500/20 text-green-500 p-3 rounded">
+    {success}
+  </div>
+)}
             <div className="mb-4">
               <h1 className="text-3xl font-bold">Welcome 👋</h1>
               <p className="text-gray-500 text-sm">
@@ -88,7 +99,7 @@ export default function Login() {
 
             {/* FORGOT PASSWORD */}
             <div className="flex justify-end">
-              <a href="#" className="text-sm text-orange-400">
+              <a href="/forgot-password" className="text-sm text-orange-400">
                 Forgot password?
               </a>
             </div>

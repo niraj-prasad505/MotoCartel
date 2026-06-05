@@ -150,24 +150,24 @@ const forgotPassword = async (req, res) => {
     const resetUrl = `${process.env.CLIENT_URL}/reset-password/${resetToken}`;
     // console.log("CLIENT_URL =", process.env.CLIENT_URL);
     // console.log("RESET_URL =", resetUrl);
-  //   await sendEmail({
-  //     email: user.email,
-  //     subject: "Password Reset",
-  //     message: `
-  //   <h2>Password Reset Request</h2>
-  //   <p>Hello ${user.fullname},</p>
+    await sendEmail({
+      email: user.email,
+      subject: "Password Reset",
+      message: `
+    <h2>Password Reset Request</h2>
+    <p>Hello ${user.fullname},</p>
 
-  //   <p>Click the link below to reset your password:</p>
+    <p>Click the link below to reset your password:</p>
 
-  //   <a href="${resetUrl}">
-  //     Reset Password
-  //   </a>
+    <a href="${resetUrl}">
+      Reset Password
+    </a>
 
-  //   <p>This link will expire in 1 hour.</p>
+    <p>This link will expire in 1 hour.</p>
 
-  //   <p>If you didn't request this, please ignore this email.</p>
-  // `
-  //   });
+    <p>If you didn't request this, please ignore this email.</p>
+  `
+    });
     res.status(200).json({ message: "Password reset email sent" });
   } catch (err) {
     res.status(500).json({ message: err.message });
