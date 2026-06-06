@@ -26,7 +26,7 @@ export default function Login() {
       setSuccess("Login successful 🚀");
       setTimeout(() => {
         navigate("/");
-      }, 2000);
+      }, 1000);
 
     } catch (err) {
       console.log(err.response?.data);
