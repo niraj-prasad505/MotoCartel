@@ -1,9 +1,14 @@
 import ProfileSidebar from "../components/Profile/ProfileSidebar";
 import Profilecontent from "../components/Profile/ProfileContent";
+import Help from "../components/Profile/HelpContent";
+import Orders from "../components/Profile/OrdersContent";
+import Reviews from "../components/Profile/ReviewsContent";
+import Offers from "../components/Profile/OffersContent";
+import Wallet from "../components/Profile/WalletContent";
 import { useState } from "react";
 
 const Profile = () => {
-  const [activeSection, setActiveSection] = useState("personal");
+  const [activeSection, setActiveSection] = useState("profile");
   return (
     <div className="min-h-screen text-white px-2 sm:px-6 lg:px-8 py-2 bg-[#020617]">
       <div className="max-w-8xl mx-auto flex flex-col lg:flex-row gap-11 pt-2">
@@ -24,7 +29,12 @@ const Profile = () => {
           </p>
           {/* Content Sections */}
           <div className="space-y-4">
-            <Profilecontent />
+            {activeSection === "profile" && <Profilecontent />}
+            {activeSection === "orders" && <Orders activeSection={activeSection} />}
+            {activeSection === "reviews" && <Reviews activeSection={activeSection} />}
+            {activeSection === "offers" && <Offers activeSection={activeSection} />}
+            {activeSection === "wallet" && <Wallet activeSection={activeSection} />}
+            {activeSection === "help" && <Help activeSection={activeSection} />}
           </div>
         </div>
 

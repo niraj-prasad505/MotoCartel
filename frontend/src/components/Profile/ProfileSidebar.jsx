@@ -67,6 +67,7 @@ const ProfileSidebar = ({ activeSection, setActiveSection }) => {
             return (
               <button
                 key={index}
+                onClick={() => setActiveSection(item.key)}
                 className={`flex items-center gap-4 p-4 rounded-2xl transition-all duration-200
                 ${activeSection === item.key
                     ? "bg-orange-500 text-white shadow-lg"
