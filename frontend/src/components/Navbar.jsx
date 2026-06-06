@@ -33,13 +33,12 @@ const Navbar = () => {
   // console.log(user);
   return (
     <nav
-  className={`sticky top-0 z-50 flex items-center px-4 md:px-6 transition-all duration-300
-  ${
-    isScrolled
-      ? "h-14 md:h-18 bg-black/40 backdrop-blur-2xl border border-white/10 shadow-2xl rounded-full mx-4"
-      : "h-20 md:h-24 bg-[#020617]"
-  }`}
->
+      className={`sticky top-0 z-50 flex items-center px-4 md:px-6 transition-all duration-300
+  ${isScrolled
+          ? "h-14 md:h-18 bg-black/40 backdrop-blur-2xl border border-white/10 shadow-2xl rounded-full mx-4"
+          : "h-20 md:h-24 bg-[#020617]"
+        }`}
+    >
 
       {/* LEFT */}
       <Link to="/">
@@ -111,20 +110,32 @@ const Navbar = () => {
               <Link to="/createAccount">
                 <button className="px-2 py-1">Create</button>
               </Link>
+              <span className="rounded-full overflow-hidden h-7 w-7 md:h-9 md:w-9">
+                <img
+                  src={picture}
+                  alt="logo"
+                  className="object-contain"
+                />
+              </span>
             </span>
+
           ) : (
-            <span className="px-2">
-              {name}
-            </span>
+            <Link to="/profile">
+              <span className="flex justify-between items-center gap-2 md:gap-4 pl-3 md:pl-5 pr-1 bg-[#12151C] text-white rounded-full cursor-pointer text-sm md:text-base h-9 md:h-11">
+              <span className="px-2">
+                {name}
+              </span>
+              <span className="rounded-full overflow-hidden h-7 w-7 md:h-9 md:w-9">
+                <img
+                  src={picture}
+                  alt="logo"
+                  className="object-contain h-9 w-9 rounded-full"
+                />
+              </span>
+              </span>
+            </Link>
           )}
 
-          <span className="rounded-full overflow-hidden h-7 w-7 md:h-9 md:w-9">
-            <img
-              src={picture}
-              alt="logo"
-              className="object-contain"
-            />
-          </span>
 
         </div>
       </div>

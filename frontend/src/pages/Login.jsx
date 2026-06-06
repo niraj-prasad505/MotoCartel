@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { loginUser } from "../services/authService"; // ✅ important
 import loginimg from "../assets/loginassets/loginjpg.jpeg";
 import google from "../assets/loginassets/google.png";
-import { Lock, Eye, Mail } from "lucide-react";
+import { Lock, Eye, Mail, EyeOff } from "lucide-react";
 import { useContext } from "react";
 import UserContext from "../context/UserContext";
 
@@ -14,6 +14,7 @@ export default function Login() {
   const navigate = useNavigate();
   const { setUser } = useContext(UserContext);
   const [success, setSuccess] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,7 +27,7 @@ export default function Login() {
       setTimeout(() => {
         navigate("/");
       }, 2000);
-      
+
     } catch (err) {
       console.log(err.response?.data);
       alert(err.response?.data?.message || "Login failed ❌");
@@ -47,18 +48,18 @@ export default function Login() {
         </div>
 
         {/* RIGHT SIDE (FORM) */}
-        
+
         <div className="w-full md:w-1/2 flex items-center justify-center text-white bg-[#121826] border border-white/10 rounded-r-xl shadow-lg">
-          
+
           <form
             onSubmit={handleSubmit}
             className="w-3/4 max-w-sm flex flex-col gap-4"
           >
             {success && (
-  <div className="bg-green-500/20 text-green-500 p-3 rounded">
-    {success}
-  </div>
-)}
+              <div className="bg-green-500/20 text-green-500 p-3 rounded">
+                {success}
+              </div>
+            )}
             <div className="mb-4">
               <h1 className="text-3xl font-bold">Welcome 👋</h1>
               <p className="text-gray-500 text-sm">
@@ -87,13 +88,24 @@ export default function Login() {
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   placeholder="Enter your password"
                   className="w-full pl-10 pr-10 py-2 rounded bg-gray-800 outline-none"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                <Eye className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5 cursor-pointer" />
+
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
+                >
+                  {showPassword ? (
+                    <EyeOff className="w-5 h-5" />
+                  ) : (
+                    <Eye className="w-5 h-5" />
+                  )}
+                </button>
               </div>
             </div>
 

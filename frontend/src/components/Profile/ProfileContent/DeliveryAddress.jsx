@@ -1,5 +1,5 @@
 import React from 'react'
-import AccordionSection from "./AccordionSection";
+import AccordionSection from "../AccordionSection";
 import Select from "react-select";
 export default function DeliveryAddress() {
 const options = [

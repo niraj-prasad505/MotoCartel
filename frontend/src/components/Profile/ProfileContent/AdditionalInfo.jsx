@@ -1,4 +1,4 @@
-import AccordionSection from "./AccordionSection";
+import AccordionSection from "../AccordionSection";
 
 const AdditionalInfo = () => {
   return (

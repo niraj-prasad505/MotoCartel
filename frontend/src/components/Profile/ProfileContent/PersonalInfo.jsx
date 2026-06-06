@@ -1,5 +1,5 @@
-import AccordionSection from "./AccordionSection";
-import userlogo from "../../assets/userlogo.png";
+import AccordionSection from "../AccordionSection";
+import userlogo from "../../../assets/userlogo.png";
 import { useState } from "react";
 import Select from "react-select";
 

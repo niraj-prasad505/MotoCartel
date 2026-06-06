@@ -9,21 +9,21 @@ import {
   Trash2,
 } from "lucide-react";
 
-const ProfileSidebar = () => {
+const ProfileSidebar = ({ activeSection, setActiveSection }) => {
   const menu = [
-    { icon: User, title: "Profile", active: true },
-    { icon: Clock3, title: "Orders" },
-    { icon: Star, title: "Reviews" },
-    { icon: Gift, title: "Offers" },
-    { icon: Wallet, title: "Wallet" },
-    { icon: HelpCircle, title: "Help" },
-    { icon: LogOut, title: "Logout" },
+    { icon: User, title: "Profile", key: "profile" },
+    { icon: Clock3, title: "Orders", key: "orders" },
+    { icon: Star, title: "Reviews", key: "reviews" },
+    { icon: Gift, title: "Offers", key: "offers" },
+    { icon: Wallet, title: "Wallet", key: "wallet" },
+    { icon: HelpCircle, title: "Help", key: "help" },
+    { icon: LogOut, title: "Logout", key: "logout" },
   ];
 
   return (
     <aside className="w-full lg:w-72">
       <div className=" p-3 lg:p-6">
-        
+
         {/* Mobile & Tablet */}
         <div className="grid grid-cols-4 gap-2 lg:hidden">
           {menu.map((item, index) => {
@@ -32,12 +32,14 @@ const ProfileSidebar = () => {
             return (
               <button
                 key={index}
-                className={`flex flex-col items-center justify-center gap-1 p-3 rounded-xl transition-all duration-200
-                ${
-                  item.active
-                    ? "bg-orange-500 text-white"
-                    : "bg-slate-800 text-gray-300 hover:bg-slate-700"
-                }`}
+                onClick={() => {
+                  setActiveSection(item.key);
+                  console.log(item.key);
+                }}
+                className={`flex items-center gap-4 p-4 rounded-2xl transition-all duration-200${activeSection === item.key
+                    ? "bg-orange-500 text-white shadow-lg"
+                    : "text-gray-300 hover:bg-slate-800 hover:text-white"
+                  }`}
               >
                 <Icon size={18} />
 
@@ -66,11 +68,10 @@ const ProfileSidebar = () => {
               <button
                 key={index}
                 className={`flex items-center gap-4 p-4 rounded-2xl transition-all duration-200
-                ${
-                  item.active
+                ${activeSection === item.key
                     ? "bg-orange-500 text-white shadow-lg"
                     : "text-gray-300 hover:bg-slate-800 hover:text-white"
-                }`}
+                  }`}
               >
                 <Icon size={20} />
 
