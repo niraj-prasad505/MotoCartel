@@ -21,7 +21,7 @@ const ProfileSidebar = ({ activeSection, setActiveSection }) => {
   ];
 
   return (
-    <aside className="w-full lg:w-72">
+    <aside className="w-full lg:w-72 lg:sticky lg:top-20 h-fit">
       <div className=" p-3 lg:p-6">
 
         {/* Mobile & Tablet */}
