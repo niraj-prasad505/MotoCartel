@@ -7,8 +7,9 @@ import { useContext, useState, useEffect } from "react";
 
 const Navbar = () => {
   const { user } = useContext(UserContext);
-
+  // const [username, setUsername] = useState(user?.fullname);
   const name = user?.fullname || "";
+  // console.log(user);
   const picture = user?.picture || userlogo;
 
   const cartCount = user?.cart?.reduce(
@@ -19,6 +20,12 @@ const Navbar = () => {
   const wishlistCount = user?.wishlist?.length || 0;
 
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const [navbarUser, setNavbarUser] = useState(user);
+
+  useEffect(() => {
+    setNavbarUser(user);
+  }, [user]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -122,16 +129,16 @@ const Navbar = () => {
           ) : (
             <Link to="/profile">
               <span className="flex justify-between items-center gap-2 md:gap-4 pl-3 md:pl-5 pr-1 bg-[#12151C] text-white rounded-full cursor-pointer text-sm md:text-base h-9 md:h-11">
-              <span className="px-2">
-                {name}
-              </span>
-              <span className="rounded-full overflow-hidden h-7 w-7 md:h-9 md:w-9">
-                <img
-                  src={picture}
-                  alt="logo"
-                  className="object-contain h-9 w-9 rounded-full"
-                />
-              </span>
+                <span className="px-2">
+                  {name}
+                </span>
+                <span className="rounded-full overflow-hidden h-7 w-7 md:h-9 md:w-9">
+                  <img
+                    src={picture}
+                    alt="logo"
+                    className="object-contain h-9 w-9 rounded-full"
+                  />
+                </span>
               </span>
             </Link>
           )}

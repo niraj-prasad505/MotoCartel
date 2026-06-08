@@ -23,6 +23,7 @@ export default function Login() {
       const res = await loginUser({ email, password });
       // console.log(res.data);
       setUser(res.data.user);
+      // console.log(res.data.user);
       setSuccess("Login successful 🚀");
       setTimeout(() => {
         navigate("/");
