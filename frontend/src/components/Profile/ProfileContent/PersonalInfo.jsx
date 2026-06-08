@@ -15,12 +15,12 @@ const PersonalInfo = () => {
   const { user } = useContext(UserContext);
   // console.log(user);
   const [formData, setFormData] = useState({
-  firstName: "",
-  lastName: "",
-  email: "",
-  gender: "",
-  dob: "",
-});
+    firstName: "",
+    lastName: "",
+    email: "",
+    gender: "",
+    dob: "",
+  });
   useEffect(() => {
     if (!user) return;
 
@@ -36,23 +36,23 @@ const PersonalInfo = () => {
   }, [user]);
   const [isChanged, setIsChanged] = useState(false);
   useEffect(() => {
-  const originalData = {
-    firstName: user?.fullname?.split(" ")[0] || "",
-    lastName: user?.fullname?.split(" ").slice(1).join(" ") || "",
-    email: user?.email || "",
-    gender: user?.gender || "",
-    dob: user?.dob
-      ? new Date(user.dob).toISOString().split("T")[0]
-      : "",
-  };
+    const originalData = {
+      firstName: user?.fullname?.split(" ")[0] || "",
+      lastName: user?.fullname?.split(" ").slice(1).join(" ") || "",
+      email: user?.email || "",
+      gender: user?.gender || "",
+      dob: user?.dob
+        ? new Date(user.dob).toISOString().split("T")[0]
+        : "",
+    };
 
-  const changed =
-    JSON.stringify(formData) !== JSON.stringify(originalData);
+    const changed =
+      JSON.stringify(formData) !== JSON.stringify(originalData);
 
-  console.log("changed:", changed);
+    console.log("changed:", changed);
 
-  setIsChanged(changed);
-}, [formData, user]);
+    setIsChanged(changed);
+  }, [formData, user]);
 
 
   // useEffect(() => {
@@ -170,15 +170,14 @@ const PersonalInfo = () => {
       {/* Save Changes Button */}
       <div className="flex justify-end">
         <button
-  className={`px-6 py-3 rounded-xl font-semibold transition-colors ${
-    isChanged
-      ? "bg-orange-500 hover:bg-orange-600 text-white"
-      : "bg-gray-600 text-gray-400 cursor-not-allowed"
-  }`}
-  disabled={!isChanged}
->
-  {isChanged ? "Save Changes" : "No Changes"}
-</button>
+          className={`px-6 py-3 rounded-xl font-semibold transition-colors ${isChanged
+              ? "bg-orange-500 hover:bg-orange-600 text-white"
+              : "bg-gray-600 text-gray-400 cursor-not-allowed"
+            }`}
+          disabled={!isChanged}
+        >
+          {isChanged ? "Save Changes" : "No Changes"}
+        </button>
       </div>
     </AccordionSection>
   );
