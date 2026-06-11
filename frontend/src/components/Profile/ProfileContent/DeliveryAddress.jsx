@@ -1,7 +1,10 @@
 import React from 'react'
 import AccordionSection from "../AccordionSection";
 import Select from "react-select";
+import { useEffect, useState } from "react";
+import {getUserAddress} from "../../../services/user.service";
 export default function DeliveryAddress() {
+  const [address, setAddress] = useState(null);
 const options = [
   { value: "andhra-pradesh", label: "Andhra Pradesh" },
   { value: "arunachal-pradesh", label: "Arunachal Pradesh" },
@@ -32,6 +35,21 @@ const options = [
   { value: "uttarakhand", label: "Uttarakhand" },
   { value: "west-bengal", label: "West Bengal" },
 ];
+  useEffect(() => {
+      const fetchAddress = async () => {
+        try {
+          const response = await getUserAddress();
+          if (!response){
+            console.error("Error fetching address:", error);
+          }
+          setAddress(response.data);
+        } catch (error) {
+          console.error("Error fetching address:", error);
+        }
+      };
+      fetchAddress();
+    }, []);
+    console.log(address);
   return (
     <AccordionSection title="Delivery Info ">
       

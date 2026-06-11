@@ -49,7 +49,7 @@ const PersonalInfo = () => {
     const changed =
       JSON.stringify(formData) !== JSON.stringify(originalData);
 
-    console.log("changed:", changed);
+    // console.log("changed:", changed);
 
     setIsChanged(changed);
   }, [formData, user]);
