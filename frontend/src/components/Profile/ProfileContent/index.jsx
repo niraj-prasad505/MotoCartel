@@ -10,9 +10,9 @@ const ProfileContent = () => {
     <div className="space-y-4">
       <PersonalInfo />
       <DeliveryAddress />
-      <Security />
       <ContactInfo />
-      <Interests />
+      <Security />
+      {/* <Interests /> */}
       <AdditionalInfo />
     </div>
   );

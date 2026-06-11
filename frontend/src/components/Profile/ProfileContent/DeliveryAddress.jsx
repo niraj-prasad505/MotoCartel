@@ -33,7 +33,7 @@ const options = [
   { value: "west-bengal", label: "West Bengal" },
 ];
   return (
-    <AccordionSection title="Personal Info ">
+    <AccordionSection title="Delivery Info ">
       
 
       <div className="gap-8 items-start p-6 px-9 rounded-2xl">
