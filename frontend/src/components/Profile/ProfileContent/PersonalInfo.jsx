@@ -13,7 +13,8 @@ const PersonalInfo = () => {
     { value: "other", label: "Other" },
   ];
   const { user } = useContext(UserContext);
-  // console.log(user);
+  
+  // form filds
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -21,6 +22,8 @@ const PersonalInfo = () => {
     gender: "",
     dob: "",
   });
+
+  // add data of user in filds
   useEffect(() => {
     if (!user) return;
 
@@ -34,7 +37,9 @@ const PersonalInfo = () => {
         : "",
     });
   }, [user]);
+
   const [isChanged, setIsChanged] = useState(false);
+
   useEffect(() => {
     const originalData = {
       firstName: user?.fullname?.split(" ")[0] || "",
@@ -46,21 +51,10 @@ const PersonalInfo = () => {
         : "",
     };
 
-    const changed =
-      JSON.stringify(formData) !== JSON.stringify(originalData);
-
+    const changed = JSON.stringify(formData) !== JSON.stringify(originalData);
     // console.log("changed:", changed);
-
     setIsChanged(changed);
   }, [formData, user]);
-
-
-  // useEffect(() => {
-  //   setIsChanged(
-  //     JSON.stringify(formData) !== JSON.stringify(user)
-  //   );
-  //   console.log(formData, user, isChanged);
-  // }, [formData, user]);
 
   return (
     <AccordionSection title="Personal Info ">
@@ -170,6 +164,7 @@ const PersonalInfo = () => {
       {/* Save Changes Button */}
       <div className="flex justify-end">
         <button
+          // onClick={save}
           className={`px-6 py-3 rounded-xl font-semibold transition-colors ${isChanged
               ? "bg-orange-500 hover:bg-orange-600 text-white"
               : "bg-gray-600 text-gray-400 cursor-not-allowed"
