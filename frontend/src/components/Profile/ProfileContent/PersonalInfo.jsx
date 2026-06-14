@@ -62,7 +62,7 @@ const PersonalInfo = () => {
       <div className="gap-8 items-start p-6 rounded-2xl">
 
         <div className="w-35 h-35 rounded-full overflow-hidden mb-6">
-          <img src={userlogo} alt="Profile" className="w-full h-full object-cover" />
+          <img src={user?.picture || userlogo} alt="Profile" className="w-full h-full object-cover" />
         </div>
         {/* Input Fields */}
         <div className="grid grid-cols-3 gap-6 flex-1">
