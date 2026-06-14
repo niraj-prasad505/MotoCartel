@@ -4,6 +4,13 @@ import ProductCard from "./ProductCard";
 
 
 const ProductGrid = ({products = [] }) => {
+  if (products.length === 0) {
+  return (
+    <div className="text-center py-10 text-gray-400">
+      No products found.
+    </div>
+  );
+}
   return (
     <div className="p-2 md:p-4">
       
@@ -15,8 +22,8 @@ const ProductGrid = ({products = [] }) => {
                       xl:grid-cols-5">
         
         {products.map((item) => (
-          <ProductCard key={item.id} product={item} />
-        ))}
+  <ProductCard key={item._id} product={item} />
+))}
 
       </div>
 

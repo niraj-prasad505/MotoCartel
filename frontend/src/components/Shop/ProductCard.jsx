@@ -1,15 +1,32 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
+import { addToCart } from "../../services/cart";
+import { addToWishlist } from "../../services/wishlist";
+import { useNavigate } from "react-router-dom";
+
 
 const ProductCard = ({ product }) => {
+  const navigate = useNavigate();
+  
+  if (!product) return null;
+
+  const handleClick = () => {
+    console.log(product._id)
+    // if (product?._id) {
+    //   navigate(`/shop/${product._id}`);
+    // }
+  };
   return (
     
-    <div className="bg-[#1A1F29] rounded-xl p-3 hover:scale-[1.03] hover:shadow-lg transition duration-300 cursor-pointer">
+    <div
+    onClick={handleClick}
+    
+    className="bg-[#1A1F29] rounded-xl p-3 hover:scale-[1.03] hover:shadow-lg transition duration-300 cursor-pointer">
 
       {/* Image */}
       <div className="h-44 w-full overflow-hidden rounded-lg mb-3">
        <img
-  src={`${product.image}?w=400&h=400&fit=crop`}
+  src={`${product.images?.[0]}?w=400&h=400&fit=crop`}
   alt={product.name}
   loading="lazy"
   className="h-full w-full object-cover"
