@@ -50,7 +50,7 @@ const Home = () => {
 
       <div className="h-12 bg-[#020617]"></div>
 
-      <div className="max-w-350 mx-auto px-6 mt-1">
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 mt-1">
         <FeaturedProducts products={homeData.featured} />
         <ShopByCategory categories={homeData.categories} />
         <TrendingNow products={homeData.trending} />

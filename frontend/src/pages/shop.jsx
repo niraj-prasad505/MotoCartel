@@ -3,6 +3,7 @@ import FilterSidebar from "../components/Shop/FilterSidebar";
 import ShopHeader from "../components/Shop/ShopHeader";
 import ProductGrid from "../components/Shop/ProductGrid";
 import { useState } from "react";
+import { useEffect } from "react";
 
 const Shop = () => {
   const products = [
@@ -188,33 +189,41 @@ const Shop = () => {
     },
   ];
 
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("all");
   const [priceLimit, setPriceLimit] = useState(10000);
   const [selectedRating, setSelectedRating] = useState(0);
   const [sortBy, setSortBy] = useState("default");
+  
 
+  useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
 
-  const filteredProducts = products.filter((product) => {
-    const categoryMatch =
-      !selectedCategory ||
-      product.category === selectedCategory;
+ const filteredProducts = products.filter((product) => {
+  const categoryMatch =
+    selectedCategory === "all" ||
+    product.category === selectedCategory;
 
-    const priceMatch =
-      product.price <= priceLimit;
+  const priceMatch = product.price <= priceLimit;
 
-    const ratingMatch =
-      product.rating >= selectedRating;
+  const ratingMatch =
+    product.rating >= selectedRating;
 
-    return (
-      categoryMatch &&
-      priceMatch &&
-      ratingMatch
-    );
-  });
+  return (
+    categoryMatch &&
+    priceMatch &&
+    ratingMatch
+  );
+});
 
   const sortedProducts = [...filteredProducts];
 
   switch (sortBy) {
+    case "all":
+     
+      // No sorting, show all products
+      break;
+
     case "priceLowToHigh":
       sortedProducts.sort((a, b) => a.price - b.price);
       break;

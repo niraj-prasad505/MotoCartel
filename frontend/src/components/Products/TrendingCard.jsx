@@ -12,7 +12,7 @@ export default function TrendingCard({  product }) {
     }
   };
   return (
-    <div onClick={handleClick} className="bg-[#121826] border border-[#2A3447] rounded-xl p-4 hover:scale-[1.02] transition relative w-75">
+    <div onClick={handleClick} className="bg-[#121826] border border-[#2A3447] rounded-xl p-4 hover:scale-[1.02] transition relative w-full">
 
       {/* Popular Badge */}
       <span className="absolute top-3 left-3 text-xs bg-orange-500/20 text-orange-400 px-2 py-2 rounded-md">
@@ -26,10 +26,10 @@ export default function TrendingCard({  product }) {
 
       {/* Image */}
       <img
-        src={product?.images?.[0] || "https://via.placeholder.com/150"}
-        alt={product?.name || "product"}
-        className="w-full object-contain my-4 rounded-xl mt-8"
-      />
+  src={product?.images?.[0] || "https://via.placeholder.com/150"}
+  alt={product?.name || "product"}
+  className="w-full h-40 sm:h-48 object-contain my-4 rounded-xl mt-8"
+/>
 
       {/* Title */}
       <h3 className="text-sm text-white font-medium leading-tight">

@@ -12,7 +12,7 @@ const FilterSidebar = ({
 
   const setSelectedCategoryFun = (option) => {
     setSelectedCategory(option);
-    console.log(option);
+    // console.log(option);
   };
   const ratings = [5, 4, 3, 2, 1];
 
@@ -27,6 +27,15 @@ const FilterSidebar = ({
         <div className="mb-6 border-b border-gray-700 pb-4">
           <h3 className="mb-3 text-gray-400">By Categories</h3>
           <ul className="space-y-2 text-sm">
+            <li
+              className={`cursor-pointer ${selectedCategory === "all"
+                  ? "text-orange-500"
+                  : "hover:text-white"
+                }`}
+              onClick={() => setSelectedCategoryFun("all")}
+            >
+              All
+            </li>
             <li
               className={`cursor-pointer ${selectedCategory === "Helmets"
                   ? "text-orange-500"
