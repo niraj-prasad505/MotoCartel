@@ -1,9 +1,21 @@
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 
-const FilterSidebar = () => {
-  const [price, setPrice] = useState(100);
+const FilterSidebar = ({
+  selectedCategory,
+  setSelectedCategory,
+  priceLimit,
+  setPriceLimit,
+  selectedRating,
+  setSelectedRating,
+}) => {
+
+  const setSelectedCategoryFun = (option) => {
+    setSelectedCategory(option);
+    console.log(option);
+  };
   const ratings = [5, 4, 3, 2, 1];
+
 
   return (
     <div className="h-full overflow-y-auto px-4 py-2 no-scrollbar">
@@ -15,10 +27,47 @@ const FilterSidebar = () => {
         <div className="mb-6 border-b border-gray-700 pb-4">
           <h3 className="mb-3 text-gray-400">By Categories</h3>
           <ul className="space-y-2 text-sm">
-            <li className="hover:text-white cursor-pointer">Helmets</li>
-            <li className="hover:text-white cursor-pointer">Gloves</li>
-            <li className="hover:text-white cursor-pointer">Jackets</li>
-            <li className="hover:text-white cursor-pointer">Boots</li>
+            <li
+              className={`cursor-pointer ${selectedCategory === "Helmets"
+                  ? "text-orange-500"
+                  : "hover:text-white"
+                }`}
+              onClick={() => setSelectedCategoryFun("Helmets")}
+            >
+              Helmets
+            </li>
+
+            <li
+              className={`cursor-pointer ${selectedCategory === "Gloves"
+                  ? "text-orange-500"
+                  : "hover:text-white"
+                }`}
+              onClick={() => setSelectedCategoryFun("Gloves")}
+            >
+              Gloves
+            </li>
+
+            <li
+              className={`cursor-pointer ${selectedCategory === "Jackets"
+                  ? "text-orange-500"
+                  : "hover:text-white"
+                }`}
+              onClick={() => setSelectedCategoryFun("Jackets")}
+            >
+              Jackets
+            </li>
+
+            <li
+              className={`cursor-pointer ${selectedCategory === "Boots"
+                  ? "text-orange-500"
+                  : "hover:text-white"
+                }`}
+              onClick={() => setSelectedCategoryFun("Boots")}
+            >
+              Boots
+            </li>
+
+            
           </ul>
         </div>
 
@@ -27,15 +76,15 @@ const FilterSidebar = () => {
           <h3 className="mb-3 text-gray-400">Price</h3>
 
           <p className="text-sm mb-2 text-gray-300">
-            ₹0 - ₹{price}
+            ₹0 - ₹{priceLimit}
           </p>
 
           <input
             type="range"
             min="0"
             max="10000"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
+            value={priceLimit}
+            onChange={(e) => setPriceLimit(Number(e.target.value))}
             className="w-full accent-orange-500 cursor-pointer"
           />
         </div>
@@ -48,6 +97,7 @@ const FilterSidebar = () => {
             {ratings.map((star) => (
               <div
                 key={star}
+                onClick={() => setSelectedRating(star)}
                 className="flex items-center gap-2 cursor-pointer hover:scale-[1.02] transition"
               >
                 <div className="flex">

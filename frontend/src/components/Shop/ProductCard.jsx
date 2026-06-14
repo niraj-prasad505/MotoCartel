@@ -8,15 +8,16 @@ const ProductCard = ({ product }) => {
 
       {/* Image */}
       <div className="h-44 w-full overflow-hidden rounded-lg mb-3">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="h-full w-full object-cover"
-        />
+       <img
+  src={`${product.image}?w=400&h=400&fit=crop`}
+  alt={product.name}
+  loading="lazy"
+  className="h-full w-full object-cover"
+/>
       </div>
 
       {/* Title */}
-      <h3 className="font-medium text-sm line-clamp-2 min-h-[40px]">
+      <h3 className="font-medium text-sm line-clamp-2 min-h-10">
         {product.name}
       </h3>
 
