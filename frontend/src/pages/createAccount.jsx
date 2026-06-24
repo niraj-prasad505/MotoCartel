@@ -2,12 +2,13 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import loginimg from "../assets/loginassets/loginjpg.jpeg";
 import google from "../assets/loginassets/google.png";
-import { Lock, Eye, Mail, User } from "lucide-react";
+import { Lock, Eye, Mail, User, EyeOff } from "lucide-react";
 import { registerUser } from "../services/authService";
 
 export default function Register() {
   const navigate = useNavigate();
-
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [form, setForm] = useState({
     fullname: "",
     email: "",
@@ -24,7 +25,7 @@ export default function Register() {
 
     try {
       const res = await registerUser({
-        fullname: form.name,
+        fullname: form.fullname,
         email: form.email,
         password: form.password,
         confirmPassword: form.confirmPassword,
@@ -75,9 +76,9 @@ export default function Register() {
                 <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
                 <input
                   type="text"
-                  name="name"
+                  name="fullname"
                   placeholder="Enter your name"
-                  value={form.name}
+                  value={form.fullname}
                   onChange={handleChange}
                   className="w-full pl-10 pr-3 py-2 bg-[#0F1623] border border-[#2A3447] rounded-lg outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500"
                 />
@@ -100,36 +101,109 @@ export default function Register() {
               </div>
             </div>
 
+            <div>
+
+              <div className=" flex gap-5">
+                <div>
+                  <p className=" text-xs ml-2 mb-3 items-center flex">your OTP is sanded to<span className=" text-green-400">{form.email}</span></p>
+                  <input type="otp"
+                    name="otp"
+                    placeholder="Enter OTP"
+                    className=" w-45  px-3 py-2 bg-[#0F1623] border border-[#2A3447] rounded-lg outline-none"
+                  />
+
+                </div>
+              </div>
+
+              <div className=" flex gap-5">
+                <input type="otp"
+                  name="otp"
+                  placeholder="Enter OTP"
+                  className=" w-45  px-3 py-2 bg-[#0F1623] border border-[#2A3447] rounded-lg outline-none"
+                />
+                <button
+                  type="button"
+                  className="flex items-center justify-center h-10 px-4 rounded-lg font-medium text-sm text-white bg-linear-to-r from-orange-500 to-amber-500 border border-orange-400 shadow-md shadow-orange-500/20 hover:scale-105 transition-all duration-200"
+                >
+                  Verify
+                </button>
+              </div>
+
+              <div className=" flex gap-5">
+                <input type="otp"
+                  name="otp"
+                  placeholder="Enter OTP"
+                  className=" w-45  px-3 py-2 bg-[#0F1623] border border-[#2A3447] rounded-lg outline-none"
+                />
+                <button className="bg-amber-600 px-4 rounded-2xl border border-amber-500 py-1">Sand</button>
+              </div>
+
+              <div className=" flex gap-5">
+                <input type="otp"
+                  name="otp"
+                  placeholder="Enter OTP"
+                  className=" w-45  px-3 py-2 bg-[#0F1623] border border-[#2A3447] rounded-lg outline-none"
+                />
+                <button className="bg-amber-600 px-4 rounded-2xl border border-amber-500 py-1">Sand</button>
+              </div>
+
+            </div>
+
             {/* PASSWORD */}
             <div>
               <label className="text-sm mb-1 block">Password</label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   name="password"
-                  placeholder="Enter password"
+                  placeholder="Enter your password"
                   value={form.password}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-10 py-2 bg-[#0F1623] border border-[#2A3447] rounded-lg outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500"
+                  className="w-full pl-10 pr-10 py-2 rounded bg-gray-800 outline-none"
                 />
-                <Eye className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5 cursor-pointer" />
+
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
+                >
+                  {showPassword ? (
+                    <EyeOff className="w-5 h-5" />
+                  ) : (
+                    <Eye className="w-5 h-5" />
+                  )}
+                </button>
               </div>
             </div>
 
             {/* CONFIRM PASSWORD */}
             <div>
               <label className="text-sm mb-1 block">Confirm Password</label>
+
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+
                 <input
-                  type="password"
+                  type={showConfirmPassword ? "text" : "password"}
                   name="confirmPassword"
                   placeholder="Confirm password"
                   value={form.confirmPassword}
                   onChange={handleChange}
                   className="w-full pl-10 pr-10 py-2 bg-[#0F1623] border border-[#2A3447] rounded-lg outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500"
                 />
+
+                <button
+                  type="button"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
+                >
+                  {showConfirmPassword ? (
+                    <EyeOff className="w-5 h-5" />
+                  ) : (
+                    <Eye className="w-5 h-5" />
+                  )}
+                </button>
               </div>
             </div>
 
