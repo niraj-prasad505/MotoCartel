@@ -191,7 +191,7 @@ const resetPassword = async (req, res) => {
       return res.status(400).json({ message: "All fields required" });
     }
     if (password !== confirmPassword) {
-      return res.status(400).json({ message: "Passwords do not match" });
+      return res.status(400).json({ message: "Passwords dus not match" });
     }
 
     const user = await User.findOne({
