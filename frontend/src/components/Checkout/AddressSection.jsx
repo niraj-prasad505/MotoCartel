@@ -75,7 +75,7 @@ const AddressSection = ({ address, setAddress, next, saveAddress }) => {
                         </div>
                     </div>
                     <div className="flex justify-between items-center pt-8">
-                        <h1 className="text-gray-600">if the address is wrong thrn the product is not delevered</h1>
+                        <h1 className="text-gray-600">if the address is wrong then the product is not delevered</h1>
                         <button onClick={handleContinue} className="bg-orange-500 px-6 py-3 rounded-full align-middle text-lg font-semibold justify-around flex items-center">
                             Save & Continue
                         </button>
