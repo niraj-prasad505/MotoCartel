@@ -30,7 +30,7 @@ export default function ContactInfo() {
           </div>
 
           <div className="w-full">
-            <h1 className="p-2 text-gray-400">email</h1>
+            <h1 className="p-2 text-gray-400">email ID</h1>
             <input
               className="bg-slate-800 p-3 pl-5 rounded-full outline-none w-full"
               placeholder="email"
