@@ -8,12 +8,12 @@ const register = async (req, res) => {
   try {
     const { fullname, email, password, confirmPassword, role } = req.body;
 
-
+    // Validation
     if (!fullname || !email || !password || !confirmPassword) {
       return res.status(400).json({ message: "All fields required" });
     }
 
-
+    // Password validation
     if (password !== confirmPassword) {
       return res.status(400).json({ message: "Passwords do not match" });
     }
