@@ -40,6 +40,7 @@ const PersonalInfo = () => {
 
   const [isChanged, setIsChanged] = useState(false);
 
+  // check if any changes are made in filds
   useEffect(() => {
     const originalData = {
       firstName: user?.fullname?.split(" ")[0] || "",
