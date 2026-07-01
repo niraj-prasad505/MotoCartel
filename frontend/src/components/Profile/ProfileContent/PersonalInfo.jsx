@@ -51,7 +51,7 @@ const PersonalInfo = () => {
         ? new Date(user.dob).toISOString().split("T")[0]
         : "",
     };
-
+    // console.log("originalData:", originalData);
     const changed = JSON.stringify(formData) !== JSON.stringify(originalData);
     // console.log("changed:", changed);
     setIsChanged(changed);
