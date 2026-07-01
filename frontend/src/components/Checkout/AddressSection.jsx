@@ -20,8 +20,7 @@ const AddressSection = ({ address, setAddress, next, saveAddress }) => {
     const handleContinue = () => {
         next();
     };
-    // console.log("AddressSection rendered with address:", saveAddressad);
-
+    
 
     return (
         <div className="p-4 border border-gray-400 rounded-2xl">
