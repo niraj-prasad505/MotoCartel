@@ -44,7 +44,7 @@ const AddressSection = ({ address, setAddress, next, saveAddress }) => {
                             Change address
                         </button>
                     </div>
-
+                    {/* Address Details */}
                     <div className="border-t border-zinc-800 pt-4 space-y-3">
                         <div className="flex gap-2">
                             <span className="min-w-24 text-zinc-500 font-medium">Name</span>
