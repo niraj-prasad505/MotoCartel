@@ -5,6 +5,7 @@ import { useState } from "react";
 
 
 export default function ContactInfo({ userPhone, useremail }) {
+  console.log("userPhone:", userPhone);
   return (
     <AccordionSection title="Contact Info ">
       
