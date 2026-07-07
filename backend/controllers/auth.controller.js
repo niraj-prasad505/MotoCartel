@@ -31,9 +31,6 @@ const register = async (req, res) => {
       email,
       password: hashedPassword,
       role: role || "user",
-      contact: req.body.contact || null,
-      picture: req.body.picture || "",
-      gender: req.body.gender || null
     });
 
     res.status(201).json({
