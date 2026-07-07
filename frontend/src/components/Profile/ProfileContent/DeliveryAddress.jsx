@@ -1,25 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AccordionSection from "../AccordionSection";
-import { getUserAddress } from "../../../services/user.service";
 
-export default function DeliveryAddress() {
-  const [address, setAddress] = useState(null);
-
-  useEffect(() => {
-    const fetchAddress = async () => {
-      try {
-        const response = await getUserAddress();
-
-        if (response?.data) {
-          setAddress(response.data);
-        }
-      } catch (error) {
-        console.error("Error fetching address:", error);
-      }
-    };
-
-    fetchAddress();
-  }, []);
+export default function DeliveryAddress({ address }) {
 
   return (
     <AccordionSection title="Delivery Address">

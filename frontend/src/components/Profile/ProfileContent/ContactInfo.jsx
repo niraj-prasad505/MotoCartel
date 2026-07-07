@@ -4,7 +4,7 @@ import Select from "react-select";
 import { useState } from "react";
 
 
-export default function ContactInfo() {
+export default function ContactInfo({ userPhone, useremail }) {
   return (
     <AccordionSection title="Contact Info ">
       
