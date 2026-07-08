@@ -4,6 +4,7 @@ import loginimg from "../assets/loginassets/loginjpg.jpeg";
 import google from "../assets/loginassets/google.png";
 import { Lock, Eye, Mail, User, EyeOff } from "lucide-react";
 import { registerUser } from "../services/authService";
+import EmailStatus from "../components/CreateAccountComponents/EmailStatus";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -38,6 +39,9 @@ export default function Register() {
       alert(err?.response?.data?.message || "Signup failed");
     }
   };
+
+  const [emailVerified, setEmailVerified] = useState(false);
+
 
   return (
     <div className="h-screen bg-[#0B0F17] flex justify-center items-center p-6">
@@ -101,53 +105,7 @@ export default function Register() {
               </div>
             </div>
 
-            <div>
-
-              <div className=" flex gap-5">
-                <div>
-                  <p className=" text-xs ml-2 mb-3 items-center flex">your OTP is sanded to<span className=" text-green-400">{form.email}</span></p>
-                  <input type="otp"
-                    name="otp"
-                    placeholder="Enter OTP"
-                    className=" w-45  px-3 py-2 bg-[#0F1623] border border-[#2A3447] rounded-lg outline-none"
-                  />
-
-                </div>
-              </div>
-
-              <div className=" flex gap-5">
-                <input type="otp"
-                  name="otp"
-                  placeholder="Enter OTP"
-                  className=" w-45  px-3 py-2 bg-[#0F1623] border border-[#2A3447] rounded-lg outline-none"
-                />
-                <button
-                  type="button"
-                  className="flex items-center justify-center h-10 px-4 rounded-lg font-medium text-sm text-white bg-linear-to-r from-orange-500 to-amber-500 border border-orange-400 shadow-md shadow-orange-500/20 hover:scale-105 transition-all duration-200"
-                >
-                  Verify
-                </button>
-              </div>
-
-              <div className=" flex gap-5">
-                <input type="otp"
-                  name="otp"
-                  placeholder="Enter OTP"
-                  className=" w-45  px-3 py-2 bg-[#0F1623] border border-[#2A3447] rounded-lg outline-none"
-                />
-                <button className="bg-amber-600 px-4 rounded-2xl border border-amber-500 py-1">Sand</button>
-              </div>
-
-              <div className=" flex gap-5">
-                <input type="otp"
-                  name="otp"
-                  placeholder="Enter OTP"
-                  className=" w-45  px-3 py-2 bg-[#0F1623] border border-[#2A3447] rounded-lg outline-none"
-                />
-                <button className="bg-amber-600 px-4 rounded-2xl border border-amber-500 py-1">Sand</button>
-              </div>
-
-            </div>
+            <EmailStatus email={form.email} onVerified={() => setEmailVerified(true)} />
 
             {/* PASSWORD */}
             <div>
