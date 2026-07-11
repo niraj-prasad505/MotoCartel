@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { sendEmailOtp, verifyEmailOtp } from "../../services/authService";
 
 const EMAIL_STATUS = Object.freeze({
   DEFAULT: "default",
@@ -31,13 +32,17 @@ export default function EmailVerification({
     try {
       // Backend API
       // await sendOTP(email);
+      const res = await sendEmailOtp(email);
 
-      console.log("OTP sent to:", email);
+      // console.log("OTP sent to:", email);
 
       setEmailStatus(EMAIL_STATUS.OTP_SENT);
     } catch (err) {
       console.error(err);
-      alert("Failed to send OTP");
+      alert(
+        err.response?.data?.message ||
+        "Failed to send OTP"
+      );
     }
   };
 
@@ -48,21 +53,30 @@ export default function EmailVerification({
     }
 
     try {
-      // Backend API
-      // const res = await verifyOTP(email, otp);
+      const res = await verifyEmailOtp(
+        email.trim().toLowerCase(),
+        otp.trim()
+      );
 
-      // Dummy verification
-      if (otp === "123456") {
-        setEmailStatus(EMAIL_STATUS.VERIFIED);
-        onVerified(true);
-      } else {
-        setEmailStatus(EMAIL_STATUS.NOT_VERIFIED);
-        onVerified(false);
-      }
+      setEmailStatus(EMAIL_STATUS.VERIFIED);
+      onVerified(true);
+
+      alert(res.data.message);
+
     } catch (err) {
       console.error(err);
+
       setEmailStatus(EMAIL_STATUS.NOT_VERIFIED);
       onVerified(false);
+
+      const message = err.response?.data?.message || "OTP verification failed";
+      const remainingAttempts = err.response?.data?.remainingAttempts;
+
+      if (remainingAttempts !== undefined) {
+        alert(`${message}\nRemaining Attempts: ${remainingAttempts}`);
+      } else {
+        alert(message);
+      }
     }
   };
 

@@ -40,3 +40,26 @@ export const resetPassword = (
     }
   );
 };
+
+export const sendEmailOtp = (email) => {
+  return API.post(
+    "/verify-otp/send",
+    { email },
+    {
+      withCredentials: true,
+    }
+  );
+};
+
+export const verifyEmailOtp = (email, otp) => {
+  return API.post(
+    "/verify-otp/verify",
+    {
+      email,
+      otp,
+    },
+    {
+      withCredentials: true,
+    }
+  );
+};
