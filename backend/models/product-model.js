@@ -6,37 +6,67 @@ const productSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    image: {
-        type: String,
-        required: true
+    images: {
+        type: [String],
+        required: true,
     },
-    images: ["img1.jpg", "img2.jpg", "img3.jpg"],
     price: {
         type: Number,
-        required: true
+        required: true,
+        min: 0
     },
     discount: {
         type: Number,
-        default: 0
+        default: 0,
+        max: 100,
     },
     description: {
-        type: String
+        type: String,
+        required: true,
+        trim: true
     },
     category: {
-        type: String
+        type: String,
+        required: true,
+        trim: true
     },
     stock: {
         type: Number,
-        default: 0
+        default: 0,
+        min: 0
     },
 
-    isFeatured: Boolean,
-    isTrending: Boolean,
+    isFeatured: {
+        type: Boolean,
+        default: false
+    },
+    isTrending: {
+        type: Boolean,
+        default: false
+    },
 
     bgcolor: {
         type: String,
         default: "#ffffff"
-    }
-}, { timestamps: true });
+    },
+    brand: {
+        type: String,
+        required: true,
+        trim: true,
+    },
 
+    rating: {
+        type: Number,
+        default: 0,
+    },
+
+    reviewCount: {
+        type: Number,
+        default: 0,
+    },
+}, { timestamps: true });
+productSchema.index({ category: 1 });
+productSchema.index({ brand: 1 });
+productSchema.index({ price: 1 });
+productSchema.index({ rating: -1 });
 module.exports = mongoose.model("Product", productSchema);
