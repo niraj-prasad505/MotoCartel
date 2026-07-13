@@ -37,11 +37,11 @@ const FilterSidebar = ({
               All
             </li>
             <li
-              className={`cursor-pointer ${selectedCategory === "Helmets"
+              className={`cursor-pointer ${selectedCategory === "Helmet"
                   ? "text-orange-500"
                   : "hover:text-white"
                 }`}
-              onClick={() => setSelectedCategoryFun("Helmets")}
+              onClick={() => setSelectedCategoryFun("Helmet")}
             >
               Helmets
             </li>
@@ -57,11 +57,11 @@ const FilterSidebar = ({
             </li>
 
             <li
-              className={`cursor-pointer ${selectedCategory === "Jackets"
+              className={`cursor-pointer ${selectedCategory === "Jacket"
                   ? "text-orange-500"
                   : "hover:text-white"
                 }`}
-              onClick={() => setSelectedCategoryFun("Jackets")}
+              onClick={() => setSelectedCategoryFun("Jacket")}
             >
               Jackets
             </li>

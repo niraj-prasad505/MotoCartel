@@ -1,43 +1,97 @@
+const mongoose = require("mongoose");
 const Product = require("../models/product-model");
 
 const getAllProducts = async (req, res) => {
   try {
     const page = Number(req.query.page) || 1;
     const limit = Number(req.query.limit) || 20;
+    const category = req.query.category || "all";
+    const brand = req.query.brand || "";
+    const search = req.query.search || "";
+    
+    // Validate first
+    if (page < 1) {
+      return res.status(400).json({
+        success: false,
+        message: "Page must be greater than 0",
+      });
+    }
 
-    const products = await Product.find()
-      .skip((page - 1) * limit)
+    if (limit < 1 || limit > 30) {
+      return res.status(400).json({
+        success: false,
+        message: "Limit must be between 1 and 30",
+      });
+    }
+
+    const skip = (page - 1) * limit;
+
+    // Query database
+    const filter = {
+      ...(category !== "all" && { category })
+    };
+
+    const products = await Product.find(filter)
+      .skip(skip)
       .limit(limit);
 
-    const totalProducts = await Product.countDocuments();
+    const totalProducts = await Product.countDocuments(filter);
+    // Check after fetching
+    // if (products.length === 0) {
+    //   return res.status(404).json({
+    //     success: false,
+    //     message: "No products found",
+    //   });
+    // }
+
+    
 
     res.status(200).json({
+      success: true,
       products,
       currentPage: page,
       totalPages: Math.ceil(totalProducts / limit),
       totalProducts,
+      limit,
     });
 
-  } catch (err) {
-    res.status(500).json({ message: err.message });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
   }
 };
 
 const getProductById = async (req, res) => {
   try {
+    const { id } = req.params;
 
-    const product = await Product.findById(req.params.id);
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid Product ID",
+      });
+    }
 
-    if (!product)
+    const product = await Product.findById(id);
+
+    if (!product) {
       return res.status(404).json({
+        success: false,
         message: "Product not found",
       });
+    }
 
-    res.json(product);
+    res.status(200).json({
+      success: true,
+      product,
+    });
 
-  } catch (err) {
+  } catch (error) {
     res.status(500).json({
-      message: err.message,
+      success: false,
+      message: error.message,
     });
   }
 };

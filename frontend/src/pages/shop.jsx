@@ -3,31 +3,46 @@ import FilterSidebar from "../components/Shop/FilterSidebar";
 import ShopHeader from "../components/Shop/ShopHeader";
 import ProductGrid from "../components/Shop/ProductGrid";
 
-import { products } from "../data/products";
-import { filterProducts } from "../utils/productFilter";
-import { sortProducts } from "../utils/productSort";
+import { getAllProducts } from "../services/product.service";
 
 const Shop = () => {
+  const [products, setProducts] = useState([]);
+
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [priceLimit, setPriceLimit] = useState(10000);
   const [selectedRating, setSelectedRating] = useState(0);
   const [sortBy, setSortBy] = useState("default");
 
+  const [page, setPage] = useState(1);
+  const [limit] = useState(20);
+
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const filteredProducts = filterProducts(
-    products,
-    selectedCategory,
-    priceLimit,
-    selectedRating
-  );
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        setLoading(true);
 
-  const sortedProducts = sortProducts(
-    filteredProducts,
-    sortBy
-  );
+        const res = await getAllProducts({
+          page,
+          limit,
+          category: selectedCategory,
+        });
+
+        setProducts(res.data.products);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, [page, limit, selectedCategory]);
 
   return (
     <div className="bg-[#12151C] text-white h-screen overflow-hidden flex flex-col">
@@ -35,11 +50,14 @@ const Shop = () => {
       {/* Main Content */}
       <div className="flex flex-1 overflow-hidden px-6 py-4 gap-6">
 
-        {/* Sidebar (independent scroll) */}
+        {/* Sidebar */}
         <div className="w-60 shrink-0 overflow-y-auto">
           <FilterSidebar
             selectedCategory={selectedCategory}
-            setSelectedCategory={setSelectedCategory}
+            setSelectedCategory={(category) => {
+              setSelectedCategory(category);
+              setPage(1); // Reset to first page
+            }}
             priceLimit={priceLimit}
             setPriceLimit={setPriceLimit}
             selectedRating={selectedRating}
@@ -50,20 +68,32 @@ const Shop = () => {
         {/* Right Side */}
         <div className="flex-1 flex flex-col overflow-hidden">
 
-          {/* Header (fixed) */}
+          {/* Header */}
           <div className="shrink-0">
-            <ShopHeader sortBy={sortBy}
-              setSortBy={setSortBy} />
+            <ShopHeader
+              sortBy={sortBy}
+              setSortBy={setSortBy}
+            />
           </div>
 
-          {/* Product Grid (scroll only here) */}
+          {/* Product Grid */}
           <div className="flex-1 overflow-y-auto no-scrollbar">
-            <ProductGrid products={sortedProducts} />
+
+            {loading ? (
+              <div className="flex justify-center items-center h-full">
+                <h2 className="text-xl font-semibold">Loading Products...</h2>
+              </div>
+            ) : (
+              <ProductGrid products={products} />
+            )}
+
           </div>
+          <div>i need togaler to page 1 to page 3 or many </div>
 
         </div>
 
       </div>
+
     </div>
   );
 };

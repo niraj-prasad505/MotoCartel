@@ -28,7 +28,7 @@ const Product = () => {
       try {
         const res = await getProductById(id);
 
-        setProduct(res.data);
+        setProduct(res.data.product);
       } catch (err) {
         console.error(err);
       }
