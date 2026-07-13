@@ -1,4 +1,5 @@
 import ProductCard from "./ProductCard";
+import { Link } from "react-router-dom";
 
 export default function FeaturedProducts({ products = [] }) {
   if (!products.length) {
@@ -13,9 +14,11 @@ export default function FeaturedProducts({ products = [] }) {
         <h2 className="text-xl font-semibold text-white">
           Featured Products
         </h2>
+        <Link to="/shop">
         <span className="text-orange-400 text-sm cursor-pointer hover:underline">
           View All →
         </span>
+        </Link>
       </div>
 
       {/* Products */}

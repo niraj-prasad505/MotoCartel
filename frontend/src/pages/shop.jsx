@@ -19,8 +19,12 @@ const Shop = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    toTop();
   }, []);
+
+  const toTop = () => {
+    window.scrollTo(0, 0);
+  };
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -88,7 +92,32 @@ const Shop = () => {
             )}
 
           </div>
-          <div>i need togaler to page 1 to page 3 or many </div>
+          <div className="flex items-center justify-center gap-3 py-6">
+
+            {/* Previous */}
+            <button
+              onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
+              disabled={page === 1}
+              className="px-5 py-2 rounded-xl bg-[#1E293B] border border-slate-700 hover:bg-slate-700 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              ← Previous
+            </button>
+
+            {/* Current Page */}
+            <div className="px-5 py-2 rounded-xl bg-amber-500 text-black font-bold shadow-lg shadow-amber-500/20">
+              {page}
+            </div>
+
+            {/* Next */}
+            <button
+              onClick={() => setPage((prev) => prev + 1, toTop())}
+
+              className="px-5 py-2 rounded-xl bg-[#1E293B] border border-slate-700 hover:bg-amber-500 hover:text-black transition-all duration-200"
+            >
+              Next →
+            </button>
+
+          </div>
 
         </div>
 
