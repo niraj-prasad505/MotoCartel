@@ -6,10 +6,10 @@ import Footer from "../components/Footer";
 import Home from "../pages/Home";
 import Product from "../pages/Product";
 import Shop from "../pages/shop";
-import Categories from "../pages/Categories";
+import Collections from "../pages/Collections";
 import Cart from "../pages/Cart";
 import Login from "../pages/Login";
-import Register from "../pages/createAccount";
+import Register from "../pages/CreateAccount";
 import Orders from "../pages/Orders";
 import Like from "../pages/Like";
 import Profile from "../pages/profile";
@@ -40,7 +40,7 @@ const AppRoutes = () => {
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/categories" element={<Categories />} />
+          <Route path="/collections" element={<Collections />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/product/:id" element={<Product />} />
           <Route path="/checkout/:id" element={<Checkout />} />
