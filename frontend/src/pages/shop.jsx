@@ -9,7 +9,7 @@ const Shop = () => {
   const [products, setProducts] = useState([]);
 
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [priceLimit, setPriceLimit] = useState(10000);
+  const [priceLimit, setPriceLimit] = useState([1000, 9000]);
   const [selectedRating, setSelectedRating] = useState(0);
   const [sortBy, setSortBy] = useState("default");
 
@@ -52,7 +52,7 @@ const Shop = () => {
     <div className="bg-[#12151C] text-white h-screen overflow-hidden flex flex-col">
 
       {/* Main Content */}
-      <div className="flex flex-1 overflow-hidden px-6 py-4 gap-6">
+      <div className="flex flex-1 overflow-hidden px-6  gap-6">
 
         {/* Sidebar */}
         <div className="w-60 shrink-0 overflow-y-auto">
@@ -75,9 +75,14 @@ const Shop = () => {
           {/* Header */}
           <div className="shrink-0">
             <ShopHeader
-              sortBy={sortBy}
-              setSortBy={setSortBy}
-            />
+    selectedCategory={selectedCategory}
+    setSelectedCategory={(category) => {
+        setSelectedCategory(category);
+        setPage(1);
+    }}
+    sortBy={sortBy}
+    setSortBy={setSortBy}
+/>
           </div>
 
           {/* Product Grid */}

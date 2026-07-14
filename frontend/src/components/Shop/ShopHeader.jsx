@@ -1,27 +1,43 @@
 import React from "react";
+import SortDropdown from "./SortDropdown";
 
-const ShopHeader = () => {
+const categories = [
+  { label: "All", value: "all" },
+  { label: "Helmets", value: "Helmet" },
+  { label: "Gloves", value: "Gloves" },
+  { label: "Jackets", value: "Jacket" },
+  { label: "Boots", value: "Boots" },
+  { label: "Accessories", value: "Accessories" },
+];
+
+const ShopHeader = ({
+  selectedCategory,
+  setSelectedCategory,
+}) => {
   return (
-    <div className="sticky top-0 z-10 bg-[#12151C] border-b border-gray-700 px-2 md:px-4 py-3">
+    <div className="sticky top-0 z-20 bg-[#12151C] py-4">
+      <div className="px-6 flex items-center justify-between">
 
-      <div className="flex items-center justify-between">
 
-        {/* Left */}
-        <div>
-          <h1 className="text-xl md:text-2xl font-semibold">Shop</h1>
-          <p className="text-xs text-gray-400">
-            Showing 20 products
-          </p>
+        <div className="flex gap-3 overflow-x-auto no-scrollbar">
+
+          {categories.map((category) => (
+            <button
+              key={category.value}
+              onClick={() => setSelectedCategory(category.value)}
+              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 border whitespace-nowrap
+            ${selectedCategory === category.value
+                  ? "bg-orange-500 border-orange-500 text-white shadow-lg shadow-orange-500/30"
+                  : "bg-[#1A1F29] border-gray-700 text-gray-300 hover:bg-[#252B36] hover:text-white"
+                }`}
+            >
+              {category.label}
+            </button>
+          ))}
+
         </div>
-
-        {/* Right */}
-        <div>
-          <select className="bg-[#1A1F29] text-sm px-3 py-2 rounded-md border border-gray-700 focus:outline-none cursor-pointer">
-            <option>Sort by: Default</option>
-            <option>Price: Low → High</option>
-            <option>Price: High → Low</option>
-            <option>Top Rated</option>
-          </select>
+        <div className="flex justify-end">
+          <SortDropdown />
         </div>
 
       </div>
