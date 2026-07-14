@@ -6,21 +6,59 @@ const MIN = 0;
 const MAX = 10000;
 const STEP = 100;
 
+const brands = [
+  {
+    id: 1,
+    name: "Bell",
+    logo: "/brands/bell.png",
+  },
+  {
+    id: 2,
+    name: "Giro",
+    logo: "/brands/giro.png",
+  },
+  {
+    id: 3,
+    name: "Fox Racing",
+    logo: "/brands/foxracing.png",
+  },
+  {
+    id: 4,
+    name: "Alpinestars",
+    logo: "/brands/alpinestars.png",
+  },
+  {
+    id: 5,
+    name: "Troy Lee Designs",
+    logo: "/brands/troyleedesigns.png",
+  },
+
+
+
+];
+
 const FilterSidebar = ({
-  selectedCategory,
-  setSelectedCategory,
+
   priceLimit,
   setPriceLimit,
   selectedRating,
   setSelectedRating,
 }) => {
 
-  const setSelectedCategoryFun = (option) => {
-    setSelectedCategory(option);
-    // console.log(option);
-  };
-  const ratings = [5, 4, 3, 2, 1];
+  const [selectedBrands, setSelectedBrands] = useState([]);
+  const [showAllBrands, setShowAllBrands] = useState(false);
 
+  const toggleBrand = (brand) => {
+    if (selectedBrands.includes(brand)) {
+      setSelectedBrands(
+        selectedBrands.filter((item) => item !== brand)
+      );
+    } else {
+      setSelectedBrands([...selectedBrands, brand]);
+    }
+  };
+
+  const ratings = [5, 4, 3, 2, 1];
 
   return (
     <div className="h-full overflow-y-auto px-4 py-2 no-scrollbar border border-gray-800 rounded-2xl">
@@ -84,14 +122,15 @@ const FilterSidebar = ({
 
           </ul>
         </div> */}
-        {/* svg */}
-        {/* Price Range */}
+
+        {/* svg + Price Range */}
+
         <div className="mb-6 border-b border-gray-700 pb-6 px-4=2">
 
           {/* Header */}
-          <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center justify-between mb-1">
             <h3 className="text-gray-300 font-medium">Price Range</h3>
-            
+
 
             <button
               onClick={() => setPriceLimit([MIN, MAX])}
@@ -102,7 +141,7 @@ const FilterSidebar = ({
           </div>
           <div className="">
             <p className="text-gray-500 text-[12px]">
-              the avrage price is inr 3000.
+              the avrage price is ₹ 3000
             </p>
           </div>
 
@@ -113,7 +152,7 @@ const FilterSidebar = ({
               viewBox="0 0 800 350"
               className="w-full h-28"
               xmlns="http://www.w3.org/2000/svg"
-              >
+            >
               <defs>
                 <linearGradient id="frontGradient" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor="#FF6A00" stopOpacity="0.85" />
@@ -188,7 +227,7 @@ const FilterSidebar = ({
                 return (
                   <div
                     key={index}
-                    className="absolute -translate-x-1/2 bg-white text-black text-xs px-2 py-1 rounded-full"
+                    className="absolute -translate-x-1/2 bg-gray-200 text-black text-xs px-2 py-1 rounded-full"
                     style={{
                       left: `${percent}%`,
                       top: "8px",
@@ -256,7 +295,81 @@ const FilterSidebar = ({
 
         </div>
 
-        {/* Price */}
+        {/* Brand */}
+        <div className="border-b border-gray-700 pb-6">
+
+  <div className="flex justify-between mb-4">
+    <h3 className="font-semibold">Brand</h3>
+
+    <button
+      className="text-xs text-orange-500"
+      onClick={() => setSelectedBrands([])}
+    >
+      Reset
+    </button>
+
+  </div>
+
+  <div className="space-y-3">
+
+    {(showAllBrands ? brands : brands.slice(0, 5)).map((brand) => (
+
+      <div
+        key={brand.id}
+        onClick={() => toggleBrand(brand.name)}
+        className="flex items-center justify-between cursor-pointer group"
+      >
+
+        <div className="flex items-center gap-3">
+
+          <img
+            src={brand.logo}
+            className="w-6 h-6 object-contain"
+          />
+
+          <span className="text-sm text-gray-300 group-hover:text-white">
+            {brand.name}
+          </span>
+
+        </div>
+
+        <div
+          className={`w-4 h-4 rounded border flex items-center justify-center transition-colors ${
+            selectedBrands.includes(brand.name)
+              ? "bg-orange-500 border-orange-500"
+              : "bg-transparent border-gray-500"
+          }`}
+        >
+          {selectedBrands.includes(brand.name) && (
+            <svg
+              className="w-3 h-3 text-white"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={3}
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          )}
+        </div>
+
+      </div>
+
+    ))}
+
+  </div>
+
+  {brands.length > 5 && (
+    <button
+      className="text-xs text-orange-500 mt-3"
+      onClick={() => setShowAllBrands(!showAllBrands)}
+    >
+      {showAllBrands ? "See less" : "See more"}
+    </button>
+  )}
+
+</div>
+
 
 
         {/* Rating */}
