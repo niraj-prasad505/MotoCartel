@@ -9,32 +9,64 @@ const STEP = 100;
 const brands = [
   {
     id: 1,
-    name: "Bell",
-    logo: "/brands/bell.png",
+    name: "Axor",
+    logo: "https://images.seeklogo.com/logo-png/38/1/axor-helmets-logo-png_seeklogo-380928.png",
   },
   {
     id: 2,
-    name: "Giro",
-    logo: "/brands/giro.png",
+    name: "SMK",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAOJBH_SebllLAyaBPzxO4J2Lxn7tY_u71hAAOx2LsQA&s=10",
   },
   {
     id: 3,
-    name: "Fox Racing",
-    logo: "/brands/foxracing.png",
+    name: "Steelbird",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ75bHJ9u9e5Sc2wDJroCpGtqH6kQdskBMFJI9W4LU1bVvl8K9aH5nHl2Sa&s=10",
   },
   {
     id: 4,
-    name: "Alpinestars",
-    logo: "/brands/alpinestars.png",
+    name: "Studds",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2X8pU-G6i0SSend7fU2te_9_IMXwJTpu6w0FdqBoygZRSOMW1fiEfCcq2&s=10",
   },
   {
     id: 5,
-    name: "Troy Lee Designs",
-    logo: "/brands/troyleedesigns.png",
+    name: "Vega",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1kCgIegZIy5GAOOnaRFSmvqmi15JuaL91tPPmDOoxEOFMUGjMymcaQWQ&s=10",
   },
-
-
-
+  {
+    id: 6,
+    name: "LS2",
+    logo: "/brands/ls2.png",
+  },
+  {
+    id: 7,
+    name: "MT Helmets",
+    logo: "/brands/mthelmets.png",
+  },
+  {
+    id: 8,
+    name: "Rynox",
+    logo: "/brands/rynox.png",
+  },
+  {
+    id: 9,
+    name: "Viaterra",
+    logo: "/brands/viaterra.png",
+  },
+  {
+    id: 10,
+    name: "Raida",
+    logo: "/brands/raida.png",
+  },
+  {
+    id: 11,
+    name: "Royal Enfield",
+    logo: "/brands/royalenfield.png",
+  },
+  {
+    id: 12,
+    name: "Solace",
+    logo: "/brands/solace.png",
+  },
 ];
 
 const FilterSidebar = ({
@@ -61,7 +93,7 @@ const FilterSidebar = ({
   const ratings = [5, 4, 3, 2, 1];
 
   return (
-    <div className="h-full overflow-y-auto px-4 py-2 no-scrollbar border border-gray-800 rounded-2xl">
+    <div className="h-full overflow-y-auto px-4 py-2 no-scrollbar border border-gray-800 rounded-2xl bg-[#181C25] hadow-xl shadow-black/20">
       <div className="hidden md:block h-full px-4 py-2">
 
         <h2 className="text-xl font-semibold mb-6">Filter Options</h2>
@@ -134,7 +166,7 @@ const FilterSidebar = ({
 
             <button
               onClick={() => setPriceLimit([MIN, MAX])}
-              className="text-xs text-orange-500 hover:text-orange-400"
+              className="text-xs text-orange-500 hover:text-orange-400 opacity-50 hover:opacity-100 transition-opacity"
             >
               Reset
             </button>
@@ -302,8 +334,8 @@ const FilterSidebar = ({
             <h3 className="font-semibold">Brand</h3>
 
             <button
-              className="text-xs text-orange-500"
               onClick={() => setSelectedBrands([])}
+              className="text-xs text-orange-500 hover:text-orange-400 opacity-50 hover:opacity-100 transition-opacity"
             >
               Reset
             </button>
@@ -335,8 +367,8 @@ const FilterSidebar = ({
 
                 <div
                   className={`w-4 h-4 rounded border flex items-center justify-center transition-colors ${selectedBrands.includes(brand.name)
-                      ? "bg-orange-500 border-orange-500"
-                      : "bg-transparent border-gray-500"
+                    ? "bg-orange-500 border-orange-500"
+                    : "bg-transparent border-gray-500"
                     }`}
                 >
                   {selectedBrands.includes(brand.name) && (
