@@ -1,73 +1,81 @@
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { Range, getTrackBackground } from "react-range";
+import { useEffect } from "react";
+import { getAllBrands } from "../../services/brandsService";
 
 const MIN = 0;
 const MAX = 10000;
 const STEP = 100;
 
-const brands = [
-  {
-    id: 1,
-    name: "Axor",
-    logo: "https://images.seeklogo.com/logo-png/38/1/axor-helmets-logo-png_seeklogo-380928.png",
-  },
-  {
-    id: 2,
-    name: "SMK",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAOJBH_SebllLAyaBPzxO4J2Lxn7tY_u71hAAOx2LsQA&s=10",
-  },
-  {
-    id: 3,
-    name: "Steelbird",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ75bHJ9u9e5Sc2wDJroCpGtqH6kQdskBMFJI9W4LU1bVvl8K9aH5nHl2Sa&s=10",
-  },
-  {
-    id: 4,
-    name: "Studds",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2X8pU-G6i0SSend7fU2te_9_IMXwJTpu6w0FdqBoygZRSOMW1fiEfCcq2&s=10",
-  },
-  {
-    id: 5,
-    name: "Vega",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1kCgIegZIy5GAOOnaRFSmvqmi15JuaL91tPPmDOoxEOFMUGjMymcaQWQ&s=10",
-  },
-  {
-    id: 6,
-    name: "LS2",
-    logo: "/brands/ls2.png",
-  },
-  {
-    id: 7,
-    name: "MT Helmets",
-    logo: "/brands/mthelmets.png",
-  },
-  {
-    id: 8,
-    name: "Rynox",
-    logo: "/brands/rynox.png",
-  },
-  {
-    id: 9,
-    name: "Viaterra",
-    logo: "/brands/viaterra.png",
-  },
-  {
-    id: 10,
-    name: "Raida",
-    logo: "/brands/raida.png",
-  },
-  {
-    id: 11,
-    name: "Royal Enfield",
-    logo: "/brands/royalenfield.png",
-  },
-  {
-    id: 12,
-    name: "Solace",
-    logo: "/brands/solace.png",
-  },
-];
+import useBrands from "../../hooks/shop/useBrands";
+
+
+
+
+
+// const brands = [
+//   {
+//     id: 1,
+//     name: "Axor",
+//     logo: "https://images.seeklogo.com/logo-png/38/1/axor-helmets-logo-png_seeklogo-380928.png",
+//   },
+//   {
+//     id: 2,
+//     name: "SMK",
+//     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAOJBH_SebllLAyaBPzxO4J2Lxn7tY_u71hAAOx2LsQA&s=10",
+//   },
+//   {
+//     id: 3,
+//     name: "Steelbird",
+//     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ75bHJ9u9e5Sc2wDJroCpGtqH6kQdskBMFJI9W4LU1bVvl8K9aH5nHl2Sa&s=10",
+//   },
+//   {
+//     id: 4,
+//     name: "Studds",
+//     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2X8pU-G6i0SSend7fU2te_9_IMXwJTpu6w0FdqBoygZRSOMW1fiEfCcq2&s=10",
+//   },
+//   {
+//     id: 5,
+//     name: "Vega",
+//     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1kCgIegZIy5GAOOnaRFSmvqmi15JuaL91tPPmDOoxEOFMUGjMymcaQWQ&s=10",
+//   },
+//   {
+//     id: 6,
+//     name: "LS2",
+//     logo: "/brands/ls2.png",
+//   },
+//   {
+//     id: 7,
+//     name: "MT Helmets",
+//     logo: "/brands/mthelmets.png",
+//   },
+//   {
+//     id: 8,
+//     name: "Rynox",
+//     logo: "/brands/rynox.png",
+//   },
+//   {
+//     id: 9,
+//     name: "Viaterra",
+//     logo: "/brands/viaterra.png",
+//   },
+//   {
+//     id: 10,
+//     name: "Raida",
+//     logo: "/brands/raida.png",
+//   },
+//   {
+//     id: 11,
+//     name: "Royal Enfield",
+//     logo: "/brands/royalenfield.png",
+//   },
+//   {
+//     id: 12,
+//     name: "Solace",
+//     logo: "/brands/solace.png",
+//   },
+// ];
 
 const FilterSidebar = ({
 
@@ -75,10 +83,14 @@ const FilterSidebar = ({
   setPriceLimit,
   selectedRating,
   setSelectedRating,
+  selectedBrands,
+  setSelectedBrands,
 }) => {
 
-  const [selectedBrands, setSelectedBrands] = useState([]);
   const [showAllBrands, setShowAllBrands] = useState(false);
+  const { brands, loading, error } = useBrands();
+  console.log("brands", selectedBrands);
+
 
   const toggleBrand = (brand) => {
     if (selectedBrands.includes(brand)) {
@@ -347,7 +359,7 @@ const FilterSidebar = ({
             {(showAllBrands ? brands : brands.slice(0, 5)).map((brand) => (
 
               <div
-                key={brand.id}
+                key={brand._id}
                 onClick={() => toggleBrand(brand.name)}
                 className="flex items-center justify-between cursor-pointer group"
               >

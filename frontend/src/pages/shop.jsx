@@ -12,6 +12,7 @@ const Shop = () => {
   const [priceLimit, setPriceLimit] = useState([1000, 9000]);
   const [selectedRating, setSelectedRating] = useState(0);
   const [sortBy, setSortBy] = useState("default");
+  const [selectedBrands, setSelectedBrands] = useState([]);
 
   const [page, setPage] = useState(1);
   const [limit] = useState(20);
@@ -66,6 +67,8 @@ const Shop = () => {
             setPriceLimit={setPriceLimit}
             selectedRating={selectedRating}
             setSelectedRating={setSelectedRating}
+            selectedBrands={selectedBrands}
+            setSelectedBrands={setSelectedBrands}
           />
         </div>
 

@@ -17,6 +17,7 @@ const heroRouter = require("./routes/heroRoutes");
 const wishlistRouter = require("./routes/wishlistRouter");
 const userAddressRouter = require("./routes/userAddressRouter");
 const emailOtpRouter = require("./routes/emailOtpRouter");
+const brandRouter = require("./routes/brandRoutes");
 
 
 
@@ -58,6 +59,7 @@ app.use("/api/hero", heroRouter);
 app.use("/api/wishlist", wishlistRouter);
 app.use("/api/user", userAddressRouter);
 app.use("/api/verify-otp", emailOtpRouter);
+app.use("/api/brands", brandRouter);
 // test route
 app.get("/", (req, res) => {
   res.send("API is running");
