@@ -14,7 +14,7 @@ const products = [
         "isFeatured": true,
         "isTrending": true,
         "bgcolor": "#F5F5F5",
-        "brand": "LS2",
+        "brand": "6a59a398b000caf7140a2045",
         "rating": 4.6,
         "reviewCount": 510
     },
@@ -33,7 +33,7 @@ const products = [
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#FFF3E0",
-        "brand": "Axor",
+        "brand": "6a59a398b000caf7140a2040",
         "rating": 3.9,
         "reviewCount": 448
     },
@@ -52,7 +52,7 @@ const products = [
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#E8F5E9",
-        "brand": "Rynox",
+        "brand": "6a59a398b000caf7140a2047",
         "rating": 4.9,
         "reviewCount": 720
     },
@@ -71,7 +71,7 @@ const products = [
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#E3F2FD",
-        "brand": "Steelbird",
+        "brand": "6a59a398b000caf7140a2042",
         "rating": 5,
         "reviewCount": 210
     },
@@ -90,7 +90,7 @@ const products = [
         "isFeatured": false,
         "isTrending": true,
         "bgcolor": "#FCE4EC",
-        "brand": "Studds",
+        "brand": "6a59a398b000caf7140a2043",
         "rating": 3.8,
         "reviewCount": 445
     },
@@ -109,12 +109,12 @@ const products = [
         "isFeatured": true,
         "isTrending": false,
         "bgcolor": "#F3E5F5",
-        "brand": "Vega",
+        "brand": "6a59a398b000caf7140a2044",
         "rating": 4,
         "reviewCount": 534
     },
     {
-        "name": "Royal Enfield Gear Rain Guard Pro Jacket",
+        "name": "Royal Enfield Rain Guard Pro Jacket",
         "images": [
             "https://images.pexels.com/photos/5794249/pexels-photo-5794249.jpeg?auto=compress&cs=tinysrgb&w=600",
             "https://images.pexels.com/photos/31250425/pexels-photo-31250425.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -122,13 +122,13 @@ const products = [
         ],
         "price": 7930,
         "discount": 0,
-        "description": "Premium jacket from Royal Enfield Gear, engineered for performance, comfort, and durability on every ride.",
+        "description": "Premium jacket from Royal Enfield, engineered for performance, comfort, and durability on every ride.",
         "category": "Jacket",
         "stock": 55,
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#FFFDE7",
-        "brand": "Royal Enfield Gear",
+        "brand": "6a59a398b000caf7140a204a",
         "rating": 4.7,
         "reviewCount": 688
     },
@@ -147,7 +147,7 @@ const products = [
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#ECEFF1",
-        "brand": "Solace",
+        "brand": "6a59a398b000caf7140a204b",
         "rating": 4.3,
         "reviewCount": 71
     },
@@ -166,7 +166,7 @@ const products = [
         "isFeatured": false,
         "isTrending": true,
         "bgcolor": "#F5F5F5",
-        "brand": "Axor",
+        "brand": "6a59a398b000caf7140a2040",
         "rating": 4.5,
         "reviewCount": 602
     },
@@ -185,12 +185,12 @@ const products = [
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#FFF3E0",
-        "brand": "Steelbird",
+        "brand": "6a59a398b000caf7140a2042",
         "rating": 4.4,
         "reviewCount": 622
     },
     {
-        "name": "AGV RoadFlex Gloves",
+        "name": "MT Helmets RoadFlex Gloves",
         "images": [
             "https://images.pexels.com/photos/33469800/pexels-photo-33469800.jpeg?auto=compress&cs=tinysrgb&w=600",
             "https://images.pexels.com/photos/4560442/pexels-photo-4560442.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -198,13 +198,13 @@ const products = [
         ],
         "price": 1780,
         "discount": 20,
-        "description": "Premium gloves from AGV, engineered for performance, comfort, and durability on every ride.",
+        "description": "Premium gloves from MT Helmets, engineered for performance, comfort, and durability on every ride.",
         "category": "Gloves",
         "stock": 7,
         "isFeatured": true,
         "isTrending": false,
         "bgcolor": "#E8F5E9",
-        "brand": "AGV",
+        "brand": "6a59a398b000caf7140a2046",
         "rating": 4.8,
         "reviewCount": 569
     },
@@ -223,7 +223,7 @@ const products = [
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#E3F2FD",
-        "brand": "Studds",
+        "brand": "6a59a398b000caf7140a2043",
         "rating": 4.1,
         "reviewCount": 255
     },
@@ -242,12 +242,12 @@ const products = [
         "isFeatured": false,
         "isTrending": true,
         "bgcolor": "#FCE4EC",
-        "brand": "Steelbird",
+        "brand": "6a59a398b000caf7140a2042",
         "rating": 4.4,
         "reviewCount": 124
     },
     {
-        "name": "AGV Storm Shield Rain Suit",
+        "name": "SMK Storm Shield Rain Suit",
         "images": [
             "https://images.pexels.com/photos/5795981/pexels-photo-5795981.jpeg?auto=compress&cs=tinysrgb&w=600",
             "https://images.pexels.com/photos/31306377/pexels-photo-31306377.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -255,13 +255,13 @@ const products = [
         ],
         "price": 1590,
         "discount": 5,
-        "description": "Premium rain suit from AGV, engineered for performance, comfort, and durability on every ride.",
+        "description": "Premium rain suit from SMK, engineered for performance, comfort, and durability on every ride.",
         "category": "Rain Suit",
         "stock": 39,
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#F3E5F5",
-        "brand": "AGV",
+        "brand": "6a59a398b000caf7140a2041",
         "rating": 4.5,
         "reviewCount": 748
     },
@@ -280,7 +280,7 @@ const products = [
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#FFFDE7",
-        "brand": "Solace",
+        "brand": "6a59a398b000caf7140a204b",
         "rating": 4.7,
         "reviewCount": 173
     },
@@ -299,7 +299,7 @@ const products = [
         "isFeatured": true,
         "isTrending": false,
         "bgcolor": "#ECEFF1",
-        "brand": "Rynox",
+        "brand": "6a59a398b000caf7140a2047",
         "rating": 3.9,
         "reviewCount": 206
     },
@@ -318,7 +318,7 @@ const products = [
         "isFeatured": false,
         "isTrending": true,
         "bgcolor": "#F5F5F5",
-        "brand": "Viaterra",
+        "brand": "6a59a398b000caf7140a2048",
         "rating": 4.6,
         "reviewCount": 564
     },
@@ -337,7 +337,7 @@ const products = [
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#FFF3E0",
-        "brand": "Vega",
+        "brand": "6a59a398b000caf7140a2044",
         "rating": 4.6,
         "reviewCount": 623
     },
@@ -356,7 +356,7 @@ const products = [
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#E8F5E9",
-        "brand": "Steelbird",
+        "brand": "6a59a398b000caf7140a2042",
         "rating": 4.5,
         "reviewCount": 859
     },
@@ -375,12 +375,12 @@ const products = [
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#E3F2FD",
-        "brand": "LS2",
+        "brand": "6a59a398b000caf7140a2045",
         "rating": 4.1,
         "reviewCount": 136
     },
     {
-        "name": "TVS Racing Flex Protect Knee Guard",
+        "name": "Raida Flex Protect Knee Guard",
         "images": [
             "https://images.pexels.com/photos/33469801/pexels-photo-33469801.jpeg?auto=compress&cs=tinysrgb&w=600",
             "https://images.pexels.com/photos/36552346/pexels-photo-36552346.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -388,13 +388,13 @@ const products = [
         ],
         "price": 5450,
         "discount": 10,
-        "description": "Premium knee guard from TVS Racing, engineered for performance, comfort, and durability on every ride.",
+        "description": "Premium knee guard from Raida, engineered for performance, comfort, and durability on every ride.",
         "category": "Knee Guard",
         "stock": 62,
         "isFeatured": true,
         "isTrending": true,
         "bgcolor": "#FCE4EC",
-        "brand": "TVS Racing",
+        "brand": "6a59a398b000caf7140a2049",
         "rating": 3.9,
         "reviewCount": 701
     },
@@ -413,7 +413,7 @@ const products = [
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#F3E5F5",
-        "brand": "Solace",
+        "brand": "6a59a398b000caf7140a204b",
         "rating": 4.8,
         "reviewCount": 710
     },
@@ -432,12 +432,12 @@ const products = [
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#FFFDE7",
-        "brand": "Axor",
+        "brand": "6a59a398b000caf7140a2040",
         "rating": 4,
         "reviewCount": 242
     },
     {
-        "name": "TVS Racing Falcon Edge Helmet",
+        "name": "Raida Falcon Edge Helmet",
         "images": [
             "https://images.pexels.com/photos/13536762/pexels-photo-13536762.jpeg?auto=compress&cs=tinysrgb&w=600",
             "https://images.pexels.com/photos/33932127/pexels-photo-33932127.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -445,13 +445,13 @@ const products = [
         ],
         "price": 2730,
         "discount": 25,
-        "description": "Premium helmet from TVS Racing, engineered for performance, comfort, and durability on every ride.",
+        "description": "Premium helmet from Raida, engineered for performance, comfort, and durability on every ride.",
         "category": "Helmet",
         "stock": 56,
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#ECEFF1",
-        "brand": "TVS Racing",
+        "brand": "6a59a398b000caf7140a2049",
         "rating": 4.1,
         "reviewCount": 37
     },
@@ -470,7 +470,7 @@ const products = [
         "isFeatured": false,
         "isTrending": true,
         "bgcolor": "#F5F5F5",
-        "brand": "Viaterra",
+        "brand": "6a59a398b000caf7140a2048",
         "rating": 4.5,
         "reviewCount": 51
     },
@@ -489,12 +489,12 @@ const products = [
         "isFeatured": true,
         "isTrending": false,
         "bgcolor": "#FFF3E0",
-        "brand": "Solace",
+        "brand": "6a59a398b000caf7140a204b",
         "rating": 4.6,
         "reviewCount": 797
     },
     {
-        "name": "AGV Spine Guard Back Protector",
+        "name": "MT Helmets Spine Guard Back Protector",
         "images": [
             "https://images.pexels.com/photos/33203545/pexels-photo-33203545.jpeg?auto=compress&cs=tinysrgb&w=600",
             "https://images.pexels.com/photos/31250425/pexels-photo-31250425.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -502,18 +502,18 @@ const products = [
         ],
         "price": 7070,
         "discount": 10,
-        "description": "Premium back protector from AGV, engineered for performance, comfort, and durability on every ride.",
+        "description": "Premium back protector from MT Helmets, engineered for performance, comfort, and durability on every ride.",
         "category": "Back Protector",
         "stock": 14,
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#E8F5E9",
-        "brand": "AGV",
+        "brand": "6a59a398b000caf7140a2046",
         "rating": 4.9,
         "reviewCount": 663
     },
     {
-        "name": "Royal Enfield Gear Dry Rider Rain Suit",
+        "name": "Royal Enfield Dry Rider Rain Suit",
         "images": [
             "https://images.pexels.com/photos/31306377/pexels-photo-31306377.jpeg?auto=compress&cs=tinysrgb&w=600",
             "https://images.pexels.com/photos/33203560/pexels-photo-33203560.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -521,13 +521,13 @@ const products = [
         ],
         "price": 1460,
         "discount": 15,
-        "description": "Premium rain suit from Royal Enfield Gear, engineered for performance, comfort, and durability on every ride.",
+        "description": "Premium rain suit from Royal Enfield, engineered for performance, comfort, and durability on every ride.",
         "category": "Rain Suit",
         "stock": 67,
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#E3F2FD",
-        "brand": "Royal Enfield Gear",
+        "brand": "6a59a398b000caf7140a204a",
         "rating": 4,
         "reviewCount": 419
     },
@@ -546,12 +546,12 @@ const products = [
         "isFeatured": false,
         "isTrending": true,
         "bgcolor": "#FCE4EC",
-        "brand": "Viaterra",
+        "brand": "6a59a398b000caf7140a2048",
         "rating": 4.7,
         "reviewCount": 437
     },
     {
-        "name": "TVS Racing Trail Master Boots",
+        "name": "Raida Trail Master Boots",
         "images": [
             "https://images.pexels.com/photos/31306377/pexels-photo-31306377.jpeg?auto=compress&cs=tinysrgb&w=600",
             "https://images.pexels.com/photos/4560435/pexels-photo-4560435.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -559,13 +559,13 @@ const products = [
         ],
         "price": 6470,
         "discount": 25,
-        "description": "Premium boots from TVS Racing, engineered for performance, comfort, and durability on every ride.",
+        "description": "Premium boots from Raida, engineered for performance, comfort, and durability on every ride.",
         "category": "Boots",
         "stock": 21,
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#F3E5F5",
-        "brand": "TVS Racing",
+        "brand": "6a59a398b000caf7140a2049",
         "rating": 4.7,
         "reviewCount": 241
     },
@@ -584,7 +584,7 @@ const products = [
         "isFeatured": true,
         "isTrending": false,
         "bgcolor": "#FFFDE7",
-        "brand": "Steelbird",
+        "brand": "6a59a398b000caf7140a2042",
         "rating": 4.1,
         "reviewCount": 277
     },
@@ -603,7 +603,7 @@ const products = [
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#ECEFF1",
-        "brand": "Solace",
+        "brand": "6a59a398b000caf7140a204b",
         "rating": 3.8,
         "reviewCount": 263
     },
@@ -622,7 +622,7 @@ const products = [
         "isFeatured": false,
         "isTrending": true,
         "bgcolor": "#F5F5F5",
-        "brand": "Axor",
+        "brand": "6a59a398b000caf7140a2040",
         "rating": 3.8,
         "reviewCount": 241
     },
@@ -641,12 +641,12 @@ const products = [
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#FFF3E0",
-        "brand": "Vega",
+        "brand": "6a59a398b000caf7140a2044",
         "rating": 4.9,
         "reviewCount": 116
     },
     {
-        "name": "AGV Aero Shield Jacket",
+        "name": "SMK Aero Shield Jacket",
         "images": [
             "https://images.pexels.com/photos/28051514/pexels-photo-28051514.jpeg?auto=compress&cs=tinysrgb&w=600",
             "https://images.pexels.com/photos/33153044/pexels-photo-33153044.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -654,13 +654,13 @@ const products = [
         ],
         "price": 2390,
         "discount": 20,
-        "description": "Premium jacket from AGV, engineered for performance, comfort, and durability on every ride.",
+        "description": "Premium jacket from SMK, engineered for performance, comfort, and durability on every ride.",
         "category": "Jacket",
         "stock": 63,
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#E8F5E9",
-        "brand": "AGV",
+        "brand": "6a59a398b000caf7140a2041",
         "rating": 4.7,
         "reviewCount": 414
     },
@@ -679,7 +679,7 @@ const products = [
         "isFeatured": true,
         "isTrending": false,
         "bgcolor": "#E3F2FD",
-        "brand": "Steelbird",
+        "brand": "6a59a398b000caf7140a2042",
         "rating": 4.3,
         "reviewCount": 451
     },
@@ -698,12 +698,12 @@ const products = [
         "isFeatured": false,
         "isTrending": true,
         "bgcolor": "#FCE4EC",
-        "brand": "Rynox",
+        "brand": "6a59a398b000caf7140a2047",
         "rating": 4.4,
         "reviewCount": 590
     },
     {
-        "name": "TVS Racing Storm Shield Rain Suit",
+        "name": "Raida Storm Shield Rain Suit",
         "images": [
             "https://images.pexels.com/photos/33203557/pexels-photo-33203557.jpeg?auto=compress&cs=tinysrgb&w=600",
             "https://images.pexels.com/photos/5795981/pexels-photo-5795981.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -711,13 +711,13 @@ const products = [
         ],
         "price": 6490,
         "discount": 5,
-        "description": "Premium rain suit from TVS Racing, engineered for performance, comfort, and durability on every ride.",
+        "description": "Premium rain suit from Raida, engineered for performance, comfort, and durability on every ride.",
         "category": "Rain Suit",
         "stock": 6,
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#F3E5F5",
-        "brand": "TVS Racing",
+        "brand": "6a59a398b000caf7140a2049",
         "rating": 4.1,
         "reviewCount": 659
     },
@@ -736,7 +736,7 @@ const products = [
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#FFFDE7",
-        "brand": "Solace",
+        "brand": "6a59a398b000caf7140a204b",
         "rating": 4.2,
         "reviewCount": 354
     },
@@ -755,12 +755,12 @@ const products = [
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#ECEFF1",
-        "brand": "Solace",
+        "brand": "6a59a398b000caf7140a204b",
         "rating": 4.1,
         "reviewCount": 807
     },
     {
-        "name": "TVS Racing Endure Pro Riding Pants",
+        "name": "Raida Endure Pro Riding Pants",
         "images": [
             "https://images.pexels.com/photos/31250423/pexels-photo-31250423.jpeg?auto=compress&cs=tinysrgb&w=600",
             "https://images.pexels.com/photos/33203559/pexels-photo-33203559.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -768,13 +768,13 @@ const products = [
         ],
         "price": 7190,
         "discount": 20,
-        "description": "Premium riding pants from TVS Racing, engineered for performance, comfort, and durability on every ride.",
+        "description": "Premium riding pants from Raida, engineered for performance, comfort, and durability on every ride.",
         "category": "Riding Pants",
         "stock": 60,
         "isFeatured": true,
         "isTrending": true,
         "bgcolor": "#F5F5F5",
-        "brand": "TVS Racing",
+        "brand": "6a59a398b000caf7140a2049",
         "rating": 4.1,
         "reviewCount": 744
     },
@@ -793,12 +793,12 @@ const products = [
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#FFF3E0",
-        "brand": "Solace",
+        "brand": "6a59a398b000caf7140a204b",
         "rating": 3.9,
         "reviewCount": 190
     },
     {
-        "name": "TVS Racing Trail Grip Gloves",
+        "name": "Raida Trail Grip Gloves",
         "images": [
             "https://images.pexels.com/photos/33469800/pexels-photo-33469800.jpeg?auto=compress&cs=tinysrgb&w=600",
             "https://images.pexels.com/photos/4560442/pexels-photo-4560442.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -806,13 +806,13 @@ const products = [
         ],
         "price": 3020,
         "discount": 0,
-        "description": "Premium gloves from TVS Racing, engineered for performance, comfort, and durability on every ride.",
+        "description": "Premium gloves from Raida, engineered for performance, comfort, and durability on every ride.",
         "category": "Gloves",
         "stock": 41,
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#E8F5E9",
-        "brand": "TVS Racing",
+        "brand": "6a59a398b000caf7140a2049",
         "rating": 4.3,
         "reviewCount": 510
     },
@@ -831,7 +831,7 @@ const products = [
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#E3F2FD",
-        "brand": "Studds",
+        "brand": "6a59a398b000caf7140a2043",
         "rating": 4.4,
         "reviewCount": 249
     },
@@ -850,7 +850,7 @@ const products = [
         "isFeatured": false,
         "isTrending": true,
         "bgcolor": "#FCE4EC",
-        "brand": "Vega",
+        "brand": "6a59a398b000caf7140a2044",
         "rating": 4.6,
         "reviewCount": 272
     },
@@ -869,7 +869,7 @@ const products = [
         "isFeatured": true,
         "isTrending": false,
         "bgcolor": "#F3E5F5",
-        "brand": "Steelbird",
+        "brand": "6a59a398b000caf7140a2042",
         "rating": 4.7,
         "reviewCount": 450
     },
@@ -888,12 +888,12 @@ const products = [
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#FFFDE7",
-        "brand": "Solace",
+        "brand": "6a59a398b000caf7140a204b",
         "rating": 4.3,
         "reviewCount": 724
     },
     {
-        "name": "Royal Enfield Gear Flex Protect Knee Guard",
+        "name": "Royal Enfield Flex Protect Knee Guard",
         "images": [
             "https://images.pexels.com/photos/5542146/pexels-photo-5542146.jpeg?auto=compress&cs=tinysrgb&w=600",
             "https://images.pexels.com/photos/31250422/pexels-photo-31250422.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -901,18 +901,18 @@ const products = [
         ],
         "price": 4630,
         "discount": 25,
-        "description": "Premium knee guard from Royal Enfield Gear, engineered for performance, comfort, and durability on every ride.",
+        "description": "Premium knee guard from Royal Enfield, engineered for performance, comfort, and durability on every ride.",
         "category": "Knee Guard",
         "stock": 13,
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#ECEFF1",
-        "brand": "Royal Enfield Gear",
+        "brand": "6a59a398b000caf7140a204a",
         "rating": 4.9,
         "reviewCount": 656
     },
     {
-        "name": "Royal Enfield Gear Spine Guard Back Protector",
+        "name": "Royal Enfield Spine Guard Back Protector",
         "images": [
             "https://images.pexels.com/photos/28051514/pexels-photo-28051514.jpeg?auto=compress&cs=tinysrgb&w=600",
             "https://images.pexels.com/photos/33153044/pexels-photo-33153044.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -920,13 +920,13 @@ const products = [
         ],
         "price": 4790,
         "discount": 0,
-        "description": "Premium back protector from Royal Enfield Gear, engineered for performance, comfort, and durability on every ride.",
+        "description": "Premium back protector from Royal Enfield, engineered for performance, comfort, and durability on every ride.",
         "category": "Back Protector",
         "stock": 39,
         "isFeatured": false,
         "isTrending": true,
         "bgcolor": "#F5F5F5",
-        "brand": "Royal Enfield Gear",
+        "brand": "6a59a398b000caf7140a204a",
         "rating": 4.8,
         "reviewCount": 154
     },
@@ -945,7 +945,7 @@ const products = [
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#FFF3E0",
-        "brand": "Rynox",
+        "brand": "6a59a398b000caf7140a2047",
         "rating": 4,
         "reviewCount": 818
     },
@@ -964,7 +964,7 @@ const products = [
         "isFeatured": true,
         "isTrending": false,
         "bgcolor": "#E8F5E9",
-        "brand": "Axor",
+        "brand": "6a59a398b000caf7140a2040",
         "rating": 4.5,
         "reviewCount": 501
     },
@@ -983,7 +983,7 @@ const products = [
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#E3F2FD",
-        "brand": "Steelbird",
+        "brand": "6a59a398b000caf7140a2042",
         "rating": 4.1,
         "reviewCount": 226
     },
@@ -1002,7 +1002,7 @@ const products = [
         "isFeatured": false,
         "isTrending": true,
         "bgcolor": "#FCE4EC",
-        "brand": "Solace",
+        "brand": "6a59a398b000caf7140a204b",
         "rating": 4.1,
         "reviewCount": 267
     },
@@ -1021,12 +1021,12 @@ const products = [
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#F3E5F5",
-        "brand": "Solace",
+        "brand": "6a59a398b000caf7140a204b",
         "rating": 4.4,
         "reviewCount": 493
     },
     {
-        "name": "AGV Thunder Jacket Jacket",
+        "name": "MT Helmets Thunder Jacket Jacket",
         "images": [
             "https://images.pexels.com/photos/33203545/pexels-photo-33203545.jpeg?auto=compress&cs=tinysrgb&w=600",
             "https://images.pexels.com/photos/31250422/pexels-photo-31250422.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -1034,13 +1034,13 @@ const products = [
         ],
         "price": 4590,
         "discount": 0,
-        "description": "Premium jacket from AGV, engineered for performance, comfort, and durability on every ride.",
+        "description": "Premium jacket from MT Helmets, engineered for performance, comfort, and durability on every ride.",
         "category": "Jacket",
         "stock": 67,
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#FFFDE7",
-        "brand": "AGV",
+        "brand": "6a59a398b000caf7140a2046",
         "rating": 4.8,
         "reviewCount": 182
     },
@@ -1059,7 +1059,7 @@ const products = [
         "isFeatured": true,
         "isTrending": false,
         "bgcolor": "#ECEFF1",
-        "brand": "Rynox",
+        "brand": "6a59a398b000caf7140a2047",
         "rating": 4.7,
         "reviewCount": 87
     },
@@ -1078,12 +1078,12 @@ const products = [
         "isFeatured": false,
         "isTrending": true,
         "bgcolor": "#F5F5F5",
-        "brand": "Studds",
+        "brand": "6a59a398b000caf7140a2043",
         "rating": 4,
         "reviewCount": 197
     },
     {
-        "name": "AGV Speed Track Riding Shoes",
+        "name": "SMK Speed Track Riding Shoes",
         "images": [
             "https://images.pexels.com/photos/31306377/pexels-photo-31306377.jpeg?auto=compress&cs=tinysrgb&w=600",
             "https://images.pexels.com/photos/9323599/pexels-photo-9323599.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -1091,13 +1091,13 @@ const products = [
         ],
         "price": 6810,
         "discount": 15,
-        "description": "Premium riding shoes from AGV, engineered for performance, comfort, and durability on every ride.",
+        "description": "Premium riding shoes from SMK, engineered for performance, comfort, and durability on every ride.",
         "category": "Riding Shoes",
         "stock": 25,
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#FFF3E0",
-        "brand": "AGV",
+        "brand": "6a59a398b000caf7140a2041",
         "rating": 4.9,
         "reviewCount": 710
     },
@@ -1116,7 +1116,7 @@ const products = [
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#E8F5E9",
-        "brand": "Solace",
+        "brand": "6a59a398b000caf7140a204b",
         "rating": 4.5,
         "reviewCount": 789
     },
@@ -1135,7 +1135,7 @@ const products = [
         "isFeatured": false,
         "isTrending": false,
         "bgcolor": "#E3F2FD",
-        "brand": "Vega",
+        "brand": "6a59a398b000caf7140a2044",
         "rating": 4.1,
         "reviewCount": 120
     }
