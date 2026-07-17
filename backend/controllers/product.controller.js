@@ -1,14 +1,36 @@
 const mongoose = require("mongoose");
 const Product = require("../models/product-model");
+const Brand = require("../models/Brand-model");
 
 const getAllProducts = async (req, res) => {
   try {
     const page = Number(req.query.page) || 1;
     const limit = Number(req.query.limit) || 20;
+
     const category = req.query.category || "all";
     const brand = req.query.brand || "";
     const search = req.query.search || "";
-    
+    const minPrice = Number(req.query.minPrice) || 0;
+    const maxPrice = Number(req.query.maxPrice) || Number.MAX_SAFE_INTEGER;
+  
+
+    const filter = {
+      ...(category !== "all" && { category }),
+    };
+
+    // Brand filter
+    if (brand) {
+      const slugs = brand.split(",");
+
+      const brands = await Brand.find({
+        slug: { $in: slugs },
+      }).select("_id");
+
+      filter.brand = {
+        $in: brands.map((item) => item._id),
+      };
+    }
+
     // Validate first
     if (page < 1) {
       return res.status(400).json({
@@ -23,15 +45,20 @@ const getAllProducts = async (req, res) => {
         message: "Limit must be between 1 and 30",
       });
     }
+    if (req.query.minPrice || req.query.maxPrice) {
+      filter.price = {
+        $gte: Number(req.query.minPrice),
+        $lte: Number(req.query.maxPrice),
+      };
+    }
 
     const skip = (page - 1) * limit;
 
     // Query database
-    const filter = {
-      ...(category !== "all" && { category })
-    };
+
 
     const products = await Product.find(filter)
+      .populate("brand", "name slug logo")
       .skip(skip)
       .limit(limit);
 
@@ -44,7 +71,7 @@ const getAllProducts = async (req, res) => {
     //   });
     // }
 
-    
+
 
     res.status(200).json({
       success: true,

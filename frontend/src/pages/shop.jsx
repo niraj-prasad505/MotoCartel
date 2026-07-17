@@ -36,6 +36,9 @@ const Shop = () => {
           page,
           limit,
           category: selectedCategory,
+          brand: selectedBrands.join(","),
+          minPrice: priceLimit[0],
+          maxPrice: priceLimit[1],
         });
 
         setProducts(res.data.products);
@@ -47,7 +50,13 @@ const Shop = () => {
     };
 
     fetchProducts();
-  }, [page, limit, selectedCategory]);
+  }, [
+    page,
+    limit,
+    selectedCategory,
+    selectedBrands,
+    priceLimit,
+  ]);
 
   return (
     <div className="bg-[#12151C] text-white h-screen overflow-hidden flex flex-col">
@@ -78,14 +87,14 @@ const Shop = () => {
           {/* Header */}
           <div className="shrink-0">
             <ShopHeader
-    selectedCategory={selectedCategory}
-    setSelectedCategory={(category) => {
-        setSelectedCategory(category);
-        setPage(1);
-    }}
-    sortBy={sortBy}
-    setSortBy={setSortBy}
-/>
+              selectedCategory={selectedCategory}
+              setSelectedCategory={(category) => {
+                setSelectedCategory(category);
+                setPage(1);
+              }}
+              sortBy={sortBy}
+              setSortBy={setSortBy}
+            />
           </div>
 
           {/* Product Grid */}

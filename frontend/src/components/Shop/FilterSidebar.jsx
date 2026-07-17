@@ -89,7 +89,6 @@ const FilterSidebar = ({
 
   const [showAllBrands, setShowAllBrands] = useState(false);
   const { brands, loading, error } = useBrands();
-  console.log("brands", selectedBrands);
 
 
   const toggleBrand = (brand) => {
@@ -360,7 +359,7 @@ const FilterSidebar = ({
 
               <div
                 key={brand._id}
-                onClick={() => toggleBrand(brand.name)}
+                onClick={() => toggleBrand(brand.slug)}
                 className="flex items-center justify-between cursor-pointer group"
               >
 
@@ -378,12 +377,12 @@ const FilterSidebar = ({
                 </div>
 
                 <div
-                  className={`w-4 h-4 rounded border flex items-center justify-center transition-colors ${selectedBrands.includes(brand.name)
+                  className={`w-4 h-4 rounded border flex items-center justify-center transition-colors ${selectedBrands.includes(brand.slug)
                     ? "bg-orange-500 border-orange-500"
                     : "bg-transparent border-gray-500"
                     }`}
                 >
-                  {selectedBrands.includes(brand.name) && (
+                  {selectedBrands.includes(brand.slug) && (
                     <svg
                       className="w-3 h-3 text-white"
                       fill="none"
