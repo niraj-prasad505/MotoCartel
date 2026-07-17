@@ -43,7 +43,7 @@ const Cart = () => {
   const deleteItemFromCart = async (productId) => {
     try {
       await deleteItem(productId);
-      await deleteItem(productId);
+      
 
     // Update cart page
     setItems(prev =>
@@ -54,11 +54,11 @@ const Cart = () => {
 
     // Update navbar/global state
     setUser(prev => ({
-      ...prev,
-      cart: prev.cart.filter(item =>
-        (item.product._id || item.product) !== productId
-      )
-    }));
+  ...prev,
+  cart: (prev.cart || []).filter(
+    item => (item.product._id || item.product) !== productId
+  ),
+}));
 
     } catch (err) {
       console.log(err);
@@ -74,7 +74,7 @@ const Cart = () => {
 
       setItems(prev =>
         prev.map(item =>
-          item.product._id === productId
+          item.product && item.product._id === productId
             ? {
               ...item,
               quantity: cartq.data.quantity
@@ -99,7 +99,7 @@ const Cart = () => {
 
       setItems(prev =>
         prev.map(item =>
-          item.product._id === productId
+          item.product && item.product._id === productId
             ? {
               ...item,
               quantity: cartq.data.quantity,
@@ -203,7 +203,7 @@ const Cart = () => {
               </p>
 
               {/* Delete */}
-              <div onClick={() => deleteItemFromCart(item.product?._id)} className="text-center cursor-pointer hover:text-red-500 justify-center items-center flex">
+              <div onClick={() => deleteItemFromCart(item.product?._id || item.product)} className="text-center cursor-pointer hover:text-red-500 justify-center items-center flex">
                 <Trash2 />
               </div>
 
