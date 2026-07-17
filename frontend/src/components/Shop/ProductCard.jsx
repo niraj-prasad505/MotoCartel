@@ -1,36 +1,68 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
-import { addToCart } from "../../services/cart";
+import { addToCart, deleteItem } from "../../services/cart";
 import { addToWishlist } from "../../services/wishlist";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import UserContext from "../../context/UserContext";
 
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
-  
+  const { user, setUser } = useContext(UserContext);
+
   if (!product) return null;
 
   const handleClick = () => {
-    console.log(product._id)
-    // if (product?._id) {
-    //   navigate(`/shop/${product._id}`);
-    // }
+    if (product?._id) {
+      navigate(`/product/${product._id}`);
+    }
   };
+  const isInCart = user?.cart?.some(
+    (item) => (item.product?._id || item.product) === product._id
+  );
+
+  const handleCart = async (e) => {
+    e.stopPropagation();
+
+    try {
+      if (isInCart) {
+        await deleteItem(product._id);
+
+        setUser((prev) => ({
+          ...prev,
+          cart: prev.cart.filter(
+            (item) => (item.product?._id || item.product) !== product._id
+          ),
+        }));
+      } else {
+        await addToCart(product._id);
+
+        setUser((prev) => ({
+          ...prev,
+          cart: [...(prev.cart || []), { product, quantity: 1 }],
+        }));
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
-    
+
     <div
-    onClick={handleClick}
-    
-    className="bg-[#1A1F29] rounded-xl p-3 hover:scale-[1.03] hover:shadow-lg transition duration-300 cursor-pointer">
+      onClick={handleClick}
+
+      className="bg-[#1A1F29] rounded-xl p-3 hover:scale-[1.03] hover:shadow-lg transition duration-300 cursor-pointer">
 
       {/* Image */}
       <div className="h-44 w-full overflow-hidden rounded-lg mb-3">
-       <img
-  src={`${product.images?.[0]}?w=400&h=400&fit=crop`}
-  alt={product.name}
-  loading="lazy"
-  className="h-full w-full object-cover"
-/>
+        <img
+          src={`${product.images?.[0]}?w=400&h=400&fit=crop`}
+          alt={product.name}
+          loading="lazy"
+          className="h-full w-full object-cover"
+        />
       </div>
 
       {/* Title */}
@@ -43,11 +75,10 @@ const ProductCard = ({ product }) => {
         {[...Array(5)].map((_, i) => (
           <FaStar
             key={i}
-            className={`text-xs ${
-              i < Math.round(product.rating)
-                ? "text-yellow-400"
-                : "text-gray-600"
-            }`}
+            className={`text-xs ${i < Math.round(product.rating)
+              ? "text-yellow-400"
+              : "text-gray-600"
+              }`}
           />
         ))}
         <span className="text-gray-400 text-xs ml-1">
@@ -69,10 +100,17 @@ const ProductCard = ({ product }) => {
       </div>
 
       {/* Button */}
-      <button className="mt-3 w-full bg-orange-400 hover:bg-orange-600 text-black py-2 rounded-lg text-sm font-medium transition">
-        Add to Cart
-      </button>
 
+      <button
+        onClick={handleCart}
+        className={`mt-3 w-full py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${
+  isInCart
+    ? "bg-blue-600 hover:bg-blue-700 text-white"
+  : "bg-orange-500 hover:bg-orange-600 text-white"
+}`}
+      >
+        {isInCart ? "Remove from Cart" : "Add to Cart"}
+      </button>
     </div>
   );
 };
