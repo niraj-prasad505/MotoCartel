@@ -10,6 +10,7 @@ export default function Like() {
   const fetchwishlist = async () => {
     try {
       const { data } = await getWishlistData();
+      console.log(data.wishlist);
 
       setItems(data.wishlist || []);
       setUser((prev) => ({

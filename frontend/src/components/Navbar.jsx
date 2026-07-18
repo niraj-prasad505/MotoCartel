@@ -40,10 +40,10 @@ const Navbar = () => {
   // console.log(user);
   return (
     <nav
-      className={`sticky top-0 z-50 flex items-center px-4 md:px-6 transition-all duration-300
+      className={`sticky top-0 z-50 flex items-center px-2 md:px-6 transition-all duration-300
   ${isScrolled
           ? "h-14 md:h-18 bg-black/40 backdrop-blur-2xl border border-white/10 shadow-2xl rounded-full mx-4"
-          : "h-20 md:h-24 bg-[#020617]"
+          : "h-14 md:h-20 bg-[#020617]"
         }`}
     >
 

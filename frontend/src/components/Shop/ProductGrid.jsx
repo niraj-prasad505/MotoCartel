@@ -12,9 +12,9 @@ const ProductGrid = ({products = [] }) => {
   );
 }
   return (
-    <div className="p-2 md:p-4">
+    <div className="pt-1">
       
-      <div className="grid gap-4 sm:gap-5 md:gap-6 
+      <div className="grid gap-4 sm:gap-5 md:gap-4 
                       grid-cols-2 
                       sm:grid-cols-2 
                       md:grid-cols-3 
