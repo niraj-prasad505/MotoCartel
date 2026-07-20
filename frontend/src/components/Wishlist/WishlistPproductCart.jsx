@@ -2,6 +2,7 @@ import React from 'react'
 import { Heart, Star, ShoppingBag, CornerUpRight } from "lucide-react";
 import { X } from 'lucide-react';
 import { addToWishlist, moveToCart } from "../../services/wishlist";
+
 const WishlistPproductCart = ({ product, fetchwishlist }) => {
   const handleWishlistAdd = async (e) => {
 
