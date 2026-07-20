@@ -98,7 +98,7 @@ const Shop = () => {
           </div>
 
           {/* Product Grid */}
-          <div className="flex-1 overflow-y-auto no-scrollbar">
+          <div data-lenis-prevent className="flex-1 overflow-y-auto no-scrollbar ">
 
             {loading ? (
               <div className="flex justify-center items-center h-full">
