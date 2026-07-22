@@ -6,7 +6,7 @@ export default function BrandShowcase() {
   const { brands, loading, error } = useBrands();
   console.log(brands)
   // need product api
-
+  
   const dummyProducts = [
     {
       _id: "687a10000000000000000001",
