@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const { json } = require("express");
 const jwt = require("jsonwebtoken");
 const sendEmail = require("../utils/sendEmail");
+const UserPreference = require("../models/UserPreference-model");
 
 const register = async (req, res) => {
   try {
@@ -33,6 +34,9 @@ const register = async (req, res) => {
       role: role || "user",
     });
 
+    await UserPreference.create({
+      user: newUser._id,
+    });
     res.status(201).json({
       message: "User created",
       user: {
