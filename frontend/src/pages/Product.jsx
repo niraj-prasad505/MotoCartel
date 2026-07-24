@@ -6,20 +6,25 @@ import ProductDetails from "../components/Product/ProductDetails";
 import SimilarProducts from "../components/Product/SimilarProducts";
 import ProductGrid from "../components/Shop/ProductGrid";
 
-import { getProductById } from "../services/product.service"
+import { getProductById } from "../services/product.service";
+import { updateUserPreference } from "../services/user.service"
 import { useEffect, useState } from "react";
 
 import img1 from "../assets/productIMG/1.png";
 import img2 from "../assets/productIMG/2.png";
 import img3 from "../assets/productIMG/3.png";
 import { useParams } from "react-router-dom";
+import { useContext } from "react";
 import { UserStar } from "lucide-react";
-
+import UserContext from "../context/UserContext";
+import toast from "react-hot-toast";
 
 
 const Product = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const { user } = React.useContext(UserContext);
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -29,6 +34,15 @@ const Product = () => {
         const res = await getProductById(id);
 
         setProduct(res.data.product);
+        if (user) {
+          updateUserPreference(id).catch(console.error);
+        } else {
+          if (!toast.isActive?.("login-required")) {
+            toast.error("Please login first.", {
+              id: "login-required",
+            });
+          }
+        }
       } catch (err) {
         console.error(err);
       }

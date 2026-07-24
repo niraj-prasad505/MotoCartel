@@ -12,7 +12,7 @@ export const updateUserAddress = (address) => {
 };
 
 export const updateUserPreference = (productId) => {
-  return API.put("/user/preference", {
+  return API.post("/user/preference", {
     productId,
   });
 };
