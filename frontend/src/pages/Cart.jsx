@@ -211,9 +211,9 @@ const Cart = () => {
           ))}
 
           {/* Update Button */}
-          <button onClick={updateCart} className="mt-6 bg-orange-500 text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-300 transition">
+          {/* <button onClick={updateCart} className="mt-6 bg-orange-500 text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-300 transition">
             Update Cart
-          </button>
+          </button> */}
 
         </div>
 

@@ -23,19 +23,24 @@ import toast from "react-hot-toast";
 const Product = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  const { user } = React.useContext(UserContext);
+  const { user, loading } = useContext(UserContext);
+  console.log("loading:", loading);
+console.log("user:", user);
 
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    if (loading) return;
 
     const fetchProduct = async () => {
       try {
         const res = await getProductById(id);
+        window.scrollTo(0, 0);
 
         setProduct(res.data.product);
         if (user) {
           updateUserPreference(id).catch(console.error);
+          // console.log(user);
         } else {
           if (!toast.isActive?.("login-required")) {
             toast.error("Please login first.", {
@@ -49,7 +54,7 @@ const Product = () => {
     };
 
     fetchProduct();
-  }, [id]);
+}, [id, user, loading]);
   const images = [
     product?.images?.[0],
     product?.images?.[1],

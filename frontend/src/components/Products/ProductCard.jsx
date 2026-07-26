@@ -16,19 +16,41 @@ const ProductCard = ({ product }) => {
     }
   };
 
-  const handleWishlistAdd = async (e) => {
+  // const handleWishlistAdd = async (e) => {
 
+  //   e.stopPropagation();
+
+  //   try {
+
+  //     const res = await addToWishlist(product._id);
+
+  //     console.log(res.data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+
+  // };
+
+  const handleWishlistAdd2 = async (e) => {
     e.stopPropagation();
 
     try {
+      const { data } = await addToWishlist(product._id);
 
-      const res = await addToWishlist(product._id);
-      console.log(res.data);
+      setUser((prev) => ({
+        ...prev,
+        wishlist: data.wishlist,
+      }));
+
     } catch (error) {
       console.log(error);
     }
-
   };
+  const isInWishlist = user?.wishlist?.some(
+    (id) => id === product._id
+  );
+
+
   const handleAddToCart = async (e) => {
 
     e.stopPropagation();
@@ -75,8 +97,17 @@ const ProductCard = ({ product }) => {
                  shadow-md hover:shadow-xl relative w-full max-w-65"
     >
       {/* Heart */}
-      <button onClick={handleWishlistAdd} className="absolute top-4 right-4 text-gray-500 hover:text-orange-500">
-        <Heart size={18} />
+      <button
+        onClick={handleWishlistAdd2}
+        className="absolute top-4 right-4"
+      >
+        <Heart
+          size={18}
+          className={`transition-colors ${isInWishlist
+              ? "fill-orange-500 text-orange-500"
+              : "text-gray-500 hover:text-orange-500"
+            }`}
+        />
       </button>
 
       {/* Image */}
@@ -109,8 +140,8 @@ const ProductCard = ({ product }) => {
         <button
           onClick={handleAddToCart}
           className={`p-2 rounded-lg transition-all duration-300 ${isInCart
-              ? "bg-green-200 hover:bg-green-700"
-              : "bg-[#FF6A00] hover:bg-[#E55D00]"
+            ? "bg-green-800 hover:bg-green-700"
+            : "bg-[#FF6A00] hover:bg-[#E55D00]"
             }`}
         >
           <ShoppingBag size={16} />

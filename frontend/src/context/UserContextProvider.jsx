@@ -5,6 +5,7 @@ import { getCurrentUser } from "../services/authService";
 const UserContextProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
 
@@ -15,13 +16,22 @@ const UserContextProvider = ({ children }) => {
             })
             .catch(() => {
                 setUser(null);
-            });
+            })
+            .finally(() => {
+      setLoading(false);
+    });
 
     }, []);
    
 
     return (
-        <UserContext.Provider value={{ user, setUser }}>
+        <UserContext.Provider
+  value={{
+    user,
+    setUser,
+    loading,
+  }}
+>
             {children}
         </UserContext.Provider>
     );
