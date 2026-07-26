@@ -24,8 +24,8 @@ const Product = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const { user, loading } = useContext(UserContext);
-  console.log("loading:", loading);
-console.log("user:", user);
+  //   console.log("loading:", loading);
+  // console.log("user:", user);
 
 
   useEffect(() => {
@@ -54,7 +54,7 @@ console.log("user:", user);
     };
 
     fetchProduct();
-}, [id, user, loading]);
+  }, [id, user, loading]);
   const images = [
     product?.images?.[0],
     product?.images?.[1],

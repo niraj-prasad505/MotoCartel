@@ -18,20 +18,20 @@ const UserContextProvider = ({ children }) => {
                 setUser(null);
             })
             .finally(() => {
-      setLoading(false);
-    });
+                setLoading(false);
+            });
 
     }, []);
-   
+
 
     return (
         <UserContext.Provider
-  value={{
-    user,
-    setUser,
-    loading,
-  }}
->
+            value={{
+                user,
+                setUser,
+                loading,
+            }}
+        >
             {children}
         </UserContext.Provider>
     );
