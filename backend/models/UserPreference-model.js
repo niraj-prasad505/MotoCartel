@@ -1,68 +1,87 @@
 const mongoose = require("mongoose");
 
-const scoreSchema = new mongoose.Schema(
+// Brand Preference Schema
+const brandPreferenceSchema = new mongoose.Schema(
     {
-        id: {
+        brand: {
             type: mongoose.Schema.Types.ObjectId,
+            ref: "Brand",
             required: true,
         },
         score: {
             type: Number,
             default: 0,
             min: 0,
-        }
+        },
     },
     { _id: false }
 );
 
-const UserPreferenceSchema = new mongoose.Schema({
-
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-        required: true,
-        unique: true,
-        index: true,
+// String Preference Schema
+const stringPreferenceSchema = new mongoose.Schema(
+    {
+        name: {
+            type: String,
+            required: true,
+            trim: true,
+        },
+        score: {
+            type: Number,
+            default: 0,
+            min: 0,
+        },
     },
+    { _id: false }
+);
 
-    preferences: {
-
-        brands: {
-            type: [scoreSchema],
-            default: []
+const UserPreferenceSchema = new mongoose.Schema(
+    {
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
+            required: true,
+            unique: true,
+            index: true,
         },
 
-        categories: {
-            type: [scoreSchema],
-            default: []
+        preferences: {
+            brands: {
+                type: [brandPreferenceSchema],
+                default: [],
+            },
+
+            categories: {
+                type: [stringPreferenceSchema],
+                default: [],
+            },
+
+            productCollection: {
+                type: [stringPreferenceSchema],
+                default: [],
+            },
+
+            vehicleTypes: {
+                type: [stringPreferenceSchema],
+                default: [],
+            },
         },
 
-        collections: {
-            type: [scoreSchema],
-            default: []
+        recentlyViewed: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Product",
+            },
+        ],
+
+        lastActivity: {
+            type: Date,
+            default: Date.now,
         },
-
-        vehicleTypes: {
-            type: [scoreSchema],
-            default: []
-        }
-
     },
-
-    recentlyViewed: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Product"
-    }],
-
-    lastActivity: {
-        type: Date,
-        default: Date.now
-    }
-
-},
     {
         timestamps: true,
-        versionKey: false
-    });
+        versionKey: false,
+    }
+);
 
 module.exports = mongoose.model("UserPreference", UserPreferenceSchema);
