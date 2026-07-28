@@ -4,6 +4,8 @@ import { addToWishlist } from "../../services/wishlist";
 import { addToCart } from "../../services/cart";
 import { useContext } from "react";
 import UserContext from "../../context/UserContext";
+import toast from "react-hot-toast";
+
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
   const { user, setUser } = useContext(UserContext);
@@ -43,6 +45,13 @@ const ProductCard = ({ product }) => {
       }));
 
     } catch (error) {
+      if (!user){
+        if (!toast.isActive?.("login-required")) {
+            toast.error("Please login first.", {
+              id: "login-required",
+            });
+          }
+      }
       console.log(error);
     }
   };
@@ -81,6 +90,13 @@ const ProductCard = ({ product }) => {
         };
       });
     } catch (error) {
+      if (!user){
+        if (!toast.isActive?.("login-required")) {
+            toast.error("Please login first.", {
+              id: "login-required",
+            });
+          }
+      }
       console.log(error);
     }
   };

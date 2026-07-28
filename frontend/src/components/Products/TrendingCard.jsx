@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { addToWishlist } from "../../services/wishlist";
 import { useContext } from "react";
 import UserContext from "../../context/UserContext"
+import toast from "react-hot-toast";
 
 export default function TrendingCard({ product }) {
   const navigate = useNavigate();
@@ -26,6 +27,13 @@ export default function TrendingCard({ product }) {
       }));
 
     } catch (error) {
+      if (!user){
+        if (!toast.isActive?.("login-required")) {
+            toast.error("Please login first.", {
+              id: "login-required",
+            });
+          }
+      }
       console.log(error);
     }
   };
