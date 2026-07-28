@@ -5,6 +5,7 @@ import { addToWishlist } from "../../services/wishlist";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import UserContext from "../../context/UserContext";
+import toast from "react-hot-toast";
 
 
 const ProductCard = ({ product }) => {
@@ -44,6 +45,13 @@ const ProductCard = ({ product }) => {
         }));
       }
     } catch (error) {
+      if (!user){
+        if (!toast.isActive?.("login-required")) {
+            toast.error("Please login first.", {
+              id: "login-required",
+            });
+          }
+      }
       console.error(error);
     }
   };
