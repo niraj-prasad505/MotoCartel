@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-const { getHeroData } = require("../controllers/hero-controller");
 const { protect } = require("../middlewares/auth.middleware");
+const { getCollectionData } = require("../controllers/Collection.controller");
 
-router.get("/Collections", protect, getCollectionData);
+router.get("/collections", protect, getCollectionData);
 
 module.exports = router;

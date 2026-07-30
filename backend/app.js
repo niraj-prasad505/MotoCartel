@@ -19,6 +19,8 @@ const userAddressRouter = require("./routes/userAddressRouter");
 const emailOtpRouter = require("./routes/emailOtpRouter");
 const brandRouter = require("./routes/brandRoutes");
 const userPreferenceRouter = require("./routes/userPreferenceRouter");
+const collectionRoutes = require("./routes/collectionRoutes");
+
 
 
 
@@ -62,6 +64,8 @@ app.use("/api/user", userAddressRouter);
 app.use("/api/verify-otp", emailOtpRouter);
 app.use("/api/brands", brandRouter);
 app.use("/api/user/preference", userPreferenceRouter);
+app.use("/api", collectionRoutes);
+
 // test route
 app.get("/", (req, res) => {
   res.send("API is running");
