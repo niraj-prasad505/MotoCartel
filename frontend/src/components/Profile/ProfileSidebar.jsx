@@ -9,9 +9,11 @@ import {
   Trash2,
 } from "lucide-react";
 
-// import { useState, useContext } from "react";
-// import userContext from "../../context/UserContext";
-// import authService from "../../services/auth.service";
+import { useState, useContext } from "react";
+import UserContext from "../../context/UserContext";
+import { logout } from "../../services/authService";
+
+import { useNavigate } from "react-router-dom";
 
 const ProfileSidebar = ({ activeSection, setActiveSection }) => {
   const menu = [
@@ -24,16 +26,17 @@ const ProfileSidebar = ({ activeSection, setActiveSection }) => {
     { icon: LogOut, title: "Logout", key: "logout" },
   ];
 
-  const handleLogout = () => {
-    // Clear user data from localStorage
-    localStorage.removeItem("user");
-    try {}
-    catch (error) {
-      console.error("Error clearing user data:", error);
-    }
-    // Optionally, you can also clear any authentication tokens or other related data here
-  };
+  const { setUser } = useContext(UserContext);
 
+  const handleLogout = async () => {
+    try {
+      await logout();      // Calls backend API that clears the cookie
+      setUser(null);       // Clear React context
+      navigate("/login"); // Redirect
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
   return (
     <aside className="w-full lg:w-72 lg:sticky lg:top-20 h-fit">
       <div className=" p-3 lg:p-6">
@@ -47,14 +50,12 @@ const ProfileSidebar = ({ activeSection, setActiveSection }) => {
               <button
                 key={index}
                 onClick={() => {
-                  setActiveSection(item.key);
                   if (item.key === "logout") {
-                    console.log("Logging out...");
                     handleLogout();
                     return;
                   }
 
-                  console.log(item.key);
+                  setActiveSection(item.key);
                 }}
                 className={`flex items-center gap-4 p-4 rounded-2xl transition-all duration-200${activeSection === item.key
                   ? "bg-orange-500 text-white shadow-lg"

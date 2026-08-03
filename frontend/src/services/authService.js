@@ -6,6 +6,15 @@ export const loginUser = (data) => {
   });
 };
 
+export const logout = () => {
+  return API.post("/user/logout",
+    {},
+    {
+      withCredentials: true,
+    }
+  );
+};
+
 export const registerUser = (data) => {
   return API.post("/user/register", data, {
     withCredentials: true,

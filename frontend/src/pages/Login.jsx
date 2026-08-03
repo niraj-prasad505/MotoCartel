@@ -12,26 +12,33 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const { setUser } = useContext(UserContext);
+  const { setUser, user } = useContext(UserContext);
   const [success, setSuccess] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const res = await loginUser({ email, password });
-      // console.log(res.data);
-      setUser(res.data.user);
-      // console.log(res.data.user);
+
+      const loggedInUser = res.data.user;
+
+      setUser(loggedInUser);
+
+      console.log("Logged in user:", loggedInUser);
+
+      console.log(user);
+
       setSuccess("Login successful 🚀");
+
       setTimeout(() => {
         navigate("/");
       }, 1000);
 
     } catch (err) {
-      console.log(err.response?.data);
+      console.error(err.response?.data);
       alert(err.response?.data?.message || "Login failed ❌");
     }
   };

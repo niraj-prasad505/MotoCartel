@@ -81,14 +81,16 @@ const login = async (req, res) => {
     });
 
     res.status(200).json({
-      message: "Login successful",
-      user: {
-        _id: user._id,
-        email: user.email,
-        fullname: user.fullname,
-        picture: user.picture,
-      }
-    });
+  message: "Login successful",
+  user: {
+    _id: user._id,
+    email: user.email,
+    fullname: user.fullname,
+    picture: user.picture,
+    cartCount: user.cart.length,
+    wishlistCount: user.wishlist.length,
+  },
+});
 
   } catch (err) {
     res.status(500).json({ message: err.message });
